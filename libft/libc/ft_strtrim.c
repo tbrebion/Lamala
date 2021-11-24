@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:03:28 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 16:35:07 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/24 20:04:49 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	j = 0;
 	res = malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	
+	while (s1[i] != set[j])
+		j++;
 }

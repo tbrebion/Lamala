@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:16:14 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 15:27:17 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:59:05 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	if (str[i] != c)
 		res = NULL;
 	else
+	{	
 		while (str[i] && i < n)
 		{
 			res[j] = str[i];
 			i++;
 			j++;
 		}
+	}
 	return (res);
 }

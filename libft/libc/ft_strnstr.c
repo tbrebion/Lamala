@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:58:07 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 15:39:07 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:57:39 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
 	size_t		i;
 	size_t		j;
-	char	*res;
+	char		*res;
 
 	i = 0;
 	j = 0;
