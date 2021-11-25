@@ -6,7 +6,7 @@
 /*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:23:59 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 15:29:03 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/25 12:08:53 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memcpy(void *dst, const void *scr, size_t n)
 		a[i] = b[i];
 		i++;
 	}
-	dst[i] = '\0';
+	a[i] = '\0';
 	dst = a;
 	return (dst);
 }
