@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 17:44:17 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:17:35 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char	**ft_split(char const *s, char c)
 		}
 		temp[k] = '\0';
 		res[i] = ft_strdup(temp);
-		temp = NULL;
 		k = 0;
 		i++;
 	}
