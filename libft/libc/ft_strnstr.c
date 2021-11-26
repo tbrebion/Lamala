@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:58:07 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 17:57:39 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/26 18:46:56 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 
 	i = 0;
 	j = 0;
-	if (to_find == "")
-		return (str);
-	while (str[i] != to_find(j))
+	res = (char *)str;
+	if (to_find == NULL || *to_find == '\0')
+		return ((char *)str);
+	while (str[i] != to_find[j])
 		i++;
 	while ((str[i] == to_find[j]) && j < n)
 	{
