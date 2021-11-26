@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/25 20:17:35 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/26 16:53:26 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_count_words(char const *str, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
 	char	*temp;
 	char	**res;
 
@@ -62,21 +62,4 @@ char	**ft_split(char const *s, char c)
 	}
 	res[i] = NULL;
 	return (res);
-}
-
-#include <stdio.h>
-
-int	main(int ac, char **av)
-{
-	(void)ac;
-	int	i;
-	char 	**tab;
-
-	i = 0;
-	tab = ft_split(av[1], av[2][0]);
-	while (tab[i])
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
 }
