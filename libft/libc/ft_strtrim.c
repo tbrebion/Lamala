@@ -6,15 +6,15 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:03:28 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/25 20:13:37 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:03:10 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-int	ft_isset(char c, char const *set)
+size_t	ft_isset(char c, char const *set)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (set[i])
@@ -26,12 +26,12 @@ int	ft_isset(char c, char const *set)
 	return (0);
 }
 
-int	ft_trimlen(char const *str, char const *set)
+size_t	ft_trimlen(char const *str, char const *set)
 {
-	int	i;
-	int	j;
-	int	k;
-	int	res;
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	size_t	res;
 
 	i = 0;
 	j = 0;
@@ -50,17 +50,17 @@ int	ft_trimlen(char const *str, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
-	int		res_size;
-	int		i;
-	int		j;
+	size_t	res_size;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
 	res_size = ft_trimlen(s1, set);
-	str = malloc(sizeof(char) * (res_size + 1));
+	res = malloc(sizeof(char) * (res_size + 1));
 	while (ft_isset(s1[i], set) == 1)
 		i++;
-	while (i < res_size)
+	while (j < res_size)
 	{
 		res[j] = s1[i];
 		i++;
