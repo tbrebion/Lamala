@@ -31,35 +31,44 @@ int	ft_count_words(char const *str, char c)
 	return (count);
 }
 
+char	*ft_part(char const *str, char c, int i)
+{
+	int		j;
+	char	*res;
+
+	j = 0;
+	res = NULL;
+	while (str[i] == c)
+		i++;
+	while (str[i] && str[i] != c)
+	{
+		res[j] = str[i];
+		i++;
+		j++;
+	}
+	res[j] = '\0';
+	return (res);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		k;
 	char	*temp;
 	char	**res;
 
 	i = 0;
 	j = 0;
-	k = 0;
 	res = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (res == NULL)
 		return (NULL);
-	while (s[j])
+	while (s[i])
 	{
-		while (s[j] == c)
-			j++;
-		while (s[j] != c)
-		{	
-			temp[k] = s[j];
-			j++;
-			k++;
-		}
-		temp[k] = '\0';
-		res[i] = ft_strdup(temp);
-		k = 0;
-		i++;
+		temp = ft_part(s, c, i);
+		res[j] = temp;
+		j++;
+		free(temp);
 	}
-	res[i] = NULL;
+	res[j] = NULL;
 	return (res);
 }
