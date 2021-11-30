@@ -33,11 +33,5 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 	}
 	if (to_find[j] != '\0' && (j != n - 1))
 		return (NULL);
-	while (str[i])
-	{
-		res[j] = str[i];
-		i++;
-		j++;
-	}
 	return (res);
 }
