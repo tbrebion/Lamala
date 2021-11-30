@@ -20,6 +20,7 @@ char	*ft_strrchr(const char *str, int c)
 
 	i = ft_strlen(str);
 	j = 0;
+	s = NULL;
 	while (str[i] != c)
 		i--;
 	if (i == 0)
