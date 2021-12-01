@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 13:04:52 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 13:29:27 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/01 14:51:59 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/01 14:53:56 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_bzero(void *s, size_t n)
 		return ;
 	while (i < n)
 	{
-		str[i] = '\0';
+		str[i] = 0;
 		i++;
 	}
 	s = str;
