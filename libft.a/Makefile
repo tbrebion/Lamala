@@ -1,11 +1,14 @@
-NAME = libft.a
-
-
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/01 11:55:33 by tbrebion          #+#    #+#              #
+#    Updated: 2021/12/01 12:45:17 by tbrebion         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 FILES = ft_atoi \
 		ft_bzero \
@@ -51,32 +54,45 @@ FILES_B = ft_lstnew \
 		ft_lstclear \
 		ft_lstiter \
 		ft_lstmap \
+		$(FILES)
 
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, (FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, (FILES_B)))
 
-OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .c, (FILES)))
-OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .c, (FILES_B)))
+NAME = libft.a
 
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(NAME): $(OBJS)
-	$(AR) $@ $^
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
 
-bonus: $(OBJS_B)
-	$(AR) $(NAME) $^
+OBJS_DIR = objs/
+OBJS = $(FILES:.c=.o)
+OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
+
+OBJSB = $(FILES_B:.c=.o)
+OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
+
+
+$(OBJS_DIR)%.o : %.c libft.h
+	@mkdir -p $(OBJS_DIR)
+	@echo "Compiling: $<"
+	@gcc $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS_PREFIXED)
+	@ar r $(NAME) $(OBJS_PREFIXED)
+	@echo "Libft done"
 
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: clean all
+re: fclean all
+
+bonus: $(OBJECTS_BONUS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@echo "Libft bonus done"
 
 .PHONY: bonus all clean fclean re
