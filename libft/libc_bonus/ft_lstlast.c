@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 16:55:52 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/29 17:36:22 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/01 13:33:59 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/01 13:34:07 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../header/libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
