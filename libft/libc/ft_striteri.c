@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:13:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/26 15:24:47 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/01 15:34:56 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
+	if (!s || !f)
+		return;
 	i = 0;
 	while (s[i])
 	{
-		s[i] = f(i, s);
+		f(i, &s[i]);
 		i++;
 	}
 }
