@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/26 16:53:26 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/01 15:00:26 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-int	ft_count_words(char const *str, char c)
+static int	ft_count_words(char const *str, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	ft_count_words(char const *str, char c)
 	return (count);
 }
 
-char	*ft_part(char const *str, char c, int i)
+static char	*ft_part(char const *str, char c, int i)
 {
 	int		j;
 	char	*res;

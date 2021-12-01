@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:23:02 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/25 18:28:53 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/01 14:59:54 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-int	nlen(int n)
+static int	nlen(int n)
 {
 	int	res;
 

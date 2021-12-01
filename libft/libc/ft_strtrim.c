@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:03:28 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/26 15:03:10 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/01 15:01:02 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-size_t	ft_isset(char c, char const *set)
+static size_t	ft_isset(char c, char const *set)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ size_t	ft_isset(char c, char const *set)
 	return (0);
 }
 
-size_t	ft_trimlen(char const *str, char const *set)
+static size_t	ft_trimlen(char const *str, char const *set)
 {
 	size_t	i;
 	size_t	j;
