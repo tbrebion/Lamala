@@ -6,7 +6,7 @@
 /*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:28:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/26 16:17:47 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:49:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,14 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	int		i;
-	int		j;
 	char	*s;	
 
-	i = 0;
-	j = 0;
-	s = NULL;
-	while (str[i] != c)
-		i++;
-	if (str[i] == '\0')
-		return (NULL);
-	while (str[i])
+	s = (char *)str;
+	while (*s != c)
 	{
-		s[j] = str[i];
-		i++;
-		j++;
+		if (*s == '\0')
+			return (NULL);
+		s++;
 	}
-	s[j] = '\0';
 	return (s);
 }
