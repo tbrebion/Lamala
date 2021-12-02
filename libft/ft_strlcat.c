@@ -6,7 +6,7 @@
 /*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:06:28 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/24 15:34:45 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:00:55 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	j;
 
 	i = 0;
+	if (dstsize == 0)
+		return (0);
 	while (dst[i] && i < dstsize)
 		i++;
 	j = i;
