@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 11:55:33 by tbrebion          #+#    #+#              #
-#    Updated: 2021/12/01 17:17:12 by tbrebion         ###   ########.fr        #
+#    Updated: 2021/12/02 12:35:31 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,13 +66,13 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-AR = ar r
+AR = ar rcs
 
 .c.o: 
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-	$(AR)$(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 all: $(NAME) bonus
 
@@ -86,5 +86,9 @@ re: fclean all
 
 bonus: $(NAME) $(BONUS)
 	$(AR) $(NAME) $(BONUS)
+
+so: 
+	$(CC) -c -nostartfiles -fPIC $(CFLAGS) $(FILES) $(FILES_B)
+	$(CC) -nostartfiles -shared -o libft.so $(OBJS) $(BONUS)
 
 .PHONY : bonus all clean fclean re
