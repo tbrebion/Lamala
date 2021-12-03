@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:03:28 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/02 17:21:11 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/03 12:37:31 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = malloc(sizeof(char) * (res_size + 1));
 	if (res == NULL)
 		return (NULL);
-	/*if (s1 == NULL)
+	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL || set[0] == '\0')
-		return (ft_strdup(s1));*/
+		return (ft_strdup(s1));
 	while (ft_isset(s1[i], set) == 1)
 		i++;
 	while (j < res_size)

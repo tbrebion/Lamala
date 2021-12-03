@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:23:02 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/01 14:59:54 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:24:32 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ char	*ft_itoa(int n)
 	}
 	if ((n >= 0 && n <= 9) || (n <= 0 && n >= -9))
 		res[size - 1] = n + 48;
+	res[ft_strlen(res) - 1] = '\0';
 	return (res);
 }
