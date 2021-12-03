@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/01 15:00:26 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/03 15:48:19 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	ft_count_words(char const *str, char c)
 
 	i = 0;
 	count = 0;
+	if (!str[0])
+		return (0);
 	while (str[i])
 	{
 		if (str[i] != c)
@@ -31,44 +33,59 @@ static int	ft_count_words(char const *str, char c)
 	return (count);
 }
 
-static char	*ft_part(char const *str, char c, int i)
+static char	**ft_malloc_error(char **tab)
 {
-	int		j;
-	char	*res;
+	int	i;
 
-	j = 0;
-	res = NULL;
-	while (str[i] == c)
-		i++;
-	while (str[i] && str[i] != c)
+	i = 0;
+	while (tab[i])
 	{
-		res[j] = str[i];
+		free(tab[i]);
 		i++;
-		j++;
 	}
-	res[j] = '\0';
-	return (res);
+	free(tab);
+	return (NULL);
+}
+
+static void	ft_get_next_str(char const *str, int len, char c)
+{
+	int	i;
+
+	i = 0;
+	len  = 0;
+	while (str[i] && str[i] == c)
+		i++;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return ;
+		len++;
+		i++;
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		j;
-	char	*temp;
+	int		next_strlen;
+	char	*str;
 	char	**res;
 
 	i = 0;
-	j = 0;
+	next_strlen = 0;
+	str = (char *)s;
 	res = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (res == NULL)
 		return (NULL);
-	while (s[i])
+	while (i < ft_count_words(s, c))
 	{
-		temp = ft_part(s, c, i);
-		res[j] = temp;
-		j++;
-		free(temp);
+		ft_get_next_str(s, next_strlen, c);
+		res[i] = malloc(sizeof(char) * (next_strlen + 1));
+		if (res[i] == NULL)
+			return (ft_malloc_error(res));
+		ft_strlcpy (res[i], str, next_strlen + 1);
+		i++;
 	}
-	res[j] = NULL;
+	res[i] = NULL;
 	return (res);
 }
