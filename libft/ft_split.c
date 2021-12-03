@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/03 15:48:19 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:43:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	ft_get_next_str(char const *str, int len, char c)
 	int	i;
 
 	i = 0;
-	len  = 0;
+	len = 0;
 	while (str[i] && str[i] == c)
 		i++;
 	while (str[i])

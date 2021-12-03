@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:38:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/11/26 15:41:55 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:18:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s || !fd)
+		return ;
 	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);
