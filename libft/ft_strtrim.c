@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:03:28 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/03 16:26:54 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:16:48 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static size_t	ft_trimlen(char const *str, char const *set)
 	k = ft_strlen(str) - 1;
 	while (ft_isset(str[j], set) == 1)
 		j++;
+	if (str[j] == '\0')
+		return (0);
 	while (ft_isset(str[k], set) == 1)
 	{
 		k--;
