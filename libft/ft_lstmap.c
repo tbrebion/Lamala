@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:27:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/01 13:45:07 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/06 14:48:26 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*res;
 	t_list	*new;
 
-	if (!lst || !f || !del)
+	if (!lst)
 		return (NULL);
 	res = NULL;
 	while (lst)
