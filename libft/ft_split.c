@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/03 16:43:09 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:23:46 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,20 @@ static char	**ft_malloc_error(char **tab)
 	return (NULL);
 }
 
-static void	ft_get_next_str(char const *str, int len, char c)
+static void	ft_get_next_str(char const **str, int *len, char c)
 {
-	int	i;
+	unsigned int	i;
 
+	*str += *len;
+	*len = 0;
 	i = 0;
-	len = 0;
-	while (str[i] && str[i] == c)
-		i++;
-	while (str[i])
+	while (**str && **str == c)
+		(*str)++;
+	while (*(str)[i])
 	{
-		if (str[i] == c)
+		if (*(str)[i] == c)
 			return ;
-		len++;
+		(*len)++;
 		i++;
 	}
 }
@@ -68,7 +69,7 @@ char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		next_strlen;
-	char	*str;
+	char const	*str;
 	char	**res;
 
 	i = 0;
@@ -79,7 +80,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (i < ft_count_words(s, c))
 	{
-		ft_get_next_str(s, next_strlen, c);
+		ft_get_next_str(&str, &next_strlen, c);
 		res[i] = malloc(sizeof(char) * (next_strlen + 1));
 		if (res[i] == NULL)
 			return (ft_malloc_error(res));

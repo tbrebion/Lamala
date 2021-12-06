@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:54:55 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/03 16:33:46 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:10:45 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,15 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	i = 0;
 	j = 0;
 	k = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (res == NULL)
 		return (NULL);
 	while (s1[i])
-	{
-		res[k] = s1[i];
-		i++;
-		k++;
-	}
+		res[k++] = s1[i++];
 	while (s2[j])
-	{
-		res[k] = s2[j];
-		j++;
-		k++;
-	}
+		res[k++] = s2[j++];
 	res[k] = '\0';
 	return (res);
 }
