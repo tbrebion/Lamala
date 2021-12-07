@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:54:55 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/07 17:37:23 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/07 18:33:30 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	while (s2[j])
 		res[k++] = s2[j++];
 	res[k] = '\0';
-	free(s1);
 	return (res);
 }
