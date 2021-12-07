@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/06 18:25:37 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/07 13:29:20 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_char(char const  *str, char c)
+static int	count_char(char const *str, char c)
 {
 	int	i;
 
@@ -22,12 +22,12 @@ static int	count_char(char const  *str, char c)
 	return (i);
 }
 
-static void	malloc_error(char **tab)
+static void	malloc_error(char **tab, int len)
 {
 	int	i;
 
 	i = 0;
-	while (tab[i])
+	while (i <= len + 1)
 	{
 		free(tab[i]);
 		i++;
@@ -35,16 +35,16 @@ static void	malloc_error(char **tab)
 	free(tab);
 }
 
-static char	*new_strdup(char *str, char c)
+static char	*new_strdup(char const *str, char c)
 {
 	int		i;
 	char	*res;
 
 	i = 0;
 	res = malloc(sizeof(char) * (count_char(str, c) + 1));
-	if (!res)
+	if (res == NULL)
 		return (NULL);
-	while (str[i] != c)
+	while (str[i] && str[i] != c)
 	{
 		res[i] = str[i];
 		i++;
@@ -53,7 +53,7 @@ static char	*new_strdup(char *str, char c)
 	return (res);
 }
 
-static void	for_my_split(char **res, char *s, char c,  int len)
+static void	for_my_split(char **res, char const *s, char c, int len)
 {
 	int	i;
 	int	j;
@@ -64,18 +64,18 @@ static void	for_my_split(char **res, char *s, char c,  int len)
 	{
 		while (s[i] == c)
 			i++;
-		if (s[i] != c)
+		if (s[i])
 		{
 			res[j] = new_strdup(&s[i], c);
 			if (res[j] == NULL)
 			{	
-				malloc_error(res);
+				malloc_error(res, len);
 				return ;
 			}
 			i += count_char(&s[i], c);
 			j++;
 		}
-		while (s[i] != c)
+		while (s[i] && s[i] != c)
 			i++;
 	}
 	res[j] = NULL;
@@ -103,6 +103,21 @@ char	**ft_split(char const *s, char c)
 	res = malloc(sizeof(char *) * (len + 1));
 	if (res == NULL)
 		return (NULL);
-	for_my_split(res, (char *)s, c, len);
+	for_my_split(res, s, c, len);
 	return (res);
 }
+/*
+#include <string.h>
+#include <stdio.h>
+
+int main(void)
+{
+
+	char *splitme = strdup("--1-2--3---4----5-----42");
+	char **tab = ft_split(splitme, '-');
+	//printf("%d\n", tab, sizeof(char *) * 7);
+	 printf("%d\n", (!strcmp(tab[0], "1")));
+	//pr(tab[0], strlen("1") + 1);
+
+	return (0);
+}*/
