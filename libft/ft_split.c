@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/07 13:29:20 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/07 13:39:19 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,18 +106,3 @@ char	**ft_split(char const *s, char c)
 	for_my_split(res, s, c, len);
 	return (res);
 }
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-
-	char *splitme = strdup("--1-2--3---4----5-----42");
-	char **tab = ft_split(splitme, '-');
-	//printf("%d\n", tab, sizeof(char *) * 7);
-	 printf("%d\n", (!strcmp(tab[0], "1")));
-	//pr(tab[0], strlen("1") + 1);
-
-	return (0);
-}*/
