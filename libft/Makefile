@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 11:55:33 by tbrebion          #+#    #+#              #
-#    Updated: 2021/12/02 12:35:31 by tbrebion         ###   ########.fr        #
+#    Updated: 2021/12/08 12:45:17 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,9 +86,5 @@ re: fclean all
 
 bonus: $(NAME) $(BONUS)
 	$(AR) $(NAME) $(BONUS)
-
-so: 
-	$(CC) -c -nostartfiles -fPIC $(CFLAGS) $(FILES) $(FILES_B)
-	$(CC) -nostartfiles -shared -o libft.so $(OBJS) $(BONUS)
 
 .PHONY : bonus all clean fclean re
