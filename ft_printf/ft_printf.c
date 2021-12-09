@@ -47,6 +47,13 @@ int	ft_printf(const char *input, ...)
 	int		char_count;
 	va_list		args;
 
+	///////////////////////////  Types d'arguments
+	char		c;
+	char		*str;
+	int		x;
+	unsigned int	u;
+	////////////////////////////
+
 	va_start(args, input);
 	i = 0;
 	char_count = char_counter(input, args);
@@ -61,12 +68,14 @@ int	ft_printf(const char *input, ...)
 		{
 			if (input[i + 1] == 'c')
 			{
-				ft_putchar(va_arg(args, int));
+				c = (char)va_arg(args, int);
+				ft_putchar(c);
 				char_count += char_counter(input, args);
 			}
 			if (input[i + 1] == 's')
 			{
-				ft_putstr(va);
+				str = (char *)va_args(args, (int *));
+				ft_putstr(str);
 				char_count += char_counter(input, args);
 			}
 			if (input[i + 1] == 'p')
@@ -76,24 +85,32 @@ int	ft_printf(const char *input, ...)
 			}
 			if (input[i + 1] == 'd')
 			{
-				ft_putnbr(nb);
+				x = (int)va_args(args, int);
+				ft_putnbr(x);
 				char_count += char_counter(input, args);
 			}
 			if (input[i + 1] == 'i')
 			{
-				ft_putnbr(nb);
+				x = (int)va_args(args, int);
+				ft_putnbr(x);
 				char_count += char_counter(input, args);
 			}
 			if (input[i + 1] == 'u')
 			{
+				u = (unsigned int)va_args(args, int);
+				ft_putunbr(u);
 				char_count += char_counter(input, args);
 			}
 			if (input[i + 1] == 'x')
 			{
+				x = (int)va_args(args, int);
+				ft_putnbr_hex(x);
 				char_count += char_counter(input, args);
 			}
 			if (input[i + 1] == 'X')
 			{
+				x = (int)va_args(args, int);
+				ft_putnbr_HEX(x);
 				char_count += char_counter(input, args);
 			}
 			if (input[i + 1] == '%')
