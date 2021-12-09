@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sources.h                                          :+:      :+:    :+:   */
+/*   is_in_typelist.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 19:14:21 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/09 13:19:46 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/09 13:13:59 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/09 13:17:57 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOURCES_H
-# define SOURCES_H
+int	is_in_typelist(char c)
+{
+	int	i;
+	char	*type_set;
 
-int	is_in_typelist(char c);
+	i = 0;
+	type_set = "cspdiuxX%";
 
-
-#endif
+	while (type_set[i])
+	{
+		if (type_set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
