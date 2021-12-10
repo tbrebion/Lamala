@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 18:09:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:48:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_printf(const char *input, ...)
 		if (input[i] == '%')
 		{
 			display_char(input, i, char_count, x, args);
+			//if (input[i + 1] == 'c')
+			//	char_count += ft_putchar((int)va_args(args, int));
 
 			display_string(input, i, char_count, str, args);
 
