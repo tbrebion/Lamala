@@ -6,13 +6,14 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:50:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/08 21:01:51 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 14:32:12 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putchar(int c)
+int	ft_putchar(int c)
 {
 	write(1, &c, 1);
+	return (1);
 }

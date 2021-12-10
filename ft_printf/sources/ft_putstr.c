@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:52:50 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/08 21:02:44 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 14:40:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	i;
 
@@ -22,4 +22,5 @@ void	ft_putstr(char *str)
 		ft_putchar((int)str[i]);
 		i++;
 	}
+	return (ft_strlen(str));
 }

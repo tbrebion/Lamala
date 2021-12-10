@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:17:13 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/08 19:43:12 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 14:33:25 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 {
 	char	*res;
 	int	m;
@@ -32,4 +32,5 @@ void	ft_putnbr(int nb)
 		ft_putnbr(nb / 10);
 	}
 	ft_putchar(nb % 10 + 48);
+	return (nb_len(nb));
 }
