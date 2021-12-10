@@ -6,9 +6,11 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 13:13:59 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/09 13:17:57 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 12:06:34 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../ft_printf.h"
 
 int	is_in_typelist(char c)
 {

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/09 15:27:23 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 12:08:53 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int	char_counter(const char *save, va_list args)
 				len++;
 			if (save[i] == 's' || save[i] == 'x'|| save[i] == 'X' || save[i] == 'p')
 				len += ft_strlen(args);
-			if (save[i] == 'i' || save[i] == 'd' || save[i] == 'u')
-				len += nlen(args);
+			if (save[i] == 'i' || save[i] == 'd')
+				len += nblen(args);
+			if (save[i] == 'u')
+				len += unblen(args);
 			i++;
 		}
 		i++;

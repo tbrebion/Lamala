@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_HEX.c                                    :+:      :+:    :+:   */
+/*   nb_len.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 12:05:49 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 13:01:46 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/10 12:02:06 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/10 13:09:37 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr_HEX(int nb)
+int	nb_len(int n)
 {
-	char	*hex;
+	int	res;
 
-	hex = "0123456789ABCDEF";
-	if (nb > 16)
-		ft_putnbr_hex(nb / 16);
-	ft_putchar(hex[nb % 16]);
+	res = 0;
+	if (n >= 0 && n <= 9)
+	{
+		res = 1;
+		return (res);
+	}
+	if (n < 0)
+		res = 1;
+	while (n > 9 || n < -9)
+	{
+		n = n / 10;
+		res++;
+	}
+	res++;
+	return (res);
 }

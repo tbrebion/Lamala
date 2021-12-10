@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_HEX.c                                    :+:      :+:    :+:   */
+/*   ft_put_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 12:05:49 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 13:01:46 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/10 12:50:40 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/10 13:02:18 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr_HEX(int nb)
+void	ft_put_p(int w)
 {
-	char	*hex;
+	void	*p;
+	char	*hex
 
-	hex = "0123456789ABCDEF";
-	if (nb > 16)
-		ft_putnbr_hex(nb / 16);
-	ft_putchar(hex[nb % 16]);
+	(int)p = &w;
+	hex = "0123456789abcdef";
+	if (p > 16)
+		ft_putnbr_hex(p / 16);
+	ft_putchar(hex[p % 16]);
 }
