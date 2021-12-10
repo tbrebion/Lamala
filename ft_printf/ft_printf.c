@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 17:11:31 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:21:25 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_printf(const char *input, ...)
 
 			display_HEX(input, i, char_count, x, args);
 
-			display_%(input, i, char_count);
+			display_pc(input, i, char_count);
 
 			i++;
 			if (is_in_typelist(input[i]) == 0)

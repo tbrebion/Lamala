@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_%.c                                        :+:      :+:    :+:   */
+/*   display_pc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 16:49:54 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 16:54:46 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:23:55 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	display_%(const char *input, int i, int char_count)
+void	display_pc(const char *input, int i, int char_count)
 {
 	if (input[i + 1] == '%')
 	{
