@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sources.h                                          :+:      :+:    :+:   */
+/*   display_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 19:14:21 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 14:57:41 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/10 15:26:45 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/10 15:36:27 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOURCES_H
-# define SOURCES_H
+#include "ft_printf.h"
 
-int		is_in_typelist(char c);
-int		ft_putchar(int c);
-int		ft_putnbr(int nb);
-int		ft_putnbr_hex(int nb);
-int		ft_putnbr_HEX(int nb);
-int		ft_put_p(int w);
-int		ft_putstr(char *str);
-int		ft_putunbr(unsigned int nb);
-int		nb_len(int n);
-int		unb_len(unsigned int n);
-
-#endif
+void	display_string(char *in, int i, int c_count, char *str, va_list args)
+{
+	if (in[i + 1] == 's')
+	{
+		str = (char *)va_args(args, (char *));
+		ft_putstr(str);
+		c_count += ft_putstr(str);
+	}
+	else
+		return ;
+}

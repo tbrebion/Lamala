@@ -6,43 +6,12 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 14:55:12 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 15:43:37 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	char_counter(const char *save, va_list args)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	while (save[i])
-	{
-		while (save[i] != '%')
-		{
-			i++;
-			len++;
-		}
-		if (save[i + 1] && is_in_typelist(save[i + 1]) == 1)
-		{
-			i++;
-			if (save[i] == 'c' || save[i] == '%')
-				len++;
-			if (save[i] == 's' || save[i] == 'x'|| save[i] == 'X' || save[i] == 'p')
-				len += ft_strlen(args);
-			if (save[i] == 'i' || save[i] == 'd')
-				len += nblen(args);
-			if (save[i] == 'u')
-				len += unblen(args);
-			i++;
-		}
-		i++;
-		len++;
-	}
-	return (len);
-}
 int	ft_printf(const char *input, ...)
 {
 	int		i;
@@ -50,7 +19,6 @@ int	ft_printf(const char *input, ...)
 	va_list		args;
 
 	///////////////////////////  Types d'arguments
-	char		c;
 	char		*str;
 	int		x;
 	unsigned int	u;
@@ -60,32 +28,35 @@ int	ft_printf(const char *input, ...)
 	i = 0;
 	while (input[i])
 	{
-		while (input[i] != '%')
-		{
-			ft_putchar(input[i]);
-			i++;
-			char_count++;
-		}
+		print_noparams_char(input, char_count, i);
 		if (input[i] == '%')
 		{
-			if (input[i + 1] == 'c')
+			display_char(input, i, char_count, x, args);
+
+			/*if (input[i + 1] == 'c')
 			{
-				c = (char)va_arg(args, int);
-				ft_putchar(c);
-				char_count += ft_putchar(c);
-			}
-			if (input[i + 1] == 's')
+				x = (int)va_arg(args, int);
+				ft_putchar(x);
+				char_count += ft_putchar(x);
+			}*/
+			display_string(input, i, char_count, str, args);
+
+			/*if (input[i + 1] == 's')
 			{
 				str = (char *)va_args(args, (char *));
 				ft_putstr(str);
 				char_count += ft_putstr(str);
-			}
-			if (input[i + 1] == 'p')
+			}*/
+			display_p(input, i, char_count, x, args);
+
+			/*if (input[i + 1] == 'p')
 			{
 				x = (int)va_args(args, (void *));
 				ft_put_p(x);
 				char_count += ft_put_p(x);
-			}
+			}*/
+			
+
 			if (input[i + 1] == 'd')
 			{
 				x = (int)va_args(args, int);
@@ -126,4 +97,5 @@ int	ft_printf(const char *input, ...)
 		i++;
 	}
 	va_end(args);
+	return (char_count);
 }
