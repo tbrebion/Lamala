@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 17:21:25 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:09:40 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	ft_printf(const char *input, ...)
 	i = 0;
 	while (input[i])
 	{
-		print_noparams_char(input, char_count, i);
 		if (print_noparams_char(input, char_count, i) == 0)
 			return (char_count);
 		if (input[i] == '%')
