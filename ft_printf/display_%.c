@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_string.c                                   :+:      :+:    :+:   */
+/*   display_%.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 15:26:45 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 16:31:08 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/10 16:49:54 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/10 16:54:46 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	display_string(const char *in, int i, int c_count, char *str, va_list a)
+void	display_%(const char *input, int i, int char_count)
 {
-	if (in[i + 1] == 's')
+	if (input[i + 1] == '%')
 	{
-		str = (char *)va_args(a, (char *));
-		ft_putstr(str);
-		c_count += ft_putstr(str);
+		write (1, "%", 1);
+		char_count++;
 	}
 	else
 		return ;

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 15:00:57 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 15:12:31 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:11:46 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	print_noparams_char(const char *input, int char_count, int i)
 		char_count++;
 	}
 	if (input[i] == '\0')
-		return (char_count);
+		return (1);
+	return (0);
 }
 

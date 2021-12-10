@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_string.c                                   :+:      :+:    :+:   */
+/*   display_nb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 15:26:45 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 16:31:08 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/10 16:15:23 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/10 16:29:23 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	display_string(const char *in, int i, int c_count, char *str, va_list a)
+void	display_nb(const char *in, int i, int char_count, int x, va_list args)
 {
-	if (in[i + 1] == 's')
+	if (in[i + 1] == 'd' || in[i + 1] == 'i')
 	{
-		str = (char *)va_args(a, (char *));
-		ft_putstr(str);
-		c_count += ft_putstr(str);
+		x = (int)va_args(args, int);
+		ft_putnbr(x);
+		char_count += ft_putnbr(x);
 	}
 	else
 		return ;
