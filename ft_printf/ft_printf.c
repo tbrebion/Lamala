@@ -54,7 +54,7 @@ int	ft_printf(const char *input, ...)
 			if (is_in_typelist(input[i]) == 0)
 			{
 				ft_putchar(input[i]);
-				char_count + 2;
+				char_count++;
 			}
 		}
 	}
