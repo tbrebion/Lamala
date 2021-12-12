@@ -22,5 +22,5 @@ int	ft_putstr(char *str)
 		ft_putchar((int)str[i]);
 		i++;
 	}
-	return (ft_strlen(str));
+	return (i);
 }

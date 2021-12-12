@@ -32,9 +32,10 @@ int	ft_printf(const char *input, ...)
 			return (char_count);
 		if (input[i] == '%')
 		{
-			display_char(input, i, char_count, x, args);
-			//if (input[i + 1] == 'c')
-			//	char_count += ft_putchar((int)va_args(args, int));
+			if (input[i + 1] == 'c')
+				char_count += ft_putchar((int)va_args(args, int));
+
+			if (input[i + 1] == 's')
 
 			display_string(input, i, char_count, str, args);
 
@@ -55,6 +56,7 @@ int	ft_printf(const char *input, ...)
 			{
 				ft_putchar(input[i]);
 				char_count++;
+				i++;
 			}
 		}
 	}
