@@ -6,22 +6,23 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:05:49 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 14:48:47 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:00:01 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_putnbr_HEX(int nb)
+int     ft_putnbr_HEX(int nb)
 {
-	char	*hex;
-	char	*res;
+        char    *hex;
+        int     NB;
 
-	hex = "0123456789ABCDEF";
-	if (nb > 16)
-		ft_putnbr_hex(nb / 16);
-	res = hex[nb % 16];
-	ft_putchar(hex[nb % 16]);
-	res[ft_strlen(res)] = '\0';
-	return (ft_strlen(res));
+        NB = nb;
+        hex = "0123456789ABCDEF";
+        if (nb > 16)
+        {
+                ft_putnbr_hex(nb / 16);
+        }
+        ft_putchar(hex[nb % 16]);
+        return (hex_len(NB));
 }

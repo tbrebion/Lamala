@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_pc.c                                       :+:      :+:    :+:   */
+/*   hex_len.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 16:49:54 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 17:23:55 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/12/13 13:59:02 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/13 13:59:18 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	display_pc(const char *input, int i, int char_count)
+#include "../ft_printf.h"
+
+int     hex_len(int n)
 {
-	if (input[i + 1] == '%')
-	{
-		write (1, "%", 1);
-		char_count++;
-	}
-	else
-		return ;
+        int     i;
+
+        i = 0;
+        while (n > 16)
+        {
+                n = n / 16;
+                i++;
+        }
+        i++;
+        return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 18:48:09 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:02:53 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,9 @@ int	ft_printf(const char *input, ...)
 	int		char_count;
 	va_list		args;
 
-	///////////////////////////  Types d'arguments
-	char		*str;
-	int		x;
-	unsigned int	u;
-	////////////////////////////
-
 	va_start(args, input);
 	i = 0;
+	char_count = 0;
 	while (input[i])
 	{
 		if (print_noparams_char(input, char_count, i) == 0)
@@ -33,23 +28,28 @@ int	ft_printf(const char *input, ...)
 		if (input[i] == '%')
 		{
 			if (input[i + 1] == 'c')
-				char_count += ft_putchar((int)va_args(args, int));
+				char_count += ft_putchar(va_args(args, int));
 
 			if (input[i + 1] == 's')
+				char_count += ft_putstr(va_args(args, int));
 
-			display_string(input, i, char_count, str, args);
+			if (input[i + 1] == 'p')
+				char_count += ft_put_p(va_args(args, void *))
 
-			display_p(input, i, char_count, x, args);
+			if (input[i + 1] == 'i' || input[i + 1] == 'd')
+				char_count += ft_putnbr(va_args(args, int));
 
-			display_nb(input, i, char_count, x, args);
+			if (input[i + 1] == 'u')
+				char_count += ft_putunbr(va_args(args, int));
 
-			display_unb(input, i, char_count, u, args);
+			if (input[i + 1] == 'x')
+				char_count += ft_putnbr_hex(va_args(args, int));
 
-			display_hex(input, i, char_count, x, args);
-
-			display_HEX(input, i, char_count, x, args);
-
-			display_pc(input, i, char_count);
+			if (input[i + 1] == 'X')
+				char_count += ft_putnbr_HEX(va_args(args, int));
+			
+			if (input[i + 1] == '%')
+				char_count += ft_putchar('%');
 
 			i++;
 			if (is_in_typelist(input[i]) == 0)
