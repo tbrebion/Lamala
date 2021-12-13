@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 14:02:53 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 17:56:57 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,43 +23,40 @@ int	ft_printf(const char *input, ...)
 	char_count = 0;
 	while (input[i])
 	{
-		if (print_noparams_char(input, char_count, i) == 0)
-			return (char_count);
 		if (input[i] == '%')
 		{
 			if (input[i + 1] == 'c')
-				char_count += ft_putchar(va_args(args, int));
-
+				char_count += ft_putchar(va_arg(args, int));
 			if (input[i + 1] == 's')
-				char_count += ft_putstr(va_args(args, int));
-
+				char_count += ft_putstr(va_arg(args, char *));
 			if (input[i + 1] == 'p')
-				char_count += ft_put_p(va_args(args, void *))
-
+				char_count += ft_put_p(va_arg(args, void *));
 			if (input[i + 1] == 'i' || input[i + 1] == 'd')
-				char_count += ft_putnbr(va_args(args, int));
-
+				char_count += ft_putnbr(va_arg(args, int));
 			if (input[i + 1] == 'u')
-				char_count += ft_putunbr(va_args(args, int));
-
+				char_count += ft_putunbr(va_arg(args, unsigned int));
 			if (input[i + 1] == 'x')
-				char_count += ft_putnbr_hex(va_args(args, int));
-
+				char_count += ft_putnbr_hex(va_arg(args, unsigned long int));
 			if (input[i + 1] == 'X')
-				char_count += ft_putnbr_HEX(va_args(args, int));
-			
+				char_count += ft_putnbr_HEX(va_arg(args, unsigned long int));
 			if (input[i + 1] == '%')
 				char_count += ft_putchar('%');
-
 			i++;
-			if (is_in_typelist(input[i]) == 0)
-			{
-				ft_putchar(input[i]);
-				char_count++;
-				i++;
-			}
 		}
+		else
+			char_count += ft_putchar(input[i]);
+		i++;
 	}
 	va_end(args);
 	return (char_count);
+}
+
+#include <stdio.h>
+
+int	main()
+{
+	int i = 123456782;
+	printf("\n%d\n\n\n", printf(" %x\n %X\n %p\n %u\n", i, i, &i, i));
+	ft_printf("\n%d\n", ft_printf(" %x\n %X\n %p\n %u\n", i, i, &i, i));
+	return (0);
 }

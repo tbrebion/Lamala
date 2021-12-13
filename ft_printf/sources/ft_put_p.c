@@ -6,21 +6,21 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:50:40 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 14:01:21 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:41:55 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_put_p(int w)
+int	ft_put_p(void *w)
 {
-	void	*p;
+	unsigned long int	p;
+	int	res;
 
-	(int)p = &w;
-	if (p > 16)
-	{
-		ft_putnbr_hex(p / 16);
-	}
-	ft_putchar(hex[p % 16]);
-	return (hex_len((int)p));
+	res = 0;
+	p = (unsigned long int)w;
+	ft_putstr("0x");
+	res += 2;
+	res += ft_putnbr_hex(p);
+	return (res);
 }

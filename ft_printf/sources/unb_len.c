@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:09:45 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 13:09:50 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 17:39:12 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	unb_len(unsigned int n)
 	int	res;
 
 	res = 0;
-	if (n >= 0 && n <= 9)
+	if (n <= 9)
 	{
 		res = 1;
 		return (res);

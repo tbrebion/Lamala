@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:59:02 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 13:59:18 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:43:53 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int     hex_len(int n)
+int     hex_len(long int n)
 {
         int     i;
 
