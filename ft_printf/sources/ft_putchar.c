@@ -15,7 +15,7 @@
 int	ft_putchar(int c)
 {
 	if (!c)
-		return (ft(put_str("(null)")));
+		return (ft_putstr("(null)"));
 	write(1, &c, 1);
 	return (1);
 }
