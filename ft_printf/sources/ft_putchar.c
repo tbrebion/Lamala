@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:50:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/10 14:32:12 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:07:45 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_putchar(int c)
 {
+	if (!c)
+		return (ft(put_str("(null)")));
 	write(1, &c, 1);
 	return (1);
 }

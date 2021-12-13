@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:17:49 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 18:16:13 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:33:06 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include<stdarg.h>
-# include"libft/libft.h"
+# include<unistd.h>
 
 int		ft_printf(const char *input, ...);
 int		ft_putchar(int c);
