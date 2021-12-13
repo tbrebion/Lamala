@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 17:56:57 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:17:19 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_printf(const char *input, ...)
 {
 	int		i;
 	int		char_count;
-	va_list		args;
+	va_list	args;
 
 	va_start(args, input);
 	i = 0;
@@ -38,7 +38,7 @@ int	ft_printf(const char *input, ...)
 			if (input[i + 1] == 'x')
 				char_count += ft_putnbr_hex(va_arg(args, unsigned long int));
 			if (input[i + 1] == 'X')
-				char_count += ft_putnbr_HEX(va_arg(args, unsigned long int));
+				char_count += ft_putnbr_bhex(va_arg(args, unsigned long int));
 			if (input[i + 1] == '%')
 				char_count += ft_putchar('%');
 			i++;
@@ -49,14 +49,4 @@ int	ft_printf(const char *input, ...)
 	}
 	va_end(args);
 	return (char_count);
-}
-
-#include <stdio.h>
-
-int	main()
-{
-	int i = 123456782;
-	printf("\n%d\n\n\n", printf(" %x\n %X\n %p\n %u\n", i, i, &i, i));
-	ft_printf("\n%d\n", ft_printf(" %x\n %X\n %p\n %u\n", i, i, &i, i));
-	return (0);
 }

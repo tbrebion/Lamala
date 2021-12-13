@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:50:40 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 16:41:55 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:12:02 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_put_p(void *w)
 {
 	unsigned long int	p;
-	int	res;
+	int					res;
 
 	res = 0;
 	p = (unsigned long int)w;

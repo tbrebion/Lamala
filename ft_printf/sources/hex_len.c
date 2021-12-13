@@ -6,22 +6,22 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:59:02 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 16:43:53 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:13:02 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int     hex_len(long int n)
+int	hex_len(long int n)
 {
-        int     i;
+	int	i;
 
-        i = 0;
-        while (n > 16)
-        {
-                n = n / 16;
-                i++;
-        }
-        i++;
-        return (i);
+	i = 0;
+	while (n > 16)
+	{
+		n = n / 16;
+		i++;
+	}
+	i++;
+	return (i);
 }
