@@ -26,7 +26,7 @@ int		ft_putstr(char *str);
 int		ft_putunbr(unsigned int nb);
 int		nb_len(int n);
 int		unb_len(unsigned int n);
-int		hex_len(long int n);
+int		hex_len(unsigned long int n);
 int		ft_putulnbr_hex(unsigned long int nb);
 
 #endif

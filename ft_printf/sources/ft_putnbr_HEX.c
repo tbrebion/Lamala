@@ -14,7 +14,7 @@
 
 int	ft_putnbr_bhex(unsigned int nb)
 {
-	char		*hex;
+	char			*hex;
 	unsigned int	save;
 
 	save = nb;

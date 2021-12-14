@@ -14,9 +14,9 @@
 
 int	ft_putnbr_hex(unsigned int nb)
 {
-	char		*hex;
-	unsigned int	save;
-	int			c;
+	char				*hex;
+	unsigned int		save;
+	int					c;
 
 	c = 0;
 	save = nb;

@@ -15,14 +15,13 @@
 int	ft_put_p(void *w)
 {
 	unsigned long int	p;
-	int					res;
 
-	res = 0;
-	p = (unsigned long int)w;
-	if (p > -2147483648 && p < 2147483647)
+	if (!w)
 	{
-		res += ft_putstr("0x");
-		res += ft_putulnbr_hex(p);
-		return (res);
+		ft_putstr("(nil)");
+		return (5);
 	}
+	p = (unsigned long int)w;
+	ft_putstr("0x");
+	return (ft_putulnbr_hex(p) + 2);
 }

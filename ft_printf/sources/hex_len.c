@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-int	hex_len(long int n)
+int	hex_len(unsigned long int n)
 {
 	int	i;
 

@@ -12,22 +12,17 @@
 
 #include "../ft_printf.h"
 
-int     ft_putulnbr_hex(unsigned long int nb)
+int	ft_putulnbr_hex(unsigned long int nb)
 {
-        char            *hex;
-        unsigned long int    save;
-        int                     c;
+	char	*hex;
+	int		c;
 
-        c = 0;
-        save = nb;
-        hex = "0123456789abcdef";
-        if (nb == 16)
-                return (ft_putstr("10"));
-        if (nb > 16)
-        {
-                ft_putulnbr_hex(nb / 16);
-        }
-        ft_putchar(hex[nb % 16]);
-        c += hex_len(save);
-        return (c);
+	c = hex_len(nb);
+	hex = "0123456789abcdef";
+	if (nb == 16)
+		return (ft_putstr("10"));
+	if (nb > 16)
+		ft_putulnbr_hex(nb / 16);
+	ft_putchar(hex[nb % 16]);
+	return (c);
 }
