@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 18:34:43 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/14 17:50:16 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	ft_printf(const char *input, ...)
 			if (input[i + 1] == 'u')
 				char_count += ft_putunbr(va_arg(args, unsigned int));
 			if (input[i + 1] == 'x')
-				char_count += ft_putnbr_hex(va_arg(args, unsigned long int));
+				char_count += ft_putnbr_hex(va_arg(args, unsigned int));
 			if (input[i + 1] == 'X')
-				char_count += ft_putnbr_bhex(va_arg(args, unsigned long int));
+				char_count += ft_putnbr_bhex(va_arg(args, unsigned int));
 			if (input[i + 1] == '%')
 				char_count += ft_putchar('%');
 			i++;
@@ -50,3 +50,15 @@ int	ft_printf(const char *input, ...)
 	va_end(args);
 	return (char_count);
 }
+/*
+#include <stdio.h>
+#include <limits.h>
+
+int	main()
+{
+	ft_printf("%p\n", INT_MAX);
+	printf("%p\n", INT_MAX);
+	ft_printf("%p\n", INT_MIN);
+	printf("%p\n", INT_MIN);
+	return (0);
+}*/

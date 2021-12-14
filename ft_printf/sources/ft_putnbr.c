@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:17:13 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/13 17:35:46 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/14 15:47:20 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	ft_putnbr(int nb)
 {
+	int	len;
+
+	len = nb_len(nb);
 	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -29,5 +32,5 @@ int	ft_putnbr(int nb)
 		ft_putnbr(nb / 10);
 	}
 	ft_putchar(nb % 10 + 48);
-	return (nb_len(nb));
+	return (len);
 }
