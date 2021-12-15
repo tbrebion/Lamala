@@ -6,11 +6,11 @@
 #    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 17:58:26 by tbrebion          #+#    #+#              #
-#    Updated: 2021/12/14 17:18:20 by tbrebion         ###   ########.fr        #
+#    Updated: 2021/12/15 18:31:59 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = $(addprefix sources/, ft_printf.c ft_putchar.c ft_putnbr.c ft_putnbr_hex.c ft_putnbr_HEX.c ft_put_p.c \
+SRCS = $(addprefix sources/, ft_printf.c ft_putchar.c ft_putnbr.c ft_putnbr_hex.c ft_putnbr_bhex.c ft_put_p.c \
 ft_putstr.c ft_putunbr.c hex_len.c nb_len.c unb_len.c ft_putulnbr_hex.c)
 
 NAME = libftprintf.a
