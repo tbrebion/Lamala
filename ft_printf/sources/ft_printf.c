@@ -6,11 +6,35 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:20:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/14 17:50:16 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:42:39 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+int	print_format(va_list args, const char format)
+{
+	int	c_count;
+
+	c_count = 0;
+	if (format == 'c')
+		c_count += ft_putchar(va_arg(args, int));
+	else if (format == 's')
+		c_count += ft_putstr(va_arg(args, char *));
+	else if (format == 'p')
+		c_count += ft_put_p(va_arg(args, void *));
+	else if (format == 'd' || format == 'i')
+		c_count += ft_putnbr(va_arg(args, int));
+	else if (format == 'u')
+		c_count += ft_putunbr(va_arg(args, unsigned int));
+	else if (format == 'x')
+		c_count += ft_putnbr_hex(va_arg(args, unsigned int));
+	else if (format == 'X')
+		c_count += ft_putnbr_bhex(va_arg(args, unsigned int));
+	else if (format == '%')
+		c_count += ft_putchar('%');
+	return (c_count);
+}
 
 int	ft_printf(const char *input, ...)
 {
@@ -25,22 +49,7 @@ int	ft_printf(const char *input, ...)
 	{
 		if (input[i] == '%')
 		{
-			if (input[i + 1] == 'c')
-				char_count += ft_putchar(va_arg(args, int));
-			if (input[i + 1] == 's')
-				char_count += ft_putstr(va_arg(args, char *));
-			if (input[i + 1] == 'p')
-				char_count += ft_put_p(va_arg(args, void *));
-			if (input[i + 1] == 'i' || input[i + 1] == 'd')
-				char_count += ft_putnbr(va_arg(args, int));
-			if (input[i + 1] == 'u')
-				char_count += ft_putunbr(va_arg(args, unsigned int));
-			if (input[i + 1] == 'x')
-				char_count += ft_putnbr_hex(va_arg(args, unsigned int));
-			if (input[i + 1] == 'X')
-				char_count += ft_putnbr_bhex(va_arg(args, unsigned int));
-			if (input[i + 1] == '%')
-				char_count += ft_putchar('%');
+			char_count += print_format(args, input[i + 1]);
 			i++;
 		}
 		else
@@ -50,15 +59,3 @@ int	ft_printf(const char *input, ...)
 	va_end(args);
 	return (char_count);
 }
-/*
-#include <stdio.h>
-#include <limits.h>
-
-int	main()
-{
-	ft_printf("%p\n", INT_MAX);
-	printf("%p\n", INT_MAX);
-	ft_printf("%p\n", INT_MIN);
-	printf("%p\n", INT_MIN);
-	return (0);
-}*/
