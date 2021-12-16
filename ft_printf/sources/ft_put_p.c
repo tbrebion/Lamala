@@ -17,10 +17,7 @@ int	ft_put_p(void *w)
 	unsigned long int	p;
 
 	if (!w)
-	{
-		ft_putstr("(nil)");
-		return (5);
-	}
+		return (ft_putstr("0x0"));
 	p = (unsigned long int)w;
 	ft_putstr("0x");
 	return (ft_putulnbr_hex(p) + 2);
