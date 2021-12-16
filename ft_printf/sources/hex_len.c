@@ -17,7 +17,7 @@ int	hex_len(unsigned long int n)
 	int	i;
 
 	i = 0;
-	while (n > 16)
+	while (n > 15)
 	{
 		n = n / 16;
 		i++;
