@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/20 14:43:38 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/20 17:51:39 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,33 @@ char	*get_line(char *str)
 	return (res);
 }
 
-char	*get_save(int fd)
+char	*new_str(char *str)
+{
+	char	*new_str;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	if (!str[i])
+	{
+		free(str);
+		return (NULL);
+	}
+	new_str = malloc(sizeof(char) * ft_strlen(str) - i + 1);
+	if (!new_str)
+		return (NULL);
+	i++;
+	while (str[i])
+		new_str[j++] = str[i++];
+	new_str[j] = '\0';
+	free(str);
+	return (new_str);
+}
+
+char	*get_save(int fd, char *left_str)
 {
 	char	*save;
 	int		size;
@@ -48,11 +74,20 @@ char	*get_save(int fd)
 	save = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!save)
 		return (NULL);
-	size = read(fd, save, BUFFER_SIZE);
-	if (size == -1)
-		return (NULL);
-	save[size] = '\0';
-	return (save);
+	size = 1;
+	while (!ft_strchr(left_str, '\n') && size != 0)
+	{
+		size = read(fd, save, BUFFER_SIZE);
+		if (size == -1)
+		{
+			free(save);
+			return (NULL);
+		}
+		save[size] = '\0';
+		left_str = ft_strjoin(left_str, save);
+	}
+	free(save);
+	return (left_str);
 }
 
 char	*get_next_line(int fd)
@@ -62,8 +97,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = get_save(fd);
+	buff = get_save(fd, buff);
+	if (!buff)
+		return (NULL);
 	res = get_line(buff);
-	free(buff);
+	buff = new_str(buff);
 	return (res);
 }
