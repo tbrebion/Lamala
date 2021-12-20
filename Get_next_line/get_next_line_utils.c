@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:11:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/20 17:46:24 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/20 18:12:12 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlen(const char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 char	*ft_strchr(const char *str, char c)
@@ -38,9 +38,9 @@ char	*ft_strchr(const char *str, char c)
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
 	char	*res;
 
 	i = 0;

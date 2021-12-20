@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/20 17:51:39 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/20 18:47:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_line(char *str)
 {
-	int	i;
+	int		i;
 	char	*res;
 
 	i = 0;
@@ -43,8 +43,8 @@ char	*get_line(char *str)
 char	*new_str(char *str)
 {
 	char	*new_str;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
