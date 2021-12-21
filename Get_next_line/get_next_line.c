@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/20 18:47:04 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/21 16:37:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ char	*get_line(char *str)
 	i = 0;
 	if (!str[i])
 		return (NULL);
-	while (str[i] && str[i] != '\n')
+	while (i < BUFFER_SIZE + 1 && str[i] && str[i] != '\n')
 		i++;
 	res = malloc(sizeof(char) * i + 2);
 	if (!res)
 		return (NULL);
 	i = 0;
-	while (str[i] && str[i] != '\n')
+	while (i < BUFFER_SIZE + 1 && str[i] && str[i] != '\n')
 	{
 		res[i] = str[i];
 		i++;
@@ -66,7 +66,7 @@ char	*new_str(char *str)
 	return (new_str);
 }
 
-char	*get_save(int fd, char *left_str)
+char	*get_save(int fd/*, char *left_str*/)
 {
 	char	*save;
 	int		size;
@@ -74,20 +74,17 @@ char	*get_save(int fd, char *left_str)
 	save = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!save)
 		return (NULL);
-	size = 1;
-	while (!ft_strchr(left_str, '\n') && size != 0)
+	size = read(fd, save, BUFFER_SIZE);
+	if (size == -1)
 	{
-		size = read(fd, save, BUFFER_SIZE);
-		if (size == -1)
-		{
-			free(save);
-			return (NULL);
-		}
-		save[size] = '\0';
-		left_str = ft_strjoin(left_str, save);
+		free(save);
+		return (NULL);
 	}
-	free(save);
-	return (left_str);
+	save[size] = '\0';
+	return (save);
+	//left_str = ft_strjoin(left_str, save);
+	//free(save);
+	//return (left_str);
 }
 
 char	*get_next_line(int fd)
@@ -95,9 +92,9 @@ char	*get_next_line(int fd)
 	static char	*buff;
 	char		*res;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd <= 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = get_save(fd, buff);
+	buff = get_save(fd/*, buff*/);
 	if (!buff)
 		return (NULL);
 	res = get_line(buff);
