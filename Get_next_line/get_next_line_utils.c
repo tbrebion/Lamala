@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:11:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/22 14:40:56 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:27:11 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_strchr(const char *str, char c)
 	return (s);
 }
 
-char	*ft_strjoin(/*const */char *s1, /*const */char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -49,8 +49,8 @@ char	*ft_strjoin(/*const */char *s1, /*const */char *s2)
 	i = 0;
 	j = 0;
 	k = 0;
-//	if (!s1 || !s2)
-//		return (NULL);
+	if (!s2)
+		return (NULL);
 	res = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (res == NULL)
 		return (NULL);

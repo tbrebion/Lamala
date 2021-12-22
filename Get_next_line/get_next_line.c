@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/22 14:10:21 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:09:28 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,22 @@ char	*get_save(int fd, char *left_str)
 {
 	char	*save;
 	int		size;
+	int	i = 0;
 
-	save = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!save)
-		return (NULL);
-	size = read(fd, save, BUFFER_SIZE);
-	if (size == -1)
+//	save = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+//	if (!save)
+//		return (NULL);
+	while (i < 79)
 	{
-		free(save);
-		return (NULL);
+		save = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!save)
+			return (NULL);
+		size = read(fd, save, BUFFER_SIZE);
+		save[size] = '\0';	
+		left_str = ft_strjoin(left_str, save);
+		//free(save);
+		i++;
 	}
-	save[size] = '\0';
-	left_str = ft_strjoin(left_str, save);
 	free(save);
 	return (left_str);
 }
