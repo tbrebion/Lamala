@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/21 16:37:09 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/22 14:10:21 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*new_str(char *str)
 	return (new_str);
 }
 
-char	*get_save(int fd/*, char *left_str*/)
+char	*get_save(int fd, char *left_str)
 {
 	char	*save;
 	int		size;
@@ -81,10 +81,9 @@ char	*get_save(int fd/*, char *left_str*/)
 		return (NULL);
 	}
 	save[size] = '\0';
-	return (save);
-	//left_str = ft_strjoin(left_str, save);
-	//free(save);
-	//return (left_str);
+	left_str = ft_strjoin(left_str, save);
+	free(save);
+	return (left_str);
 }
 
 char	*get_next_line(int fd)
@@ -94,7 +93,7 @@ char	*get_next_line(int fd)
 
 	if (fd <= 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = get_save(fd/*, buff*/);
+	buff = get_save(fd, buff);
 	if (!buff)
 		return (NULL);
 	res = get_line(buff);

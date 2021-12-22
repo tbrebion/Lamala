@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:02:38 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/21 15:21:58 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/22 12:31:29 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*get_save(int fd, char *left_str);
 char	*get_line(char *str);
 char	*new_str(char *str);
 char	*ft_strchr(const char *str, char c);
-char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strjoin(/*const*/ char *s1, /*const*/ char *s2);
 size_t	ft_strlen(const char *str);
 
 #endif
