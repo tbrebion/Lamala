@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:11:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/22 17:27:11 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/23 13:18:31 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,25 @@ size_t	ft_strlen(const char *str)
 	int	i;
 
 	i = 0;
-	if (str)
-	{	
-		while (str[i])
-			i++;
-	}
+	while (str && str[i])
+		i++;
 	return (i);
 }
 
-char	*ft_strchr(const char *str, char c)
+int	ft_return(char *str)
 {
-	char	*s;
+	int	i;
 
-	s = (char *)str;
-	while (*s != c)
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
 	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
+		if (str[i] == '\n')
+			return (1);
+		i++;
 	}
-	return (s);
+	return (0);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -54,11 +53,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	res = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (res == NULL)
 		return (NULL);
-	if (s1)
-	{	
-		while (s1[i])
-			res[k++] = s1[i++];
-	}
+	while (s1 && s1[i])
+		res[k++] = s1[i++];
 	while (s2[j])
 		res[k++] = s2[j++];
 	res[k] = '\0';
