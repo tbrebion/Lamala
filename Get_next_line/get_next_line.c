@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/23 15:02:34 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:46:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ char	*get_line(char *str)
 	res[i] = '\0';
 	return (res);
 }
+/*
+ *
+ *
+*/
 
 char	*new_str(char *str)
 {
@@ -66,6 +70,13 @@ char	*new_str(char *str)
 	return (new_str);
 }
 
+/*
+ * 	get_save : lit par paquet de BUFFER_SIZE caracteres alloue la memoire a taille BUFFER-SIZE + 1
+ * 	
+ * 	Tant qu'il ne ne trouve pas de \n dans sa lecture
+ * 	il enregistre dans save et joins le resultat de son premier appel de lecture avec le suivant dans norte static
+ *
+*/
 char	*get_save(int fd, char *left_str)
 {
 	char	*save;
@@ -89,6 +100,8 @@ char	*get_save(int fd, char *left_str)
 	free(save);
 	return (left_str);
 }
+
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
