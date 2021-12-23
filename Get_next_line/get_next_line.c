@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/23 13:33:24 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/23 15:02:34 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*get_next_line(int fd)
 	static char	*buff;
 	char		*res;
 
-	if (fd <= 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buff = get_save(fd, buff);
 	if (!buff)
