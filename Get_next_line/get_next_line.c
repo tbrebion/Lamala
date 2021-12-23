@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/23 17:46:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/23 18:12:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ char	*get_line(char *str)
 	return (res);
 }
 /*
+ *	new_str : modifie la valeur de notre static 
+ *	
  *
+ *	!! est utiliser apres get_line (voir get_line)
+ *
+ *	recuperer tout les caracteres situer apres le \n de la ligne precedente
+ *	et les enregistre dans notre static
  *
 */
 
@@ -100,8 +106,6 @@ char	*get_save(int fd, char *left_str)
 	free(save);
 	return (left_str);
 }
-
-#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
