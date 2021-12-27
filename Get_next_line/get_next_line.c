@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 12:42:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/23 18:12:33 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/27 14:47:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,6 @@ char	*get_line(char *str)
 	res[i] = '\0';
 	return (res);
 }
-/*
- *	new_str : modifie la valeur de notre static 
- *	
- *
- *	!! est utiliser apres get_line (voir get_line)
- *
- *	recuperer tout les caracteres situer apres le \n de la ligne precedente
- *	et les enregistre dans notre static
- *
-*/
 
 char	*new_str(char *str)
 {
@@ -76,13 +66,6 @@ char	*new_str(char *str)
 	return (new_str);
 }
 
-/*
- * 	get_save : lit par paquet de BUFFER_SIZE caracteres alloue la memoire a taille BUFFER-SIZE + 1
- * 	
- * 	Tant qu'il ne ne trouve pas de \n dans sa lecture
- * 	il enregistre dans save et joins le resultat de son premier appel de lecture avec le suivant dans norte static
- *
-*/
 char	*get_save(int fd, char *left_str)
 {
 	char	*save;
