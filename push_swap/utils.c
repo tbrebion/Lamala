@@ -10,13 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void sa(int *stack_a)
+void sa(t_list *stack_a)
 {
 	int	temp;
 
 	temp = 0;
-	while (stack_a[temp])
+	while (stack_a != NULL)
+	{
+		stack_a = stack_a->next;
 		temp++;
+	}
 	if (temp < 1)
 		return ;
 	temp = 0;
@@ -26,7 +29,7 @@ void sa(int *stack_a)
 }
 
 
-void sb(int *stack_b)
+void sb(t_list *stack_b)
 {
 	int	temp;
 
@@ -42,7 +45,7 @@ void sb(int *stack_b)
 }
 
 
-void ss(int *stack_a, int *stack_b)
+void ss(t_list *stack_a, t_list *stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);

@@ -21,15 +21,15 @@ t_list 	*fill_stack(t_list **stack_a, int ac, char **av)
 
 	current = *stack_a;
 	i = 1;
-	j = 1;
-	while (i < ac)
+	j = ac - 1;
+	while (j > 0)
 	{
 		new = malloc(sizeof(t_list *));
 		new->content = (int)ft_atoi(av[j]);
 		new->next = current;
 		stack_a = &new;
 		current = new;
-		j++;
+		j--;
 		i++;
 	}
 	return (*stack_a);
@@ -39,16 +39,19 @@ t_list 	*fill_stack(t_list **stack_a, int ac, char **av)
 
 void	print_stack(t_list *stack_a, t_list *stack_b, int ac)
 {
-	//int	i;
-
-	//i = 1;
 	while (stack_a != NULL)
 	{
-		printf("%d	 \n", (int)stack_a->content/*, (int)stack_b->content*/);
-		fflush(stdout);
-		stack_a = stack_a->next;
-		//stack_b = stack_b->next;
-	//	i++;
+		if (stack_b != NULL)
+		{
+			printf("%d	%d\n", (int)stack_a->content, (int)stack_b->content);
+			stack_a = stack_a->next;
+			stack_b = stack_b->next;
+		}
+		else
+		{
+			printf("%d	 \n", (int)stack_a->content);
+			stack_a = stack_a->next;
+		}
 	}
 	printf("_	_\n");
 	printf("a	b\n");
