@@ -6,11 +6,10 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:37:23 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/16 16:36:39 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:27:17 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
 #include "../push_swap.h"
 
 int	ft_lstsize(t_list *lst)
