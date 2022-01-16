@@ -6,12 +6,11 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:15:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/14 18:50:10 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/16 15:48:38 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int ac, char **av)
 {
@@ -22,10 +21,13 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (check_int(av) == 0 || check_double(av) == 0 || check_digit(av) == 0)
 	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		return (0);
 	}
 	stack_a = fill_stack(&stack_a, ac, av);
-	print_stack(stack_a, stack_b, ac);
+	print_stack(stack_a, stack_b);
+	ft_printf("\n\n");
+	sa(stack_a);
+	print_stack(stack_a, stack_b);
 	return (0);
 }

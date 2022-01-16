@@ -6,29 +6,30 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:29:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/13 12:25:48 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/16 16:14:27 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
+
 void sa(t_list *stack_a)
 {
-	int	temp;
+	t_list	*temp1;
+	//t_list	*temp2;
 
-	temp = 0;
-	while (stack_a != NULL)
-	{
-		stack_a = stack_a->next;
-		temp++;
-	}
-	if (temp < 1)
+	if (ft_lstsize(stack_a) <= 1)
 		return ;
-	temp = 0;
-	temp = stack_a[1];
-	stack_a[1] = stack_a[0];
-	stack_a[0] = temp;
+	temp1 = stack_a->next;
+	temp1->next = stack_a;
+
+
+
+	/*temp1->content = stack_a->content;
+	temp2 = stack_a->next;
+	stack_a->content = temp2->content;
+	stack_a->next = temp1;*/
 }
-
-
+/*
 void sb(t_list *stack_b)
 {
 	int	temp;
@@ -50,7 +51,7 @@ void ss(t_list *stack_a, t_list *stack_b)
 	sa(stack_a);
 	sb(stack_b);
 }
-/*
+
 void	pa(int *stack_a, int *stack_b)
 {
 	int	i;
