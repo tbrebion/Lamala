@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:23:32 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/17 06:20:25 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/17 08:56:21 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,38 @@
 
 void	ra(t_list **stack_a)
 {
-	
+	t_list	*tmp;
+	t_list	*save;
+
+	if (!(*stack_a) || ft_lstsize(*stack_a) < 2)
+		return ;
+	tmp = (*stack_a);
+	save = (*stack_a)->next;
+	while ((*stack_a)->next != NULL)
+		(*stack_a) = (*stack_a)->next;
+	tmp->next = NULL;
+	(*stack_a)->next = tmp;
+	(*stack_a) = save;
 }
 
 void	rb(t_list **stack_b)
 {
+	t_list	*tmp;
+	t_list	*save;
 
+	if (!(*stack_b) || ft_lstsize(*stack_b) < 2)
+		return ;
+	tmp = (*stack_b);
+	save = (*stack_b)->next;
+	while ((*stack_b)->next != NULL)
+		(*stack_b) = (*stack_b)->next;
+	tmp->next = NULL;
+	(*stack_b)->next = tmp;
+	(*stack_b) = save;
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
-
+	ra(stack_a);
+	rb(stack_b);
 }
