@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:29:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/16 18:05:15 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/17 06:08:44 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,42 +32,58 @@ void sb(t_list **stack_b)
 		return ;
 	tmp = (*stack_b)->next;
 	(*stack_b)->next = tmp->next;
-	tmp->next = (stack_b);
+	tmp->next = (*stack_b);
 	(*stack_b) = tmp;
 }
 
 
 void ss(t_list **stack_a, t_list **stack_b)
 {
-	sa(&stack_a);
-	sb(&stack_b);
+	sa(stack_a);
+	sb(stack_b);
 }
+
+void	pb(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp;
+	t_list	*save;
+
+	if (!(*stack_a))
+		return ;
+	tmp = ft_lstnew((*stack_a)->content);
+	ft_lstadd_front(stack_b, tmp);
+	if ((*stack_a)->next == NULL)
+	{
+		free(*stack_a);
+		(*stack_a) = NULL;
+	}
+	else if ((*stack_a)->next != NULL)
+	{
+		save = (*stack_a)->next;
+		free(*stack_a);
+		(*stack_a) = save;
+	}
+}
+
 
 void	pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
+	t_list	*save;
 
-	tmp = (*stack_b);
-
-}
-/*
-void	pb(int *stack_a, int *stack_b)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (!stack_a[i])
-		i++;
-	if (!stack_a[i])
+	if (!(*stack_b))
 		return ;
-	if (stack_b[0])
-		return ;
-	while (!stack_b[j])
-	   j++;
-	j--;
-	stack_b[j] = stack_a[i];
-	stack_a[i] = NULL;
+	tmp = ft_lstnew((*stack_b)->content);
+	ft_lstadd_front(stack_a, tmp);
+	if ((*stack_b)->next == NULL)
+	{
+		free(*stack_b);
+		(*stack_b) = NULL;
+	}
+	else if ((*stack_b)->next != NULL)
+	{
+		save = (*stack_b)->next;
+		free(*stack_b);
+		(*stack_b) = save;
+	}
 }
-*/

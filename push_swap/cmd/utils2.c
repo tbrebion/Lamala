@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:23:32 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/17 06:15:00 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/01/17 06:12:20 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/01/17 06:15:26 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_list **stack_a)
+void	rra(t_list **stack_a)
 {
 
 }
 
-void	rb(t_list **stack_b)
+void	rrb(t_list **stack_b)
 {
 
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+
+void	rrr(t_list **stack_a, t_list **stack_b)
 {
 
 }
