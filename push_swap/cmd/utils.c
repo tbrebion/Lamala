@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:29:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/17 06:08:44 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:31:18 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void sa(t_list **stack_a)
+void	sa(t_list **stack_a)
 {
 	t_list	*tmp;
 
@@ -24,7 +24,7 @@ void sa(t_list **stack_a)
 	(*stack_a) = tmp;
 }
 
-void sb(t_list **stack_b)
+void	sb(t_list **stack_b)
 {
 	t_list	*tmp;
 
@@ -36,8 +36,7 @@ void sb(t_list **stack_b)
 	(*stack_b) = tmp;
 }
 
-
-void ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);
@@ -64,7 +63,6 @@ void	pb(t_list **stack_a, t_list **stack_b)
 		(*stack_a) = save;
 	}
 }
-
 
 void	pa(t_list **stack_a, t_list **stack_b)
 {

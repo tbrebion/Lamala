@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:30:18 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:16:21 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:23:42 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long int	ft_atoi(char *str)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
 	long int	result;
 
 	j = 1;

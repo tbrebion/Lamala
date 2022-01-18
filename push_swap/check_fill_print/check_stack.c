@@ -6,11 +6,11 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:37:33 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:15:19 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:25:18 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	check_int(char **av)
 {
@@ -56,7 +56,7 @@ int	check_digit(char **av)
 	{
 		j = 0;
 		if ((av[i][j] < 48 || av[i][j] > 57) && av[i][j] != '-')
-				return (0);
+			return (0);
 		j++;
 		while (av[i][j])
 		{

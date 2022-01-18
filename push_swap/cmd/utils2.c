@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 06:12:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/18 15:45:32 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:31:47 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	rrb(t_list **stack_b)
 	(*stack_b) = tmp;
 	(*stack_b)->next = save;
 }
-
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {

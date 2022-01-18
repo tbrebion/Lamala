@@ -6,18 +6,18 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 12:31:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/18 15:56:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:28:19 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_list 	*fill_stack(t_list **stack_a, int ac, char **av)
+t_list	*fill_stack(t_list **stack_a, int ac, char **av)
 {
-	int	i;
-	int	j;
-	t_list	*new;
-	t_list	*current;
+	int					i;
+	int					j;
+	t_list				*new;
+	t_list				*current;
 
 	current = *stack_a;
 	i = 1;
