@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   check_order.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 16:22:00 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/19 14:21:15 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/01/19 13:55:33 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/01/19 14:15:44 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*
- * Dans main ----> check_order  si check_order == 0   ---->  end of program
- * else 
- * 		si stack_a <= 5  
- * 			call  sort_small_stack
- * 		else 
- * 			call  sort_big_stack
- *
-*/
-void
+int	check_order(t_list **stack_a)
+{
+	if ((*stack_a) == NULL)
+		return (1);
+	while ((*stack_a)->next != NULL)
+	{
+		if ((*stack_a)->content > (*stack_a)->next->content)
+			return (0);
+		(*stack_a) = (*stack_a)->next;
+	}
+	return (1);
+}

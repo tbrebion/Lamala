@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:15:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/18 16:24:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:06:16 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,35 +27,6 @@ int	main(int ac, char **av)
 	stack_a = fill_stack(&stack_a, ac, av);
 	print_stack(stack_a, stack_b);
 	ft_printf("\n\n");
-	sa(&stack_a);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	sa(&stack_a);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	pb(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	pb(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	pb(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	rr(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	rrr(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	pa(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	pa(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
-	pa(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	ft_printf("\n\n");
+	ft_printf("%d", check_order(&stack_a));
 	return (0);
 }
