@@ -6,19 +6,27 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:22:00 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/19 14:21:15 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/19 16:08:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*
- * Dans main ----> check_order  si check_order == 0   ---->  end of program
- * else 
- * 		si stack_a <= 5  
- * 			call  sort_small_stack
- * 		else 
- * 			call  sort_big_stack
- *
-*/
-void
+void	sort_small_stack(t_list **stack_b, t_list **stack_b)
+{
+	if (ft_lstsize(*stack_a) == 2)
+		stack_2(stack_a);
+	if (ft_lstsize(*stack_a) == 3)
+		stack_3(stack_a);
+}
+
+void	algo(t_list **stack_a, t_list **stack_b)
+{
+	if (ft_lstsize((*stack_a) <= 5))
+	{
+		sort_small_stack((*stack_a), (*stack_b));
+		return ;
+	}
+	sort_big_stack((*stack_b), (*stack_b));
+	return ;
+}

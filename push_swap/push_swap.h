@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/19 14:04:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/19 16:13:26 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ int		check_double(char **av);
 int		check_digit(char **av);
 long	ft_atoi(char *str);
 int		check_order(t_list **stack_a);
+void	stack_2(t_list **stack_a);
+void	stack_3(t_list **stack_a);
 
 #endif
