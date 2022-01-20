@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 12:31:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/18 16:28:19 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:08:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ t_list	*fill_stack(t_list **stack_a, int ac, char **av)
 	j = ac - 1;
 	while (j > 0)
 	{
-		new = malloc(sizeof(t_list *));
+		new = (t_list *)malloc(sizeof(t_list));
+		if (!new)
+			new = NULL;
 		new->content = (int)ft_atoi(av[j]);
 		new->next = current;
 		stack_a = &new;
