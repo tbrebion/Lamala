@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/20 16:08:32 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/21 16:48:05 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,12 @@ long	ft_atoi(char *str);
 int		check_order(t_list **stack_a);
 void	stack_2(t_list **stack_a);
 void	stack_3(t_list **stack_a);
+int		*put_in_tab(t_list **stack_a);
+
+static int	count_char(char const *str, char c);
+static void	malloc_error(char **tab, int len);
+static char	*new_strdup(char const *str, char c);
+static void	for_my_split(char **res, char const *s, char c, int len);
+char	**ft_split(char const *s, char c);
 
 #endif

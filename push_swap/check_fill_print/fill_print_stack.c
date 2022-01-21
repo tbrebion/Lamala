@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 12:31:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/20 16:08:04 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/21 16:43:42 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 t_list	*fill_stack(t_list **stack_a, int ac, char **av)
 {
-	int					i;
 	int					j;
 	t_list				*new;
 	t_list				*current;
 
 	current = *stack_a;
-	i = 1;
 	j = ac - 1;
 	while (j > 0)
 	{
@@ -32,7 +30,6 @@ t_list	*fill_stack(t_list **stack_a, int ac, char **av)
 		stack_a = &new;
 		current = new;
 		j--;
-		i++;
 	}
 	return (*stack_a);
 }
@@ -54,7 +51,7 @@ void	print_stack(t_list *stack_a, t_list *stack_b)
 		}
 		else if (stack_a == NULL && stack_b != NULL)
 		{
-			ft_printf("  	%d \n", (int)stack_b->content);
+			ft_printf("  	%d\n", (int)stack_b->content);
 			stack_b = stack_b->next;
 		}
 	}
