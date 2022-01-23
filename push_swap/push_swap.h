@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/21 16:48:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/23 18:24:40 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_list
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **alst, t_list *new);
+void	ft_lstadd_back(t_list **alst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
 
 void	sa(t_list **stack_a);
 void	sb(t_list **stack_b);
@@ -39,8 +41,9 @@ void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
-t_list	*fill_stack(t_list **stack_a, int ac, char **av);
+t_list	**fill_stack(t_list **stack_a, int ac, char **av);
 void	print_stack(t_list *stack_a, t_list *stack_b);
+void	sort_small_stack(t_list **stack_a/*, t_list **stack_b*/);
 
 int		check_int(char **av);
 int		check_double(char **av);
@@ -51,10 +54,10 @@ void	stack_2(t_list **stack_a);
 void	stack_3(t_list **stack_a);
 int		*put_in_tab(t_list **stack_a);
 
-static int	count_char(char const *str, char c);
-static void	malloc_error(char **tab, int len);
-static char	*new_strdup(char const *str, char c);
-static void	for_my_split(char **res, char const *s, char c, int len);
+int	count_char(char const *str, char c);
+void	malloc_error(char **tab, int len);
+char	*new_strdup(char const *str, char c);
+void	for_my_split(char **res, char const *s, char c, int len);
 char	**ft_split(char const *s, char c);
 
 #endif

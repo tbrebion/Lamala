@@ -6,32 +6,27 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 12:31:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/21 16:43:42 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:23:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*fill_stack(t_list **stack_a, int ac, char **av)
+t_list	**fill_stack(t_list **stack_a, int ac, char **av)
 {
 	int					j;
 	t_list				*new;
-	t_list				*current;
+	int					content;
 
-	current = *stack_a;
-	j = ac - 1;
-	while (j > 0)
+	j = 0;
+	content = 0;
+	while (++j < ac)
 	{
-		new = (t_list *)malloc(sizeof(t_list));
-		if (!new)
-			new = NULL;
-		new->content = (int)ft_atoi(av[j]);
-		new->next = current;
-		stack_a = &new;
-		current = new;
-		j--;
+		content = (int)ft_atoi(av[j]);
+		new = ft_lstnew(content);
+		ft_lstadd_back(stack_a, new);
 	}
-	return (*stack_a);
+	return (stack_a);
 }
 
 void	print_stack(t_list *stack_a, t_list *stack_b)

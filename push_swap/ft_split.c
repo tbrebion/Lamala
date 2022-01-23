@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:35:24 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/21 17:21:03 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/23 16:05:44 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	count_char(char const *str, char c)
+int	count_char(char const *str, char c)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ static int	count_char(char const *str, char c)
 	return (i);
 }
 
-static void	malloc_error(char **tab, int len)
+void	malloc_error(char **tab, int len)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ static void	malloc_error(char **tab, int len)
 	free(tab);
 }
 
-static char	*new_strdup(char const *str, char c)
+char	*new_strdup(char const *str, char c)
 {
 	int		i;
 	char	*res;
@@ -53,7 +53,7 @@ static char	*new_strdup(char const *str, char c)
 	return (res);
 }
 
-static void	for_my_split(char **res, char const *s, char c, int len)
+void	for_my_split(char **res, char const *s, char c, int len)
 {
 	int	i;
 	int	j;

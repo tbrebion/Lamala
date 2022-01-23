@@ -6,11 +6,11 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:34:32 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/01 13:34:42 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:15:44 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:55:33 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/19 17:11:32 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:39:22 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ int	check_order(t_list **stack_a)
 	save = (*stack_a);
 	if ((*stack_a) == NULL)
 		return (1);
-	while ((*stack_a)->next != NULL)
+	while (save->next)
 	{
-		if ((*stack_a)->content > (*stack_a)->next->content)
+		if (save->content > save->next->content)
 			return (0);
-		(*stack_a) = (*stack_a)->next;
+		save = save->next;
 	}
-	(*stack_a) = save;
 	return (1);
 }

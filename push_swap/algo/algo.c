@@ -6,20 +6,20 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:22:00 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/19 16:08:09 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/23 18:23:06 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_small_stack(t_list **stack_b, t_list **stack_b)
+void	sort_small_stack(t_list **stack_a/*, t_list **stack_b*/)
 {
 	if (ft_lstsize(*stack_a) == 2)
 		stack_2(stack_a);
 	if (ft_lstsize(*stack_a) == 3)
 		stack_3(stack_a);
 }
-
+/*
 void	algo(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize((*stack_a) <= 5))
@@ -29,4 +29,4 @@ void	algo(t_list **stack_a, t_list **stack_b)
 	}
 	sort_big_stack((*stack_b), (*stack_b));
 	return ;
-}
+}*/
