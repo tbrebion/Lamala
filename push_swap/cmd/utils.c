@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:29:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/18 16:31:18 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:26:23 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	sa(t_list **stack_a)
 	(*stack_a)->next = tmp->next;
 	tmp->next = (*stack_a);
 	(*stack_a) = tmp;
+	ft_putstr("sa\n");
 }
 
 void	sb(t_list **stack_b)
@@ -34,12 +35,14 @@ void	sb(t_list **stack_b)
 	(*stack_b)->next = tmp->next;
 	tmp->next = (*stack_b);
 	(*stack_b) = tmp;
+	ft_putstr("sb\n");
 }
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);
+	ft_putstr("ss\n");
 }
 
 void	pb(t_list **stack_a, t_list **stack_b)
@@ -62,6 +65,7 @@ void	pb(t_list **stack_a, t_list **stack_b)
 		free(*stack_a);
 		(*stack_a) = save;
 	}
+	ft_putstr("pb\n");
 }
 
 void	pa(t_list **stack_a, t_list **stack_b)
@@ -84,4 +88,5 @@ void	pa(t_list **stack_a, t_list **stack_b)
 		free(*stack_b);
 		(*stack_b) = save;
 	}
+	ft_putstr("pa\n");
 }

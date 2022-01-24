@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:15:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/23 17:50:33 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/24 20:21:58 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,29 @@ int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	char	**new_av;
+	int		i;
 
+	new_av = NULL;
 	stack_a = NULL;
 	stack_b = NULL;
+	i = 0;
 	if (ac == 2)
-		av = ft_split(av[1], ' ');
-	if (check_int(av) == 0 || check_double(av) == 0 || check_digit(av) == 0)
+		new_av = ft_split(av[1], ' ');
+	else
+		new_av = &av[1];
+	while (new_av[i])
+		i++;
+	if (check_int(new_av) == 0 || check_double(new_av) == 0 || check_digit(new_av) == 0)
 	{
 		ft_printf("Error\n");
 		return (0);
 	}
-	fill_stack(&stack_a, ac, av);
+	fill_stack(&stack_a, i, new_av);
 	print_stack(stack_a, stack_b);
 	ft_printf("\n\n");
-	sort_small_stack(&stack_a/*, &stack_b*/);
+
+	algo(&stack_a, &stack_b);
 	ft_printf("\n\n");
 	print_stack(stack_a, stack_b);
 	return (0);

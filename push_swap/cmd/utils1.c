@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:23:32 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/17 08:56:21 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:23:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ra(t_list **stack_a)
 	tmp->next = NULL;
 	(*stack_a)->next = tmp;
 	(*stack_a) = save;
+	ft_putstr("ra\n");
 }
 
 void	rb(t_list **stack_b)
@@ -42,10 +43,12 @@ void	rb(t_list **stack_b)
 	tmp->next = NULL;
 	(*stack_b)->next = tmp;
 	(*stack_b) = save;
+	ft_putstr("rb\n");
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
+	ft_putstr("rr\n");
 }

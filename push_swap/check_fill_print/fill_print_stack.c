@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 12:31:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/23 17:23:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/24 20:22:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	**fill_stack(t_list **stack_a, int ac, char **av)
 	t_list				*new;
 	int					content;
 
-	j = 0;
+	j = -1;
 	content = 0;
 	while (++j < ac)
 	{

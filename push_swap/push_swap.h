@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/23 18:24:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:41:54 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include<stdlib.h>
 # include<unistd.h>
 # include"ft_printf/ft_printf.h"
+# include<limits.h>
 
 typedef struct s_list
 {
@@ -43,16 +44,19 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 
 t_list	**fill_stack(t_list **stack_a, int ac, char **av);
 void	print_stack(t_list *stack_a, t_list *stack_b);
-void	sort_small_stack(t_list **stack_a/*, t_list **stack_b*/);
+void	sort_small_stack(t_list **stack_a, t_list **stack_b);
 
 int		check_int(char **av);
 int		check_double(char **av);
 int		check_digit(char **av);
 long	ft_atoi(char *str);
 int		check_order(t_list **stack_a);
+int		return_smallest(t_list **stack_a);
 void	stack_2(t_list **stack_a);
 void	stack_3(t_list **stack_a);
-int		*put_in_tab(t_list **stack_a);
+void	stack_4(t_list **stack_a, t_list **stack_b);
+void	stack_5(t_list **stack_a, t_list **stack_b);
+void	algo(t_list **stack_a, t_list **stack_b);
 
 int	count_char(char const *str, char c);
 void	malloc_error(char **tab, int len);

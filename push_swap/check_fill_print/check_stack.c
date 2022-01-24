@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:37:33 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/18 16:25:18 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/24 20:00:24 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_int(char **av)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		if (ft_atoi(av[i]) < -2147483648 || ft_atoi(av[i]) > 2147483647)
@@ -31,7 +31,7 @@ int	check_double(char **av)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		j = i + 1;
@@ -51,7 +51,7 @@ int	check_digit(char **av)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		j = 0;
