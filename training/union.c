@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 13:39:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/25 15:28:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:01:03 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ int	main(int ac, char **av)
 {
 	if (ac == 3)
 		ft_union(av[1], av[2]);
+	write(1, "\n", 1);
 	return (0);
 }
