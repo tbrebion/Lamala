@@ -1,56 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   union.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 13:39:11 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/01/25 15:28:08 by tbrebion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	verif_char(char *tab, char c, int index)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i])
-		i++;
-	}
-}
-
-int	diff_str(char *str)
-{
-	int	i;
 	int	j;
 
-	i = 0;
-	while (str[i])
+	j = 0;
+	while (j < index)
 	{
-		j = i + 1;
-		while (str[i] == str[j])
-		{
+		if (tab[j] == c)
+			return (0);
+		j++;
+	}
+	return (1);
+}
 
-		}	
+void	ft_union(char *s1, char *s2)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	while (s1[i])
+	{
+		if (verif_char(s1, s1[i], i) == 1)
+			write(1, &s1[i], 1);
+		i++;
+	}
+	len = i;
+	i = 0;
+	while (s2[i])
+	{
+		if (verif_char(s2, s2[i], i))
+		{
+			if (verif_char(s1, s2[i], len))
+				write(1, &s2[i], 1);
+		}
+		i++;
 	}
 }
 
 int	main(int ac, char **av)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	if (ac != 3)
-	{
-		ft_putchar('\n');
-		return (0);
-	}
-	while (av[1][i])
-	{
-		j = i + 1;
-		while (av[1][j])
-		{
-			
-		}
-	}
+	if (ac == 3)
+		ft_union(av[1], av[2]);
 	return (0);
 }
