@@ -3,51 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   union.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 13:39:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/26 14:17:28 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/01/26 17:55:05 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/01/26 18:09:06 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	verif_char(char *tab, char c, int index)
+int	ft_strchr(char *str, char c)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (j < index)
+	i = 0;
+	while (str[i])
 	{
-		if (tab[j] == c)
-			return (0);
-		j++;
+		if (str[i] == c)
+			return (1);
+		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	ft_union(char *s1, char *s2)
 {
+	char	tab[265];
 	int	i;
-	int	len;
+	int	k;
 
-	i = 0;
-	while (s1[i])
+	i = -1;
+	k = 0;
+	while (s1[++i])
 	{
-		if (verif_char(s1, s1[i], i) == 1)
-			write(1, &s1[i], 1);
-		i++;
-	}
-	len = i;
-	i = 0;
-	while (s2[i])
-	{
-		if (verif_char(s2, s2[i], i))
+		if (ft_strchr(tab, s1[i]) == 0)
 		{
-			if (verif_char(s1, s2[i], len))
-				write(1, &s2[i], 1);
+			write(1, &s1[i], 1);
+			tab[k] = s1[i];
+			k++;
 		}
-		i++;
+	}
+	i = -1;
+	while (s2[++i])
+	{
+		if (ft_strchr(tab, s2[i]) == 0)
+		{
+			write(1, &s2[i], 1);
+			tab[k] = s2[i];
+			k++;
+		}
 	}
 }
 
