@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:22:00 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/24 17:44:45 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:10:53 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	algo(t_list **stack_a, t_list **stack_b)
 		sort_small_stack((stack_a), (stack_b));
 		return ;
 	}
-	/*sort_big_stack((*stack_b), (*stack_b));*/
+	sort_big_stack((stack_a), (stack_b));
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/24 17:41:54 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/26 15:49:15 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 t_list	**fill_stack(t_list **stack_a, int ac, char **av);
 void	print_stack(t_list *stack_a, t_list *stack_b);
 void	sort_small_stack(t_list **stack_a, t_list **stack_b);
+void	sort_big_stack(t_list **stack_a, t_list **stack_b);
 
 int		check_int(char **av);
 int		check_double(char **av);
