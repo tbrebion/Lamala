@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/26 15:49:15 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:09:44 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	stack_4(t_list **stack_a, t_list **stack_b);
 void	stack_5(t_list **stack_a, t_list **stack_b);
 void	algo(t_list **stack_a, t_list **stack_b);
 
-int	count_char(char const *str, char c);
+int		count_char(char const *str, char c);
 void	malloc_error(char **tab, int len);
 char	*new_strdup(char const *str, char c);
 void	for_my_split(char **res, char const *s, char c, int len);
