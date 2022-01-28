@@ -6,27 +6,11 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 15:43:49 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/27 11:08:12 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/28 13:45:43 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	return_smallest(t_list **stack_a)
-{
-	t_list	*save;
-	int		i;
-
-	i = INT_MAX;
-	save = (*stack_a);
-	while (save != NULL)
-	{
-		if (save->content < i)
-			i = save->content;
-		save = save->next;
-	}
-	return (i);
-}
 
 void	stack_2(t_list **stack_a)
 {

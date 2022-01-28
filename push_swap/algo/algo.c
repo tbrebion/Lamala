@@ -6,11 +6,43 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:22:00 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/26 16:10:53 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/28 13:47:20 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	return_smallest(t_list **stack_a)
+{
+	t_list	*save;
+	int		i;
+
+	i = INT_MAX;
+	save = (*stack_a);
+	while(save != NULL)
+	{
+		if (save->content < i)
+			i = save->content;
+		save = save->next;
+	}
+	return (i);
+}
+
+int	return_biggest(t_list **stack_a)
+{
+	t_list	*save;
+	int		i;
+
+	i = INT_MIN;
+	save = (*stack_a);
+	while(save != NULL)
+	{
+		if (save->content > i)
+			i = save->content;
+		save = save->next;
+	}
+	return (i);
+}
 
 void	sort_small_stack(t_list **stack_a, t_list **stack_b)
 {
