@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:05:30 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/16 14:55:18 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/30 18:02:24 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	ft_putnbr_hex(unsigned int nb)
 	c = 0;
 	save = nb;
 	hex = "0123456789abcdef";
-	if (nb == 16)
-		return (ft_putstr("10"));
-	if (nb > 16)
+	if (nb > 15)
 	{
 		ft_putnbr_hex(nb / 16);
 	}
