@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 14:28:47 by tbrebion          #+#    #+#              #
-#    Updated: 2022/01/27 15:07:38 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/01/31 11:23:18 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,4 +33,20 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar rcs
 
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
+all: $(NAME)
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

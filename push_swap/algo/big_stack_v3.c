@@ -6,12 +6,12 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:55:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/30 17:09:35 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/31 14:19:31 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+/*
 int	check_order_tab(int *tab)
 {
 	int	i;
@@ -68,7 +68,7 @@ int	return_median(t_list **stack_a)
 	return (tab[i]);
 }
 
-void	cut_in_2(t_list **stack_a)
+void	cut_in_2(t_list **stack_a, t_list **stack_b)
 {
 	int	pivot;
 
@@ -79,3 +79,32 @@ void	cut_in_2(t_list **stack_a)
 		(*stack_a) = (*stack_a)->next;
 	}
 }
+
+void	cut_in_2(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp;
+	t_list	*tmp2;
+
+	
+}
+
+void	sort_2_stack(t_list **stack_a, t_list **stack_b)
+{
+	cut_in_2(stack_a, stack_b);
+	while (check_order(stack_a) != 1)
+	{
+		
+	}
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
