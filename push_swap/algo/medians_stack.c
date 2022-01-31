@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_stack_v3.c                                     :+:      :+:    :+:   */
+/*   medians_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:55:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/31 14:19:31 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:21:28 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-/*
+
 int	check_order_tab(int *tab)
 {
 	int	i;
@@ -32,79 +32,42 @@ int	*median_utils(t_list **stack_a)
 	int	i;
 	int	*tab;
 	int	tmp;
+	t_list	*save;
 
 	i = 0;
-	while ((*stack_a)->next)
+	save = (*stack_a);
+	tab = malloc(sizeof(int) * ft_lstsize(*stack_a));
+	if (!tab)
+		return (NULL);
+	while (*stack_a)
 	{
 		tab[i] = (*stack_a)->content;
 		(*stack_a) = (*stack_a)->next;
 		i++;
 	}
-	i = 0;
-	while (check_order_tab(tab))
+	while (check_order_tab(tab) != 1)
 	{
-		if (tab[i] > tab[i + 1])
+		i = 0;
+		while(i++ < ft_lstsize(save))
 		{
-			tmp = tab[i + 1];
-			tab[i + 1] = tab[i];
-			tab[i] = tmp;
+			if (tab[i] > tab[i + 1])
+			{
+				tmp = tab[i + 1];
+				tab[i + 1] = tab[i];
+				tab[i] = tmp;
+			}
 		}
-		i++;
 	}
 	return (tab);
 }
 
-int	return_median(t_list **stack_a)
+int	return_median(t_list **stack_a, int n)
 {
 	int	*tab;
 	int	i;
 
 	i = 0;
-	tab = malloc(sizeof(int) * ft_lstsize(*stack_a));
-	if (!tab)
-		return (NULL);
 	tab = median_utils(stack_a);
-	i = ft_lstsize(*stack_a) / 2;
+	i = ft_lstsize(*stack_a) / n;
 	return (tab[i]);
 }
-
-void	cut_in_2(t_list **stack_a, t_list **stack_b)
-{
-	int	pivot;
-
-	pivot = return_median(stack_a);
-	while ((*stack_a)->content != pivot)
-	{
-		pb(stack_a, stack_b);
-		(*stack_a) = (*stack_a)->next;
-	}
-}
-
-void	cut_in_2(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*tmp;
-	t_list	*tmp2;
-
-	
-}
-
-void	sort_2_stack(t_list **stack_a, t_list **stack_b)
-{
-	cut_in_2(stack_a, stack_b);
-	while (check_order(stack_a) != 1)
-	{
-		
-	}
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
