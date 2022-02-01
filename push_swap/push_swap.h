@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/01 13:57:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:12:48 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
 int		check_order_tab(int *tab, int n);
-int		*median_utils(t_list **stack_a);
-int		*median_utils2(int *tab, t_list *save);
+int		*median_utils(t_list **stack_a, int size);
+void	median_utils2(int *tab, int size);
 int		return_median(t_list **stack_a, int n);
 
 t_list	**fill_stack(t_list **stack_a, int ac, char **av);
