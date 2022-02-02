@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:55:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/01 19:16:45 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:56:05 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 	return (1);
 }*/
 
-int	*median_utils(t_list **stack_a, int size)
+int	*median_utils(t_list *stack_a, int size)
 {
 	int	*tab;
 	int	i;
@@ -36,11 +36,11 @@ int	*median_utils(t_list **stack_a, int size)
 	if (!tab)
 		return (NULL);
 	i = 0;
-	while (*stack_a)
+	while (stack_a)
 	{
-		tab[i] = (*stack_a)->content;
+		tab[i] = (stack_a)->content;
+		(stack_a) = (stack_a)->next;
 		i++;
-		(*stack_a) = (*stack_a)->next;
 	}
 	return (tab);
 }
@@ -73,28 +73,19 @@ void	median_utils2(int *tab, int size)
 	}
 }
 
-int	return_median(t_list **stack_a, int n)
+int	return_median(t_list *stack_a, int n)
 {
 	int	*tab;
 	int	i;
 	int	size;
 	t_list	*save;
 
+	save = stack_a;
 	i = 0;
-	save = (*stack_a);
-	size = ft_lstsize(*stack_a);
-	tab = median_utils(stack_a, size);
-	int	j = 0;
-	while (j++ < size)
-		ft_printf("\ntab[j] : %d\n", tab[j]);
-	ft_printf("\n\nNEXT\n\n");
+	size = ft_lstsize(stack_a);
+	tab = median_utils((stack_a), size);
 	median_utils2(tab, size);
-
-	j = 0;
-	while (j++ < size)
-		ft_printf("\ntab[j] : %d\n", tab[j]);
-
-	(*stack_a) = save;
-	i = ft_lstsize(*stack_a) / n;
+	(stack_a) = save;
+	i = ft_lstsize(stack_a) / n;
 	return (tab[i]);
 }
