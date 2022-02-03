@@ -3,130 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   100_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
+/*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/31 15:48:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/03 15:49:14 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/02/03 18:17:35 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/02/03 18:31:16 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	hundred_stack_utils(t_list **stack_a, t_list **stack_b)
+/*void	sort_100_stack(t_list **stack_a, t_list **stack_b)
 {
-	int	n;
-	int	i;
-	int	quart;
-	t_list	*tmp;
-
-	n = 4;  //a changer pour 500
-	while (n > 1)
-	{	
-		quart = return_median((*stack_a), n);
-		while (return_smallest(stack_a) < quart)
-		{
-			tmp = (*stack_a);
-			i = 0;
-			while (tmp->content > quart)
-			{
-				i++;
-				tmp = tmp->next;
-			}
-			big_stack_utils(i, ft_lstsize(*stack_a), stack_a);
-			pb(stack_a, stack_b);
-		}
-		n--;
-	}
-}
-
-void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b)
-{
-	t_list *tmp_a;
-	t_list *tmp_b;
 	int	i;
 	int	j;
+	int	tab[100];
 
 	i = 0;
 	j = 0;
-	hundred_stack_utils(stack_a, stack_b);
-	while(i++ < 25) // a changer pour 500
-		pa(stack_a, stack_b);
-	i = 0;
-	tmp_a = (*stack_a);	
-	tmp_b = (*stack_b);	
-	while (tmp_a->content != return_biggest(stack_a))
+	while (check_order(stack_a) != 1)
 	{
-		i++;
-		tmp_a = tmp_a->next;
-	}
-	while (tmp_b->content != return_smallest(stack_b))
-	{
-		j++;
-		tmp_b = tmp_b->next;
-	}
-	hundred_stack_utils_rr(stack_a, stack_b, i, j);
-	hundred_stack_utils_rrr(stack_a, stack_b, i, j);
-}
 
-void	hundred_stack_utils_rr(t_list **stack_a, t_list **stack_b, int i, int j)
-{
-	if (i <= (ft_lstsize(*stack_a)) / 2 && j <= (ft_lstsize(*stack_b) / 2))
-	{
-		if (i <= j - 2)
-		{
-			while (i-- > 0)
-			{
-				rr(stack_a, stack_b);
-				j--;
-			}
-			while (j-- > 0)
-				rb(stack_b);
-		}
-		else if (i > j - 2)
-		{
-			while (j-- > 0)
-			{
-				rr(stack_a, stack_b);
-				i--;
-			}
-			while (i-- > 0)
-				ra(stack_a);
-		}
 	}
-	return ;
-}
-
-void	hundred_stack_utils_rrr(t_list **stack_a, t_list **stack_b, int i, int j)
-{
-	if (i > (ft_lstsize(*stack_a)) / 2 && j > (ft_lstsize(*stack_b) / 2))
-	{
-		if (i <= j - 2)
-		{
-			while (j++ < ft_lstsize(*stack_b))
-			{
-				rrr(stack_a, stack_b);
-				i++;
-			}
-			while (i++ < ft_lstsize(*stack_a))
-				rra(stack_a);
-		}
-		else if (i > j - 2)
-		{
-			while (i++ < ft_lstsize(*stack_a))
-			{
-				rrr(stack_a, stack_b);
-				j++;
-			}
-			while (j++ < ft_lstsize(*stack_b))
-				rrb(stack_b);
-		}
-	}
-	return ;
-}
-/*void	sort_100_stack(t_list **stack_a, t_list **stack_b)
-{
-	
-
-	if (i <= (ft_lstsize(*stack_a)) / 2 && j <= (ft_lstsize(*stack_b) / 2))
-		hundred_stack_utils_rr(stack_a, stack_b)
 }*/

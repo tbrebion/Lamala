@@ -6,26 +6,11 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:55:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/02 17:56:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:53:15 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-/*int	check_order_tab(int *tab, int n)
-{
-	int	i;
-
-	i = 0;
-	if (!tab)
-		return (1);
-	while (i++ < n)
-	{
-		if (tab[i] > tab[i + 1])
-			return (0);
-	}
-	return (1);
-}*/
 
 int	*median_utils(t_list *stack_a, int size)
 {
@@ -86,6 +71,6 @@ int	return_median(t_list *stack_a, int n)
 	tab = median_utils((stack_a), size);
 	median_utils2(tab, size);
 	(stack_a) = save;
-	i = ft_lstsize(stack_a) / n;
+	i = (ft_lstsize(stack_a) / n) - 1; // -1 a peut etre enlever 
 	return (tab[i]);
 }
