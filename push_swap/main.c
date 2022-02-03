@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:15:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/02 17:55:45 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:50:41 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,38 +35,13 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	fill_stack(&stack_a, i, new_av);
-	//print_stack(stack_a, stack_b);
+	print_stack(stack_a, stack_b);
 	ft_printf("\n\n");
-//	sort_100_stack(&stack_a, &stack_b);
+	//sort_100_stack(&stack_a, &stack_b);
+	hundred_stack_utils_1(&stack_a, &stack_b);
+	ft_printf("\n\n");
+	//algo(&stack_a, &stack_b);
+	print_stack(stack_a, stack_b);
 
-
-
-	ft_printf("\nmed : %d\n", return_median(stack_a, 2));
-
-	int	*tab;
-	tab = median_utils(stack_a, ft_lstsize(stack_a));
-	int	j = 0;
-	while(tab[j])
-	{
-		ft_printf("\ntab[%d] : %d\n", j, tab[j]);
-		j++;
-	}
-
-	ft_printf("\nmed : %d\n", return_median(stack_a, 2));
-
-	median_utils2(tab, ft_lstsize(stack_a));
-	ft_printf("\nNEW :\n");
-	j = 0;
-	while(tab[j])
-	{
-		ft_printf("\ntab[%d] : %d\n", j, tab[j]);
-		j++;
-	}
-
-	ft_printf("\nmed : %d\n", return_median(stack_a, 2));
-
-
-
-//	print_stack(stack_a, stack_b);
 	return (0);
 }
