@@ -6,13 +6,13 @@
 /*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:17:35 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/04 11:00:50 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/04 11:04:13 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_100_stack(t_list **stack_a, t_list **stack_b)
+/*void	sort_100_stack(t_list **stack_a, t_list **stack_b)
 {
 	int	i;
 	int	j;
@@ -25,4 +25,4 @@ void	sort_100_stack(t_list **stack_a, t_list **stack_b)
 		(*stack_a) = (*stack_a)->next;
 		(*stack_b) = (*stack_b)->next;
 	}
-}
+}*/

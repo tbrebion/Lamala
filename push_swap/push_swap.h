@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/03 18:23:28 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/04 11:04:41 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	sort_small_stack(t_list **stack_a, t_list **stack_b);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b);
 void	big_stack_utils(int i, int half_stack, t_list **stack_a);
 void	hundred_stack_utils(t_list **stack_a, t_list **stack_b);
-void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b);
+void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b/*, int i, int j*/);
 void	hundred_stack_utils_rr(t_list **stack_a, t_list **stack_b, int i, int j);
 void	hundred_stack_utils_rrr(t_list **stack_a, t_list **stack_b, int i, int j);
 void	r_utils(t_list **stack_a, t_list **stack_b, int i, int j);
