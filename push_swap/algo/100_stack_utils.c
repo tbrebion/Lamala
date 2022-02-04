@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:48:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/03 18:32:23 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/04 10:53:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ void	hundred_stack_utils(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b/*, int i, int j*/)
+void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b, int i, int j)
 {
 	t_list *tmp_a;
 	t_list *tmp_b;
-	int	i;
-	int	j;
+	//int	i;
+	//int	j;
 
-	i = 0;
-	j = 0;
+	//i = 0;
+	//j = 0;
 	hundred_stack_utils(stack_a, stack_b);
 	while(i++ < 25) // a changer pour 500
 		pa(stack_a, stack_b);

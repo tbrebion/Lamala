@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 17:16:22 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/03 17:48:24 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/04 11:00:11 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,16 @@ void	r_utils_1(t_list **stack_a, t_list **stack_b, int i, int j)
 			rrb(stack_b);
 	}
 }
+
+/*int	tab_int_chr(int	*tab, int nb)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i++])
+	{
+		if (tab[i] == nb)
+			return (0)
+	}
+	return (1);
+}*/
