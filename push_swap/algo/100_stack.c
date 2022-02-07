@@ -6,7 +6,7 @@
 /*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:17:35 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/07 17:33:39 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/07 17:58:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	sort_100_stack(t_list **stack_a, t_list **stack_b)
 
 	i = 0;
 	j = 0;
-	hundred_stack_utils(stack_a, stack_b);
+	hundred_stack_utils(stack_a, stack_b, 4);
 	while ((*stack_a))
 		sort_small_a(stack_a, stack_b);
 	while (i++ < 25)

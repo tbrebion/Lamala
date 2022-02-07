@@ -6,11 +6,12 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 14:28:47 by tbrebion          #+#    #+#              #
-#    Updated: 2022/01/31 11:23:18 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/02/07 18:05:23 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-ALGO = $(addprefix algo/, algo.c big_stack.c check_order.c small_stack.c)
+ALGO = $(addprefix algo/, algo.c big_stack.c check_order.c small_stack.c medians_stack.c 100_stack_utils.c \
+100_stack.c 500_stack.c)
 
 CFP = $(addprefix check_fill_print/, check_stack.c fill_print_stack.c)
 

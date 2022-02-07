@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:15:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/07 16:10:17 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/07 17:38:50 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,9 @@ int	main(int ac, char **av)
 	fill_stack(&stack_a, i, new_av);
 	print_stack(stack_a, stack_b);
 	ft_printf("\n\n");
-	sort_100_stack(&stack_a, &stack_b);
-//	hundred_stack_utils(&stack_a, &stack_b);
-	//hundred_stack_utils_1(&stack_a, &stack_b);
+	algo(&stack_a, &stack_b);
 	ft_printf("\n\n");
 	print_stack(stack_a, stack_b);
-	//algo(&stack_a, &stack_b);
 
 	return (0);
 }
