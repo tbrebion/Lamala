@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/04 11:43:28 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/07 17:33:43 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,15 @@ void	sort_small_stack(t_list **stack_a, t_list **stack_b);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b);
 void	big_stack_utils(int i, int half_stack, t_list **stack_a);
 void	hundred_stack_utils(t_list **stack_a, t_list **stack_b);
-void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b, int i, int j/*, t_list **tmp1, t_list **tmp2*/);
+void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b, int i, int j);
 void	hundred_stack_utils_rr(t_list **stack_a, t_list **stack_b, int i, int j);
 void	hundred_stack_utils_rrr(t_list **stack_a, t_list **stack_b, int i, int j);
 void	r_utils(t_list **stack_a, t_list **stack_b, int i, int j);
 void	r_utils_1(t_list **stack_a, t_list **stack_b, int i, int j);
+void	move_in_a(t_list **stack_a, t_list **stack_b, int i);
+void	sort_small_a(t_list **stack_a, t_list **stack_b);
+void	move_in_b(t_list **stack_a, t_list **stack_b, int j);
+void	sort_b(t_list **stack_a, t_list **stack_b);
 void	sort_100_stack(t_list **stack_a, t_list **stack_b);
 //void	sort_500_stack(t_list **stack_a, t_list **stack_b);
 
@@ -65,8 +69,11 @@ int		check_double(char **av);
 int		check_digit(char **av);
 long	ft_atoi(char *str);
 int		check_order(t_list **stack_a);
+int		check_reverse_order(t_list **stack_b); ///////
 int		return_smallest(t_list **stack_a);
+int		return_other_smallest(t_list **stack_a, int smaller);
 int		return_biggest(t_list **stack_a);
+int		return_other_biggest(t_list **stack_a, int bigger);
 void	stack_2(t_list **stack_a);
 void	stack_3(t_list **stack_a);
 void	stack_4(t_list **stack_a, t_list **stack_b);

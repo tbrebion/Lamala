@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:48:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/04 13:44:49 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/07 17:31:14 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	hundred_stack_utils(t_list **stack_a, t_list **stack_b)
 		n--;
 	}
 }
-
+/*
 void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b, int i, int j)
 {
 	t_list 	*tmp_a;
@@ -47,12 +47,12 @@ void	hundred_stack_utils_1(t_list **stack_a, t_list **stack_b, int i, int j)
 	i = 0;
 	tmp_a = (*stack_a);	
 	tmp_b = (*stack_b);	
-	while (tmp_a->content != return_biggest(stack_a))
+	while (tmp_a && tmp_a->content != return_smallest(stack_a))
 	{
 		i++;
 		tmp_a = tmp_a->next;
 	}
-	while (tmp_b->content != return_smallest(stack_b))
+	while (tmp_b && tmp_b->content != return_biggest(stack_b))
 	{
 		j++;
 		tmp_b = tmp_b->next;
@@ -117,4 +117,4 @@ void	hundred_stack_utils_rrr(t_list **stack_a, t_list **stack_b, int i, int j)
 		}
 	}
 	return ;
-}
+}*/
