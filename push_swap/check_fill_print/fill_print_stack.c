@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 12:31:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/24 20:22:04 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:17:48 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	**fill_stack(t_list **stack_a, int ac, char **av)
 	}
 	return (stack_a);
 }
-
+/*
 void	print_stack(t_list *stack_a, t_list *stack_b)
 {
 	while (stack_a != NULL || stack_b != NULL)
@@ -52,4 +52,4 @@ void	print_stack(t_list *stack_a, t_list *stack_b)
 	}
 	ft_printf("_	_\n");
 	ft_printf("a	b\n");
-}
+}*/
