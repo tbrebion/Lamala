@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:55:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/08 11:55:01 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:05:39 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	return_median(t_list *stack_a, int n)
 	int		*tab;
 	int		i;
 	int		size;
+	int		quart;
 	t_list	*save;
 
 	save = stack_a;
@@ -72,5 +73,7 @@ int	return_median(t_list *stack_a, int n)
 	median_utils2(tab, size);
 	(stack_a) = save;
 	i = (ft_lstsize(stack_a) / n) - 1;
-	return (tab[i]);
+	quart = tab[i];
+	free(tab);
+	return (quart);
 }

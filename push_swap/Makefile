@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 14:28:47 by tbrebion          #+#    #+#              #
-#    Updated: 2022/02/08 11:23:46 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/02/08 16:19:39 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,9 @@ ft_putnbr_hex.c ft_putstr.c ft_putulnbr_hex.c ft_putunbr.c hex_len.c nb_len.c un
 
 LST = $(addprefix lst/, ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c)
 
-PS = ft_atoi.c ft_split.c main.c
+PS = ft_atoi.c ft_split.c main.c ft_free.c
 
 SRCS = $(ALGO) $(CFP) $(CMD) $(PRINTF) $(LST) $(PS)
-
 
 NAME = push_swap
 OBJS = $(SRCS:.c=.o)
