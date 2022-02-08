@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:22:00 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/08 11:52:27 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:35:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	sort_small_stack(t_list **stack_a, t_list **stack_b)
 
 void	algo(t_list **stack_a, t_list **stack_b)
 {
+	if (check_order(stack_a) == 1)
+		return ;
 	if (ft_lstsize(*stack_a) <= 5)
 	{
 		sort_small_stack(stack_a, stack_b);
