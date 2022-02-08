@@ -6,7 +6,7 @@
 /*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:17:35 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/07 17:58:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 11:54:25 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	move_in_a(t_list **stack_a, t_list **stack_b, int i)
 
 void	sort_small_a(t_list **stack_a, t_list **stack_b)
 {
-	t_list *tmp_a;
-	int	i;
+	t_list	*tmp_a;
+	int		i;
 
 	i = 0;
 	tmp_a = (*stack_a);
@@ -59,8 +59,8 @@ void	move_in_b(t_list **stack_a, t_list **stack_b, int j)
 
 void	sort_b(t_list **stack_a, t_list **stack_b)
 {
-	t_list *tmp_b;
-	int	j;
+	t_list	*tmp_b;
+	int		j;
 
 	j = 0;
 	tmp_b = (*stack_b);
@@ -75,10 +75,8 @@ void	sort_b(t_list **stack_a, t_list **stack_b)
 void	sort_100_stack(t_list **stack_a, t_list **stack_b)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	hundred_stack_utils(stack_a, stack_b, 4);
 	while ((*stack_a))
 		sort_small_a(stack_a, stack_b);

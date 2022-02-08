@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:22:00 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/07 17:48:03 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 11:52:27 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	return_smallest(t_list **stack_a)
 
 	i = INT_MAX;
 	save = (*stack_a);
-	while(save != NULL)
+	while (save != NULL)
 	{
 		if (save->content < i)
 			i = save->content;
@@ -35,7 +35,7 @@ int	return_biggest(t_list **stack_a)
 
 	i = INT_MIN;
 	save = (*stack_a);
-	while(save != NULL)
+	while (save != NULL)
 	{
 		if (save->content > i)
 			i = save->content;
@@ -68,7 +68,6 @@ void	algo(t_list **stack_a, t_list **stack_b)
 	else if (ft_lstsize(*stack_a) == 100)
 	{
 		sort_100_stack(stack_a, stack_b);
-		ft_printf("100 STACK !!!!!");
 		return ;
 	}
 	else if (ft_lstsize(*stack_a) == 500)

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:48:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/07 17:59:21 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 11:55:41 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	hundred_stack_utils(t_list **stack_a, t_list **stack_b, int n)
 {
-	int	i;
-	int	quart;
+	int		i;
+	int		quart;
 	t_list	*tmp;
 
 	while (n > 1)

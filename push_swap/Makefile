@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 14:28:47 by tbrebion          #+#    #+#              #
-#    Updated: 2022/02/07 18:05:23 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/02/08 11:23:46 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ ft_putnbr_hex.c ft_putstr.c ft_putulnbr_hex.c ft_putunbr.c hex_len.c nb_len.c un
 
 LST = $(addprefix lst/, ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c)
 
-PS = $(ft_atoi.c ft_split.c main.c)
+PS = ft_atoi.c ft_split.c main.c
 
 SRCS = $(ALGO) $(CFP) $(CMD) $(PRINTF) $(LST) $(PS)
 
@@ -32,15 +32,12 @@ OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-AR = ar rcs
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-
-all: $(NAME)
+all: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

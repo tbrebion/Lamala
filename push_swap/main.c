@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:15:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/07 18:44:47 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 11:50:41 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ int	main(int ac, char **av)
 		new_av = &av[1];
 	while (new_av[i])
 		i++;
-	if (check_int(new_av) == 0 || check_double(new_av) == 0 || check_digit(new_av) == 0)
+	if (check_int(new_av) == 0 || check_double(new_av) == 0 || \
+	check_digit(new_av) == 0)
 	{
 		ft_printf("Error\n");
 		return (0);
 	}
 	fill_stack(&stack_a, i, new_av);
-	//print_stack(stack_a, stack_b);
-	//ft_printf("\n\n");
+	print_stack(stack_a, stack_b);
+	ft_printf("\n\n");
 	algo(&stack_a, &stack_b);
-	//ft_printf("\n\n");
-	//print_stack(stack_a, stack_b);
-
+	ft_printf("\n\n");
+	print_stack(stack_a, stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:37:33 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/28 16:51:20 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 11:51:07 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	check_int(char **av)
 	i = 0;
 	while (av[i])
 	{
-		/*ft_atoi(av[i], &nbr);*/
 		if (ft_atoi(av[i]) < INT_MIN || ft_atoi(av[i]) > INT_MAX)
 			return (0);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:55:11 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/04 10:45:52 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/08 11:55:01 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	median_utils2(int *tab, int size)
 
 int	return_median(t_list *stack_a, int n)
 {
-	int	*tab;
-	int	i;
-	int	size;
+	int		*tab;
+	int		i;
+	int		size;
 	t_list	*save;
 
 	save = stack_a;
