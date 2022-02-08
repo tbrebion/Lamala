@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 14:28:47 by tbrebion          #+#    #+#              #
-#    Updated: 2022/02/08 16:58:42 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/02/08 18:15:41 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ RM = rm -f
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -g3
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
