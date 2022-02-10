@@ -58,7 +58,7 @@ void	move_in_b(t_list **stack_a, t_list **stack_b, int j);
 void	sort_b(t_list **stack_a, t_list **stack_b);
 void	sort_100_stack(t_list **stack_a, t_list **stack_b);
 void	sort_500_stack(t_list **stack_a, t_list **stack_b);
-void	free_stack(t_list *stack_a, t_list *stack_b);
+void	free_stack(t_list *stack_a, t_list *stack_b, char **av, int ac);
 
 int		check_int(char **av);
 int		check_double(char **av);

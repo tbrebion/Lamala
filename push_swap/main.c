@@ -37,6 +37,6 @@ int	main(int ac, char **av)
 	}
 	fill_stack(&stack_a, i, new_av);
 	algo(&stack_a, &stack_b);
-	free_stack(stack_a, stack_b);
+	free_stack(stack_a, stack_b, new_av, ac);
 	return (0);
 }
