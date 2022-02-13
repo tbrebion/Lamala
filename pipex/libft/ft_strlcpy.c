@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/13 15:20:28 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/11/23 16:00:14 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/06 17:01:15 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char  **av, char **envp)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int		fd[2];
-	pid_t	pid1;
+	size_t	i;
 
-	if (ac == 5)
+	i = 0;
+	if (dstsize == 0)
 	{
-		if (pipe(fd) == -1)
-			//error();
-		pid1 = fork();
-		if (pid1 == -1)
-			//error();
-		if (pid1 == 0)
-		   //chid_process(av,envpp, fd);
-		waitpid(pid1, NULL, 0);
-		//parent_process(av, envp, fd);
+		while (src[i])
+			i++;
+		return (i);
 	}
-	else
+	while (src[i] && i < dstsize - 1)
 	{
-		//ERROR
+		dst[i] = src[i];
+		i++;
 	}
-	return (0);
+	if (i < dstsize)
+		dst[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
 }

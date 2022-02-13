@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/13 15:20:28 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/11/23 18:09:01 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/06 17:02:30 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char  **av, char **envp)
+int	ft_toupper(int c)
 {
-	int		fd[2];
-	pid_t	pid1;
-
-	if (ac == 5)
-	{
-		if (pipe(fd) == -1)
-			//error();
-		pid1 = fork();
-		if (pid1 == -1)
-			//error();
-		if (pid1 == 0)
-		   //chid_process(av,envpp, fd);
-		waitpid(pid1, NULL, 0);
-		//parent_process(av, envp, fd);
-	}
-	else
-	{
-		//ERROR
-	}
-	return (0);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }

@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/13 15:20:28 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/11/23 18:38:45 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/06 17:01:43 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char  **av, char **envp)
+char	*ft_strrchr(const char *str, int c)
 {
-	int		fd[2];
-	pid_t	pid1;
+	char	*s;
+	int		i;
 
-	if (ac == 5)
+	s = (char *)str;
+	i = ft_strlen(str);
+	while (i >= 0)
 	{
-		if (pipe(fd) == -1)
-			//error();
-		pid1 = fork();
-		if (pid1 == -1)
-			//error();
-		if (pid1 == 0)
-		   //chid_process(av,envpp, fd);
-		waitpid(pid1, NULL, 0);
-		//parent_process(av, envp, fd);
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i--;
 	}
-	else
-	{
-		//ERROR
-	}
-	return (0);
+	return (NULL);
 }

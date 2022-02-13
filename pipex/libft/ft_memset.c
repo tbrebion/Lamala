@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/13 15:20:28 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/11/23 12:17:44 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/06 17:00:10 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char  **av, char **envp)
+void	*ft_memset(void *ptr, int c, size_t len)
 {
-	int		fd[2];
-	pid_t	pid1;
+	size_t			i;
+	unsigned char	*str;
 
-	if (ac == 5)
+	str = (unsigned char *)ptr;
+	i = 0;
+	while (i < len)
 	{
-		if (pipe(fd) == -1)
-			//error();
-		pid1 = fork();
-		if (pid1 == -1)
-			//error();
-		if (pid1 == 0)
-		   //chid_process(av,envpp, fd);
-		waitpid(pid1, NULL, 0);
-		//parent_process(av, envp, fd);
+		str[i] = c;
+		i++;
 	}
-	else
-	{
-		//ERROR
-	}
-	return (0);
+	ptr = str;
+	return (ptr);
 }

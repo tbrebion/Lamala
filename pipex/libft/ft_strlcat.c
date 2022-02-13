@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/13 15:20:28 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/11/23 17:06:28 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/06 17:00:46 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char  **av, char **envp)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		fd[2];
-	pid_t	pid1;
+	size_t	i;
+	size_t	j;
 
-	if (ac == 5)
+	i = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	while (dst[i] && i < dstsize)
+		i++;
+	j = i;
+	while (src[i - j] && i < (dstsize - 1))
 	{
-		if (pipe(fd) == -1)
-			//error();
-		pid1 = fork();
-		if (pid1 == -1)
-			//error();
-		if (pid1 == 0)
-		   //chid_process(av,envpp, fd);
-		waitpid(pid1, NULL, 0);
-		//parent_process(av, envp, fd);
+		dst[i] = src[i - j];
+		i++;
 	}
-	else
-	{
-		//ERROR
-	}
-	return (0);
+	if (j < dstsize)
+		dst[i] = '\0';
+	return (j + ft_strlen(src));
 }

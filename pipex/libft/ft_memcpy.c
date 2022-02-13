@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/13 15:20:28 by tbrebion         ###   ########.fr       */
+/*   Created: 2021/11/23 13:23:59 by tbrebion          #+#    #+#             */
+/*   Updated: 2021/12/06 16:59:06 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int ac, char  **av, char **envp)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int		fd[2];
-	pid_t	pid1;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	if (ac == 5)
+	i = 0;
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		if (pipe(fd) == -1)
-			//error();
-		pid1 = fork();
-		if (pid1 == -1)
-			//error();
-		if (pid1 == 0)
-		   //chid_process(av,envpp, fd);
-		waitpid(pid1, NULL, 0);
-		//parent_process(av, envp, fd);
+		d[i] = s[i];
+		i++;
 	}
-	else
-	{
-		//ERROR
-	}
-	return (0);
+	return (dst);
 }
