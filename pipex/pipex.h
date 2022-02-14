@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 12:52:43 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/13 13:49:09 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:04:18 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,10 @@
 # include<fcntl.h>
 # include"libft/libft.h"
 
+void	child_process(char **av, char **envp, int *fd);
+void	parent_process(char **av, char **envp, int *fd);
+void	execute(char *av, char **envp);
+void	error(void);
+char	*find_path(char *cmd, char **envp);
 
 #endif
