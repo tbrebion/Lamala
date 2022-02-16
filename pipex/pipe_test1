@@ -1,0 +1,10 @@
+Makefile
+libft
+pipe_test
+pipe_test1
+pipex
+pipex.c
+pipex.h
+pipex.o
+pipex_utils.c
+pipex_utils.o
