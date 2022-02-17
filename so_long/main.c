@@ -6,20 +6,11 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:31:52 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/16 16:43:36 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:29:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
-#include <stdlib.h> 
-
-typedef	struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}		t_data;
+#include "so_long.h"
 
 void	my_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -29,12 +20,13 @@ void	my_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
 
+	check_arg(ac, av);
 	mlx = mlx_init();		
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "so_long");
 	img.img = mlx_new_image(mlx, 1920, 1080);
