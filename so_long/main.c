@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:31:52 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/17 15:29:09 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/21 17:29:48 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "so_long");
 	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	
 	int	i = 5;
 	int	j = 5;
 	while (i++ < 500)
