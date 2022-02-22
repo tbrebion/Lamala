@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:35:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/22 17:17:48 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:55:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	handle_no_event(void *data)
 	return (0);
 }
 
-int	handle_input(int keysym, t_data *data)
+int	handle_input(int keysym, t_data *data, int x, int y, char **map)
 {
 	if (keysym == 53)
 	{
@@ -33,22 +33,22 @@ int	handle_input(int keysym, t_data *data)
 	}
 	if (keysym == 1)
 	{
-		move_down();
+		move_down(x, y, map);
 		return (0);
 	}
 	if (keysym == 13)
 	{
-		move_up();
+		move_up(x, y, map);
 		return (0);
 	}
 	if (keysym == 0)
 	{
-		move_left();
+		move_left(x, y, map);
 		return (0);
 	}
 	if (keysym == 2)
 	{
-		move_right();
+		move_right(x, y, map);
 		return (0);
 	}
 	return (0);
@@ -62,10 +62,11 @@ int	close(t_data *data)
 	return (0);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	t_data	data;
 
+	check_arg(ac, av);
 	data.mlx_ptr = mlx_init();
 	if (data.mlx_ptr == NULL)
 		return (1);
