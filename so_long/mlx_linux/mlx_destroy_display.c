@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 16:53:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/22 11:33:03 by tbrebion         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "mlx_int.h"
 
-void	move_down(int x, int y) //x+1
+int	mlx_destroy_display(t_xvar *xvar)
 {
-
-}
-
-void	move_up(int x, int y) //x-1
-{
-	
-}
-
-void	move_right(int x, int y) //y+1
-{
-
-}
-
-void	move_left(int x, int y) //y-1
-{
-
+	XCloseDisplay(xvar->display);
 }

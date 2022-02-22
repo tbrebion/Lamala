@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:31:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/17 16:51:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:44:47 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ void	check_arg(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		ft_putstr_fd("Error : wrong number of args !\n", 2);
+		ft_putstr_fd("Error\n  wrong number of args !\n", 2);
 		exit(0);
 	}
 	if (!ft_strrchr((char *)av[1], '.'))
 	{
-		ft_putstr_fd("Error : invalid arg !\n", 2);
+		ft_putstr_fd("Error\n invalid arg !\n", 2);
 		exit(0);
 	}
 	if (ft_strcmp(ft_strrchr((char *)av[1], '.'), ".ber") != 0)
 	{
-		ft_putstr_fd("Error : file must be \"<name>.ber\" !\n", 2);
+		ft_putstr_fd("Error\n file must be \"<name>.ber\" !\n", 2);
 		exit(0);
 	}
 }
 
 void	map_error(void)
 {
-	ft_putstr_fd("Error : wrong map's format\n", 2);
+	ft_putstr_fd("Error\n wrong map's format\n", 2);
 	exit(EXIT_FAILURE);
 }
 
