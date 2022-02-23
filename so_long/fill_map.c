@@ -6,8 +6,18 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:11:48 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/22 17:12:29 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:19:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+char	**save_map(void)
+{
+
+}
+
+void	display_map(char **map, int x, int y, int fd)
+{
+	if ()
+}

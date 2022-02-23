@@ -6,23 +6,16 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:35:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/22 17:55:33 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:20:13 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_macos/mlx.h"
-#include <stdlib.h>
+#include "so_long.h"
 
-typedef	struct	s_data
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-}	t_data;
-
-int	handle_no_event(void *data)
+/*int	handle_no_event(void *data)
 {
 	return (0);
-}
+}*/
 
 int	handle_input(int keysym, t_data *data, int x, int y, char **map)
 {
@@ -30,7 +23,7 @@ int	handle_input(int keysym, t_data *data, int x, int y, char **map)
 	{
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		exit(EXIT_SUCCESS);
-	}
+	}/*
 	if (keysym == 1)
 	{
 		move_down(x, y, map);
@@ -50,11 +43,11 @@ int	handle_input(int keysym, t_data *data, int x, int y, char **map)
 	{
 		move_right(x, y, map);
 		return (0);
-	}
+	}*/
 	return (0);
 }
 
-int	close(t_data *data)
+int	ft_close(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	//free_all();
@@ -65,8 +58,12 @@ int	close(t_data *data)
 int	main(int ac, char **av)
 {
 	t_data	data;
+	t_img	img;
 
-	check_arg(ac, av);
+	int	width;
+	int	height;
+//	check_arg(ac, av);
+
 	data.mlx_ptr = mlx_init();
 	if (data.mlx_ptr == NULL)
 		return (1);
@@ -76,10 +73,21 @@ int	main(int ac, char **av)
 		free(data.win_ptr);
 		return (1);
 	}
+	img.img = mlx_new_image(data.mlx_ptr, 1920, 1080);
+	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/megaman.xpm", &width, &height);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 0, 0);
+
 	//mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
 	mlx_key_hook(data.win_ptr, &handle_input, &data);
-	mlx_hook(data.win_ptr, 17, 0, close,  &data);
+	mlx_hook(data.win_ptr, 17, 0, ft_close,  &data);
 	mlx_loop(data.mlx_ptr);
 	free(data.mlx_ptr);
 	return (0);
 }
+
+
+
+
+
+
