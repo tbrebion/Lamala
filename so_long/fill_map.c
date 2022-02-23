@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:11:48 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/23 16:19:04 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:34:46 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ char	**save_map(void)
 
 }
 
-void	display_map(char **map, int x, int y, int fd)
+void	display_map(char **av, int x, int y)
 {
-	if ()
+	int	fd;
+	int	i;
+
+	fd = open(av[1], O_RDONLY);
+	while ()
+	map[i] = get_next_line(fd);
 }
