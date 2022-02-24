@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:35:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/23 17:18:56 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/24 17:37:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 	t_img	img;
-
 	int	width;
 	int	height;
 //	check_arg(ac, av);
@@ -74,11 +73,20 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	img.img = mlx_new_image(data.mlx_ptr, 1920, 1080);
-	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/megaman_32.xpm", &width, &height);
+	
+/*
+	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/sand_80.xpm", &width, &height);
 	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 0, 0);
+	
+	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/megaman_80.xpm", &width, &height);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 80, 0);
 
-	//mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
+	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/tree_80.xpm", &width, &height);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 160, 0);
+*/
 	mlx_key_hook(data.win_ptr, &handle_input, &data);
 	mlx_hook(data.win_ptr, 17, 0, ft_close,  &data);
 	mlx_loop(data.mlx_ptr);

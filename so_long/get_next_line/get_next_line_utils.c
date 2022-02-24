@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:11:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/17 15:03:36 by tbrebion         ###   ########.fr       */
+/*   Updated: 2021/12/23 13:18:31 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_return(char *str)
 	return (0);
 }
 
-char	*gnl_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
