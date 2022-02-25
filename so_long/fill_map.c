@@ -6,55 +6,80 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:11:48 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/24 14:49:47 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/25 15:25:21 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "so_long.h"
+#include "so_long.h"
 
-/*char	**save_map(void)
+int	count_lines(int fd, char **av)
 {
+	int	i;
+	char	*line;
 
-}*/
+	line = "ok";
+	i = -1;
+	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
+		return (0);
+	while (line)
+	{
+		line = get_next_line(fd);
+		i++;
+	}
+	close(fd);
+	return (i);
+}
 
-#include <stdio.h>
-#include <fcntl.h>
-#include "get_next_line/get_next_line.h"
-
-char	*display_map(char **av, char *map_line/*, int x, int y*/)
+char	*save_map(char **av)
 {
 	int		fd;
-	int		i;
+	char	*line;
 	char	*save;
+	int 	i;
+	int		j;
 
-	i = 1;
+	fd = 0;
+	j = count_lines(fd, av);
+	i = 0;
 	save = NULL;
-	map_line = "ok";
+	line = "ok";
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	//map_error();
-	while (i != 0)
+	while (i++ < j)
 	{
-		i = read (fd, save, 1);
-		if (i == -1)
-		{
-			free(save);
-			//map_error();
-			return (NULL);
-		}
+		line = get_next_line(fd);
+		save = ft_strjoin(save, line);
 	}
-	save[i] = '\0';
+	close(fd);
 	return (save);
 }
 
+char	**map_lines(char *save)
+{
+	char	**ret;
+
+	ret = ft_split(save, '\n');
+	return (ret);
+}
+
+
+
 int	main(int ac, char **av)
 {
-	char *map;
+	char	*map;
+	char	**mappp;
 
 	(void)ac;
 	map = NULL;
-	map = display_map(av, map);
+	map = save_map(av);
+	mappp = map_lines(map);
+	checker(av);
 	printf("%s", map);
+	//printf("\n\n");
+	//printf("%s", mappp[0]);
+	//printf("\n");
+	//printf("%s", mappp[1]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/24 17:13:34 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/25 15:28:35 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include"mlx_macos/mlx.h"
 # include"libft/libft.h"
-//# include"get_next_line/get_next_line.h"
+# include"get_next_line/get_next_line.h"
 # include<stdlib.h>
 # include<stdio.h>
 # include<sys/types.h>
@@ -44,7 +44,10 @@ void	map_error(void);
 int		check_map_elements(char *map_chars);
 int		check_map_walls(char **map_lines);
 int		check_rectangular(char **map_lines);
-void	checker_map(char *map_chars, char **map_lines);
-void	display_map(char **av, char **map);
+int		checker_map(char *map_chars, char **map_lines);
+void	checker(char **av);
+int		count_lines(int fd, char **av);
+char	*save_map(char **av);
+char	**map_lines(char *save);
 
 #endif

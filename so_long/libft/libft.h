@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/01 15:56:38 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/25 15:00:14 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include<stdlib.h>
 # include<unistd.h>
+# include"../get_next_line/get_next_line.h"
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -31,10 +32,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *ptr, int c, size_t len);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
-char	*ft_strjoin(const char *s1, const char *s2);
+//char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlen(const char *str);
+//size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *str, const char *to_find, size_t n);
 char	*ft_strrchr(const char *str, int c);

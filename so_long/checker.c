@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:31:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/23 14:46:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/25 15:28:32 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,27 @@ void	map_error(void)
 
 int	check_map_elements(char *map_chars)
 {
-	int	i;
-	int	perso;
-	int	collect;
-	int	exit;
+	int	i = 0;
+	int	perso = 0;
+	int	collect = 0;
+	int	exit = 0;
 
+	//printf("%s\n\n\n", map_chars);
 	while (map_chars[i] != '\0')
 	{
+		//printf("%c\n", map_chars[i]);
 		if (map_chars[i++] == 'P')
 			perso++;
 		if (map_chars[i++] == 'C')
 			collect++;
 		if (map_chars[i++] == 'E')
 			exit++;
-		if (map_chars[i] != 'P' || map_chars[i] != 'E' || map_chars[i] != '0'
-			|| map_chars[i] != '1' || map_chars[i] != 'C')
+		if (map_chars[i] != 'P' && map_chars[i] != 'E' && map_chars[i] != '0'
+			&& map_chars[i] != '1' && map_chars[i] != 'C' && map_chars[i] != '\n')
+		{
+		//	printf("\nTHIS -->%c\n", map_chars[i]);
 			return (0);
+		}
 		i++;
 	}
 	if (perso < 1 || collect < 1 || exit < 1)
@@ -97,6 +102,7 @@ int	check_rectangular(char **map_lines)
 	int	j;
 
 	i = 0;
+	j = 0;
 	while (map_lines[j])
 	{
 		j = i + 1;
