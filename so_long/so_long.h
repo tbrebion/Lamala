@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 16:26:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:57:52 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int		last_line(char **map);
 void	display_wall(t_data data, t_img wall, t_vector vec, int width, int height);
 void	display_floor(t_data data, t_img floor, t_vector vec, int width, int height);
 void	display_megaman(t_data data, t_img megaman, t_vector vec, int width, int height);
+void	display_collect(t_data data, t_img collect, t_vector vec, int width, int height);
+void	display_exit(t_data data, t_img exit, t_vector vec, int width, int height);
 void	displayer(t_data data, char **map, t_img img, int w, int h);
 
 #endif

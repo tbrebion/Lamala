@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 14:52:22 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 16:35:50 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:05:17 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ void	displayer(t_data data, char  **map, t_img img, int w, int h)
 			if (map[i][j] == 'C')
 			{
 				display_floor(data, img, vec, w, h);
-				//display_collect(data, img, vec, w, h);
+				display_collect(data, img, vec, w, h);
 			}
 			if (map[i][j] == 'E')
 			{
 				display_floor(data, img, vec, w, h);
-				//display_exit(data, img, vec, w, h);
+				display_exit(data, img, vec, w, h);
 			}
 			if (map[i][j] == '0')
 				display_floor(data, img, vec, w, h);
-			vec.x += 32;
+			vec.x += 48;
 			j++;
 		}
 		i++;
 		j = 0;
 		vec.x = 0;
-		vec.y += 32;
+		vec.y += 48;
 	}
 }
