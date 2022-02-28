@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:31:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/25 15:28:32 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:15:38 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,17 @@ int	check_map_elements(char *map_chars)
 	int	collect = 0;
 	int	exit = 0;
 
-	//printf("%s\n\n\n", map_chars);
-	while (map_chars[i] != '\0')
+	while (i < (int)ft_strlen(map_chars))
 	{
-		//printf("%c\n", map_chars[i]);
-		if (map_chars[i++] == 'P')
+		if (map_chars[i] == 'P')
 			perso++;
-		if (map_chars[i++] == 'C')
+		if (map_chars[i] == 'C')
 			collect++;
-		if (map_chars[i++] == 'E')
+		if (map_chars[i] == 'E')
 			exit++;
 		if (map_chars[i] != 'P' && map_chars[i] != 'E' && map_chars[i] != '0'
 			&& map_chars[i] != '1' && map_chars[i] != 'C' && map_chars[i] != '\n')
-		{
-		//	printf("\nTHIS -->%c\n", map_chars[i]);
 			return (0);
-		}
 		i++;
 	}
 	if (perso < 1 || collect < 1 || exit < 1)
@@ -76,7 +71,7 @@ int	check_map_walls(char **map_lines)
 	j = 0;
 	while (map_lines[i])
 	{
-		while (map_lines[0][j++])
+		while (j++ < ((int)ft_strlen(map_lines[0]) - 1))
 		{
 			if (map_lines[0][j] != '1')
 				return (0);
@@ -88,7 +83,7 @@ int	check_map_walls(char **map_lines)
 	}
 	i--;
 	j = 0;
-	while (map_lines[i][j++])
+	while (j++ < ((int)ft_strlen(map_lines[0]) - 1))
 	{
 		if (map_lines[i][j] != '1')
 			return (0);
@@ -107,7 +102,10 @@ int	check_rectangular(char **map_lines)
 	{
 		j = i + 1;
 		if (ft_strlen(map_lines[i]) != ft_strlen(map_lines[j]))
+		{
+			printf("\nlines -->%d %d\n", i, j); //PB avec derniere ligne qui na pas le '\n'
 			return (0);
+		}
 		i++;
 	}
 	return (1);

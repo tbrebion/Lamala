@@ -3,46 +3,99 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 11:31:52 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/23 14:34:10 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/02/22 11:35:37 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/02/24 17:37:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
+
 #include "so_long.h"
 
-void	my_pixel_put(t_data *data, int x, int y, int color)
+/*int	handle_no_event(void *data)
 {
-	char	*dst;
+	return (0);
+}*/
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+int	handle_input(int keysym, t_data *data, int x, int y, char **map)
+{
+	if (keysym == 53)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		exit(EXIT_SUCCESS);
+	}/*
+	if (keysym == 1)
+	{
+		move_down(x, y, map);
+		return (0);
+	}
+	if (keysym == 13)
+	{
+		move_up(x, y, map);
+		return (0);
+	}
+	if (keysym == 0)
+	{
+		move_left(x, y, map);
+		return (0);
+	}
+	if (keysym == 2)
+	{
+		move_right(x, y, map);
+		return (0);
+	}*/
+	return (0);
+}
+
+int	ft_close(t_data *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	//free_all();
+	exit(EXIT_SUCCESS);
+	return (0);
 }
 
 int	main(int ac, char **av)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	t_data	data;
+	t_img	img;
+	int	width;
+	int	height;
+//	check_arg(ac, av);
 
-	check_arg(ac, av);
-	mlx = mlx_init();		
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "so_long");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	data.mlx_ptr = mlx_init();
+	if (data.mlx_ptr == NULL)
+		return (1);
+	data.win_ptr = mlx_new_window(data.mlx_ptr, 1920, 1080, "TEST");
+	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
+		return (1);
+	}
+	img.img = mlx_new_image(data.mlx_ptr, 1920, 1080);
 	
-	int	i = 5;
-	int	j = 5;
-	while (i++ < 500)
-		my_pixel_put(&img, j, i, 0x00FF0000);
-	while (j++ < 500)	
-		my_pixel_put(&img, j, i, 0x00FF0000);
-	while (i-- > 5)
-		my_pixel_put(&img, j, i, 0x00FF0000);
-	while (j-- > 5)	
-		my_pixel_put(&img, j, i, 0x00FF0000);
+/*
+	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/sand_80.xpm", &width, &height);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 0, 0);
+	
+	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/megaman_80.xpm", &width, &height);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 80, 0);
 
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
-}*/
+	img.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/tree_80.xpm", &width, &height);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, img.img, 160, 0);
+*/
+	mlx_key_hook(data.win_ptr, &handle_input, &data);
+	mlx_hook(data.win_ptr, 17, 0, ft_close,  &data);
+	mlx_loop(data.mlx_ptr);
+	free(data.mlx_ptr);
+	return (0);
+}
+
+
+
+
+
+

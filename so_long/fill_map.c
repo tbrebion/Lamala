@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:11:48 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/25 15:25:21 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:15:51 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*save_map(char **av)
 		line = get_next_line(fd);
 		save = ft_strjoin(save, line);
 	}
+	save[ft_strlen(save)] = '\0';
 	close(fd);
 	return (save);
 }
@@ -64,8 +65,6 @@ char	**map_lines(char *save)
 	return (ret);
 }
 
-
-
 int	main(int ac, char **av)
 {
 	char	*map;
@@ -76,7 +75,7 @@ int	main(int ac, char **av)
 	map = save_map(av);
 	mappp = map_lines(map);
 	checker(av);
-	printf("%s", map);
+	//printf("%s", map);
 	//printf("\n\n");
 	//printf("%s", mappp[0]);
 	//printf("\n");
