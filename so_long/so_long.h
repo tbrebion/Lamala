@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 11:24:39 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:26:40 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ typedef	struct	s_data
 	t_img	*img_ptr;
 }	t_data;
 
+typedef	struct	s_vector
+{
+	int	x;
+	int	y;
+}	t_vector;
+
 int		ft_strcmp(const char *s1, const char *s2);
 void	check_arg(int ac, char **av);
 void	map_error(void);
@@ -49,5 +55,11 @@ void	checker(char **av);
 int		count_lines(int fd, char **av);
 char	*save_map(char **av);
 char	**map_lines(char *save);
+int		last_line(char **map);
+
+void	display_wall(t_data data, t_img wall, t_vector vec, int width, int height);
+void	display_floor(t_data data, t_img floor, t_vector vec, int width, int height);
+void	display_megaman(t_data data, t_img megaman, t_vector vec, int width, int height);
+void	displayer(t_data data, char **map, t_img img, int w, int h);
 
 #endif

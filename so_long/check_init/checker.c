@@ -6,11 +6,11 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:31:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 12:15:38 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:37:36 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	check_arg(int ac, char **av)
 {
@@ -95,17 +95,16 @@ int	check_rectangular(char **map_lines)
 {
 	int	i;
 	int	j;
+	int	ll;
 
 	i = 0;
 	j = 0;
-	while (map_lines[j])
+	ll = last_line(map_lines);
+	while (i < ll - 1)
 	{
 		j = i + 1;
 		if (ft_strlen(map_lines[i]) != ft_strlen(map_lines[j]))
-		{
-			printf("\nlines -->%d %d\n", i, j); //PB avec derniere ligne qui na pas le '\n'
 			return (0);
-		}
 		i++;
 	}
 	return (1);
