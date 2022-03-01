@@ -6,11 +6,22 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:43:08 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 18:05:14 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:23:12 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+/*
+void	display_wall(t_data data, t_game *game)
+{
+	game->wall.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/48tree.xpm", )
+
+	wall.img = mlx_xpm_file_to_image(data.mlx_ptr, "./img/48tree.xpm", &width, &height);
+	wall.addr = mlx_get_data_addr(wall.img, &wall.bpp, &wall.line_length, &wall.endian);
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, wall.img, vec.x, vec.y);
+}
+*/
 
 void	display_wall(t_data data, t_img wall, t_vector vec, int width, int height)
 {

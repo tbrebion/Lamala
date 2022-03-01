@@ -6,17 +6,19 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:11:48 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 16:37:46 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:14:49 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	count_lines(int fd, char **av)
+int	count_lines(char **av)
 {
-	int	i;
+	int		i;
 	char	*line;
+	int		fd;
 
+	fd = 0;
 	line = "ok";
 	i = -1;
 	fd = open(av[1], O_RDONLY);
@@ -28,6 +30,7 @@ int	count_lines(int fd, char **av)
 		i++;
 	}
 	close(fd);
+	//free(line);
 	return (i);
 }
 
@@ -40,7 +43,7 @@ char	*save_map(char **av)
 	int		j;
 
 	fd = 0;
-	j = count_lines(fd, av);
+	j = count_lines(av);
 	i = 0;
 	save = NULL;
 	line = "ok";

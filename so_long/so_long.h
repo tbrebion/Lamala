@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 17:57:52 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:26:22 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@
 # include<sys/stat.h>
 # include<fcntl.h>
 
+typedef	struct	s_vector
+{
+	int	x;
+	int	y;
+}	t_vector;
+
+/*typedef	struct	s_map
+{
+	//char	*map;
+	char	**maps;
+	int		x;
+	int		y;
+}	t_map;*/
+
 typedef	struct	s_img
 {
 	void	*img;
@@ -36,14 +50,34 @@ typedef	struct	s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_img	*img_ptr;
+
+	char	**map;
+	int		x;
+	int		y;
+	/////////////////////
+	//t_map	map;
+	//t_vector	vec;
+	//char	**map;
+	/////////////////////
 }	t_data;
 
-typedef	struct	s_vector
-{
-	int	x;
-	int	y;
-}	t_vector;
+/////////////////////////////////////
 
+
+/*typedef	struct	s_game
+{
+	t_vector 	vec;
+	int			w;
+	int			h;
+	t_img		megaman;
+	t_img		collect;
+	t_img		floor;
+	t_img		wall;
+	t_img		exit;
+	char		**map;
+	int			nb_move;
+}	t_game;*/
+////////////////////////////////////
 int		ft_strcmp(const char *s1, const char *s2);
 void	check_arg(int ac, char **av);
 void	map_error(void);
@@ -52,10 +86,14 @@ int		check_map_walls(char **map_lines);
 int		check_rectangular(char **map_lines);
 int		checker_map(char *map_chars, char **map_lines);
 void	checker(char **av);
-int		count_lines(int fd, char **av);
+
+int		count_lines(char **av);
 char	*save_map(char **av);
 char	**map_lines(char *save);
 int		last_line(char **map);
+
+int		handle_input(int keysym, t_data *data, t_vector vec/*, t_img img*/);
+int		ft_close(t_data *data);
 
 void	display_wall(t_data data, t_img wall, t_vector vec, int width, int height);
 void	display_floor(t_data data, t_img floor, t_vector vec, int width, int height);
@@ -63,5 +101,13 @@ void	display_megaman(t_data data, t_img megaman, t_vector vec, int width, int he
 void	display_collect(t_data data, t_img collect, t_vector vec, int width, int height);
 void	display_exit(t_data data, t_img exit, t_vector vec, int width, int height);
 void	displayer(t_data data, char **map, t_img img, int w, int h);
+
+int		player_line(char **map);
+int		player_coll(char **map);
+
+void	move_down(t_vector vec, char **map);
+void	move_up(t_vector vec, char **map);
+void	move_right(t_vector vec, char **map);
+void	move_left(t_vector vec, char **map);
 
 #endif
