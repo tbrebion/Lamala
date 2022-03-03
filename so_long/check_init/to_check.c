@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:45:59 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 16:37:57 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:16:50 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ int checker_map(char *map_chars, char **map_lines)
 	return (1);
 }
 
-void	checker(char **av)
+void	checker(int ac, char **av)
 {
 	char	*map;
 	char	**maps;
 
+	check_arg(ac, av);
 	map = save_map(av);
 	maps = map_lines(map);
 	if (checker_map(map, maps) == 0)

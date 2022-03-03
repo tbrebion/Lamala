@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 14:52:22 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/01 18:22:27 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:10:01 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	displayer(t_data data, char  **map, t_img img, int w, int h)
+void	displayer(t_data *data, t_img img, int w, int h)
 {
 	int	i;
 	int	j;
@@ -22,32 +22,20 @@ void	displayer(t_data data, char  **map, t_img img, int w, int h)
 	j = 0;
 	vec.x = 0;
 	vec.y = 0;
-	while (map[i])
+	while (data->map[i])
 	{
-		while (map[i][j])
+		while (data->map[i][j])
 		{
-			if (map[i][j] == '1')
-			{
-				display_floor(data, img, vec, w, h);
-				display_wall(data, img, vec, w, h);
-			}
-			if (map[i][j] == 'P')
-			{
-				display_floor(data, img, vec, w, h);
-				display_megaman(data, img, vec, w, h);
-			}
-			if (map[i][j] == 'C')
-			{
-				display_floor(data, img, vec, w, h);
-				display_collect(data, img, vec, w, h);
-			}
-			if (map[i][j] == 'E')
-			{
-				display_floor(data, img, vec, w, h);
-				display_exit(data, img, vec, w, h);
-			}
-			if (map[i][j] == '0')
-				display_floor(data, img, vec, w, h);
+			if (data->map[i][j] == '1')
+				display_wall(*data, img, vec, w, h);
+			if (data->map[i][j] == 'P')
+				display_megaman(*data, img, vec, w, h);
+			if (data->map[i][j] == 'C')
+				display_collect(*data, img, vec, w, h);
+			if (data->map[i][j] == 'E')
+				display_exit(*data, img, vec, w, h);
+			if (data->map[i][j] == '0')
+				display_floor(*data, img, vec, w, h);
 			vec.x += 48;
 			j++;
 		}

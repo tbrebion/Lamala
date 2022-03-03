@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:35:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/01 18:22:24 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:20:56 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,19 @@ int	ft_close(t_data *data)
 int	main(int ac, char **av)
 {
 	t_data	data;
+	t_coord	coord;
 	t_img	img;
-	int		width = 0;
-	int		height = 0;
-	char	*map;
-	char	**maps;
+//	t_wh	wh;
+	int		w = 0;
+	int		h = 0;
 
-	map = save_map(av);
-	maps = map_lines(map);
-	data.map = maps;
-	check_arg(ac, av);
-	checker(av);
-	int		abs = 48 * ft_strlen(maps[0]);
-	int		ord = 48 * count_lines(av);
+	checker(ac, av);
+	init_map_coord(&data, &coord, av);
+	init_window(&data, &coord);
+	
+	img.img = mlx_new_image(data.mlx_ptr, coord.abs, coord.ord);
 
-	data.mlx_ptr = mlx_init();
-	if (data.mlx_ptr == NULL)
-		return (1);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, abs, ord, "so_long");
-	if (data.win_ptr == NULL)
-	{
-		free(data.win_ptr);
-		return (1);
-	}
-
-	img.img = mlx_new_image(data.mlx_ptr, abs, ord);
-
-	displayer(data, maps, img, width, height);
+	displayer(&data, img, w, h);
 
 	mlx_key_hook(data.win_ptr, &handle_input, &data);
 	mlx_hook(data.win_ptr, 17, 0, ft_close,  &data);
