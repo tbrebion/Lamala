@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_pos.c                                       :+:      :+:    :+:   */
+/*   nb_collect.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 13:55:12 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/04 14:46:02 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/03/04 15:09:25 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/03/04 15:14:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-int	player_line(char **map)
+/*
+static int	nb_collect(char **map, int star)
 {
 	int	i;
 	int	j;
@@ -23,33 +23,12 @@ int	player_line(char **map)
 	{
 		while (map[i][j])
 		{
-			if (map[i][j] == 'P')
-				return (i);
+			if (map[i][j] == 'C')
+				star++;
 			j++;
 		}
-		i++;
 		j = 0;
-	}
-	return (-1);
-}
-
-int	player_coll(char **map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (map[i])
-	{
-		while (map[i][j])
-		{
-			if (map[i][j] == 'P')
-				return (j);
-			j++;
-		}
 		i++;
-		j = 0;
 	}
-	return (-1);
-}
+	return (star);
+}*/
