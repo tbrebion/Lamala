@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:53:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/01 18:16:45 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/04 10:48:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	move_down(t_vector vec/*int x, int y*/, char **map)
+void	move_down(t_vector vec, char **map)
 {
 	char tmp;
 
