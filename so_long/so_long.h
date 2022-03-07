@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/07 11:32:29 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 12:31:24 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	display_perso(t_data *data, t_img perso, t_vector vec, int width, int heigh
 void	display_collect(t_data *data, t_img collect, t_vector vec, int width, int height);
 void	display_exit(t_data *data, t_img exit, t_vector vec, int width, int height);
 void	displayer(t_data *data, t_img img, int w, int h);
+void	mini_displayer(t_data *data, t_img img, int w, int h);
 
 int		player_line(char **map);
 int		player_coll(char **map);
