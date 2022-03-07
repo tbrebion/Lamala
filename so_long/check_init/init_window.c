@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 15:51:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/07 16:02:47 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:33:02 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	init_window(t_data *data, t_coord *coord)
 	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)
 		ft_close(data);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, coord->abs, coord->ord, "./so_long");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, coord->abs,
+			coord->ord, "./so_long");
 	if (data->win_ptr == NULL)
 	{
 		free(data->win_ptr);

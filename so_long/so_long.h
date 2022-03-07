@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/07 15:38:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:39:53 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,13 @@ int		last_line(char **map);
 int		handle_input(int keysym, t_data *data);
 int		ft_close(t_data *data);
 
-void	display_wall(t_data *data, t_img wall, t_vector vec);
-void	display_floor(t_data *data, t_img floor, t_vector vec);
-void	display_perso(t_data *data, t_img perso, t_vector vec);
-void	display_collect(t_data *data, t_img collect, t_vector vec);
-void	display_exit(t_data *data, t_img exit, t_vector vec);
+void	display_wall(t_data *data, t_img w, t_vector vec);
+void	display_floor(t_data *data, t_img f, t_vector vec);
+void	display_perso(t_data *data, t_img p, t_vector vec);
+void	display_collect(t_data *data, t_img c, t_vector vec);
+void	display_exit(t_data *data, t_img e, t_vector vec);
 void	displayer(t_data *data, t_img img);
+void	displayer_2(t_data *data, t_img img);
 void	mini_displayer(t_data *data, t_img img);
 void	mini_displayer_2(t_data *data, t_img img);
 

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:11:48 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/07 16:02:21 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:36:15 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	count_lines(char **av)
 		i++;
 	}
 	close(fd);
-	//free(line);
 	return (i);
 }
 
