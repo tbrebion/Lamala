@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 17:11:48 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/03 15:51:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:02:21 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*save_map(char **av)
 	int		fd;
 	char	*line;
 	char	*save;
-	int 	i;
+	int		i;
 	int		j;
 
 	fd = 0;

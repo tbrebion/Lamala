@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:31:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/28 16:37:36 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:01:41 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	map_error(void)
 
 int	check_map_elements(char *map_chars)
 {
-	int	i = 0;
-	int	perso = 0;
-	int	collect = 0;
-	int	exit = 0;
+	static int	i = 0;
+	static int	perso = 0;
+	static int	collect = 0;
+	static int	exit = 0;
 
 	while (i < (int)ft_strlen(map_chars))
 	{
@@ -53,7 +53,8 @@ int	check_map_elements(char *map_chars)
 		if (map_chars[i] == 'E')
 			exit++;
 		if (map_chars[i] != 'P' && map_chars[i] != 'E' && map_chars[i] != '0'
-			&& map_chars[i] != '1' && map_chars[i] != 'C' && map_chars[i] != '\n')
+			&& map_chars[i] != '1' && map_chars[i] != 'C'
+			&& map_chars[i] != '\n')
 			return (0);
 		i++;
 	}
@@ -76,7 +77,7 @@ int	check_map_walls(char **map_lines)
 			if (map_lines[0][j] != '1')
 				return (0);
 		}
-		if (map_lines[i][0] != '1' 
+		if (map_lines[i][0] != '1'
 			&& map_lines[i][ft_strlen(map_lines[i])] != '1')
 			return (0);
 		i++;

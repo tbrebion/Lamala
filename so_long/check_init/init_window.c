@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 15:51:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/04 11:03:44 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:02:47 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	init_window(t_data *data,  t_coord *coord)
+void	init_window(t_data *data, t_coord *coord)
 {
 	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:53:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/07 12:33:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:07:45 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	move_down(t_data *data, t_vector vec, char **map)
 {
-	char tmp;
+	char	tmp;
 
 	vec.x = player_line(map);
 	vec.y = player_coll(map);
@@ -25,7 +25,6 @@ void	move_down(t_data *data, t_vector vec, char **map)
 	if (map[vec.x + 1][vec.y] == 'E' && nb_collect(map) > 0)
 		return ;
 	data->nb++;
-	//display_floor(data, data->img, vec, data->w, data->h);
 	if (map[vec.x + 1][vec.y] == 'E' && nb_collect(map) == 0)
 	{
 		map[vec.x][vec.y] = '0';
@@ -35,16 +34,13 @@ void	move_down(t_data *data, t_vector vec, char **map)
 	tmp = map[vec.x + 1][vec.y];
 	map[vec.x + 1][vec.y] = map[vec.x][vec.y];
 	map[vec.x][vec.y] = tmp;
-/*	vec.x = (vec.x * 48) + 48;
-	vec.y = vec.y * 48;
-	display_perso(data, data->img, vec, data->w, data->h);*/
 	ft_putnbr_fd(data->nb, 1);
 	write(1, "\n", 1);
 }
 
 void	move_up(t_data *data, t_vector vec, char **map)
 {
-	char tmp;
+	char	tmp;
 
 	vec.x = player_line(map);
 	vec.y = player_coll(map);
@@ -70,7 +66,7 @@ void	move_up(t_data *data, t_vector vec, char **map)
 
 void	move_right(t_data *data, t_vector vec, char **map)
 {
-	char tmp;
+	char	tmp;
 
 	vec.x = player_line(map);
 	vec.y = player_coll(map);
@@ -96,7 +92,7 @@ void	move_right(t_data *data, t_vector vec, char **map)
 
 void	move_left(t_data *data, t_vector vec, char **map)
 {
-	char tmp;
+	char	tmp;
 
 	vec.x = player_line(map);
 	vec.y = player_coll(map);
