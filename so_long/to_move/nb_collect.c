@@ -6,19 +6,21 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:09:25 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/04 15:14:09 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 10:29:15 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-/*
-static int	nb_collect(char **map, int star)
+
+int	nb_collect(char **map)
 {
 	int	i;
 	int	j;
+	int	star;
 
 	i = 0;
 	j = 0;
+	star = 0;
 	while (map[i])
 	{
 		while (map[i][j])
@@ -31,4 +33,4 @@ static int	nb_collect(char **map, int star)
 		i++;
 	}
 	return (star);
-}*/
+}

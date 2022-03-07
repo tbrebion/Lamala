@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:35:37 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/04 15:00:49 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 11:31:41 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	handle_input(int keysym, t_data *data)
 	if (keysym == 53)
 		ft_close(data);
 	if (keysym == 1)
-		move_down(data->vec, data->map);
+		move_down(data, data->vec, data->map);
 	if (keysym == 13)
-		move_up(data->vec, data->map);
+		move_up(data, data->vec, data->map);
 	if (keysym == 0)
-		move_left(data->vec, data->map);
+		move_left(data, data->vec, data->map);
 	if (keysym == 2)
-		move_right(data->vec, data->map);
+		move_right(data, data->vec, data->map);
 	displayer(data, data->img, data->w, data->h);
 	return (1);
 }
@@ -45,6 +45,7 @@ int	main(int ac, char **av)
 
 	data.w = 0;
 	data.h = 0;
+	data.nb = 0;
 	checker(ac, av);
 	init_map_coord(&data, &coord, av);
 	init_window(&data, &coord);

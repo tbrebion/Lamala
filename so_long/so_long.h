@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/04 12:00:00 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/07 11:32:29 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef	struct	s_data
 	t_vector	vec;
 	int			w;
 	int			h;
+	int			nb;
 }	t_data;
 
 int		ft_strcmp(const char *s1, const char *s2);
@@ -90,9 +91,11 @@ void	displayer(t_data *data, t_img img, int w, int h);
 int		player_line(char **map);
 int		player_coll(char **map);
 
-void	move_down(t_vector vec, char **map);
-void	move_up(t_vector vec, char **map);
-void	move_right(t_vector vec, char **map);
-void	move_left(t_vector vec, char **map);
+void	move_down(t_data *data, t_vector vec, char **map);
+void	move_up(t_data *data, t_vector vec, char **map);
+void	move_right(t_data *data, t_vector vec, char **map);
+void	move_left(t_data *data, t_vector vec, char **map);
+
+int		nb_collect(char **map);
 
 #endif
