@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 11:55:33 by tbrebion          #+#    #+#              #
-#    Updated: 2021/12/08 12:45:17 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/03/08 13:46:32 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,8 @@ FILES = ft_atoi.c \
 		ft_strchr.c \
 		ft_strdup.c \
 		ft_striteri.c \
-		ft_strjoin.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
-		ft_strlen.c \
 		ft_strmapi.c \
 		ft_strncmp.c \
 		ft_strnstr.c \

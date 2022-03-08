@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 16:18:52 by tbrebion          #+#    #+#              #
-#    Updated: 2022/03/07 16:47:58 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/03/08 14:23:54 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -lmlx -L./ -framework OpenGL -framework Appkit
+CFLAGS = -Wall -Wextra -Werror -lmlx -L./ -framework OpenGL -framework AppKit
 
 RM = rm -rf
 
@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	make re -C ./libft
 	make re -C ./mlx_macos
-	$(CC) $(CFLAGS) $(OBJS) -Llibft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	make clean -C ./libft
