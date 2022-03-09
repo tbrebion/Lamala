@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:07:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/09 12:13:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/09 15:37:54 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_data
 	int			nb;
 }	t_data;
 
+void	ft_free(char **map, char *l_map);
 int		ft_strcmp(const char *s1, const char *s2);
 void	check_arg(int ac, char **av);
 void	map_error(void);
