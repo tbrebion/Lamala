@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 16:18:52 by tbrebion          #+#    #+#              #
-#    Updated: 2022/03/08 15:03:49 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/03/09 11:48:39 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
+#CFLAGS = -Wall -Wextra -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
+
+CFLAGS = -Wall -Wextra -L./mlx -lmlx -lXext -lX11
 
 RM = rm -rf
 
