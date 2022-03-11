@@ -6,17 +6,20 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:54:38 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/11 12:15:56 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/11 14:20:28 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+int	mails = 0;
+
 void	*routine()
 {
-	printf("Test !\n");
-	sleep(3);
-	printf("ending threads \n");
+	int	i;
+
+	for(i = 0; i < 5000; i++)
+		mails++;
 	return (NULL);
 }
 
@@ -35,5 +38,6 @@ int	main(int ac, char **av)
 		return (3);
 	if (pthread_join(t2, NULL) != 0)
 		return (4);
+	printf("Number of mails : %d\n", mails);
 	return (0);
 }
