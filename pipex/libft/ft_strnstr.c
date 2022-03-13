@@ -6,11 +6,12 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:58:07 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/02 16:23:06 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/13 16:44:45 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
