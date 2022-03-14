@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:54:38 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/14 16:13:19 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:03:19 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*routine()
 {
 	int	i;
 
-	for(i = 0; i < 10000000; i++)
+	for(i = 0; i < 100000; i++)
 	{
 		pthread_mutex_lock(&mutex);
 		mails++;
