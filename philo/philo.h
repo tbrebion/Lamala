@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/14 15:04:10 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:16:31 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ typedef	struct	s_philo
 
 int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *s, int fd);
+void	create_philo(int ac, char **av, pthread_mutex_t mutex);
 
 #endif

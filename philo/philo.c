@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:49:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/14 15:22:27 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:13:10 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ int	main(int ac, char **av)
 	pthread_mutex_init(&mutex, NULL);
 	i = 0;
 	if (ac == 5)
+	{
+		create_philo(ac, av, mutex);
+	}
+	if (ac == 6) //argument optionnel en plus
 	{
 		create_philo(ac, av, mutex);
 	}
