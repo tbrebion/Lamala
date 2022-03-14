@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/14 15:04:10 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/03/14 13:49:41 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/03/14 15:22:27 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#include "philo.h"
 
-# include<string.h>
-# include<unistd.h>
-# include<stdlib.h>
-# include<stdio.h>
-# include<sys/time.h>
-# include<pthread.h>
-
-typedef	struct	s_philo
+int	main(int ac, char **av)
 {
-	int	number_of_philosophers;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	time_to_die;
-}	t_philo;
+	t_philo	philo;
+	int		i;
+	pthread_mutex_t	mutex;
 
-int		ft_atoi(const char *str);
-void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	//check_init();
+	pthread_mutex_init(&mutex, NULL);
+	i = 0;
+	if (ac == 5)
+	{
+		create_philo(ac, av, mutex);
+	}
+	pthread_mutex_destroy(&mutex);
+	return (0);
+}

@@ -6,20 +6,25 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:54:38 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/11 15:10:14 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:22:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 int	mails = 0;
+pthread_mutex_t mutex;
 
 void	*routine()
 {
 	int	i;
 
-	for(i = 0; i < 50000; i++)
+	for(i = 0; i < 10000000; i++)
+	{
+		pthread_mutex_lock(&mutex);
 		mails++;
+		pthread_mutex_unlock(&mutex);
+	}
 	return (NULL);
 }
 
@@ -27,17 +32,30 @@ int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
-	pthread_t t1;
-	pthread_t t2;
+	pthread_t	th[8];
+	int			i;
 
-	if (pthread_create(&t1, NULL, &routine, NULL) != 0)
-		return (1);
-	if (pthread_create(&t2, NULL, &routine, NULL) != 0)
-		return (2);
-	if (pthread_join(t1, NULL) != 0)
-		return (3);
-	if (pthread_join(t2, NULL) != 0)
-		return (4);
+	i = 0;
+	pthread_mutex_init(&mutex, NULL);
+	for(i = 0; i < 8; i++)
+	{
+		if (pthread_create(&th[i], NULL, &routine, NULL) != 0)
+		{
+			perror("failed to create\n");
+			return (1);
+		}
+		printf("Thread %d has started\n", i);
+	}
+	for(i = 0; i < 8; i++)
+	{
+		if (pthread_join(th[i], NULL) != 0)
+		{
+			perror("failed to join\n");
+			return (1);
+		}
+		printf("Thread %d has finished execution\n", i);
+	}
+	pthread_mutex_destroy(&mutex);
 	printf("Number of mails : %d\n", mails);
 	return (0);
 }
