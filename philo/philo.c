@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:49:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/14 16:13:10 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:32:47 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,18 @@
 int	main(int ac, char **av)
 {
 	t_philo	philo;
-	int		i;
+	//int		i;
 	pthread_mutex_t	mutex;
 
-	//check_init();
-	pthread_mutex_init(&mutex, NULL);
-	i = 0;
-	if (ac == 5)
+	if (checker(av) == 1 && (ac == 5 || ac == 6))
 	{
-		create_philo(ac, av, mutex);
+		pthread_mutex_init(&mutex, NULL);
+		//i = 0;
+		init_av(ac, av, &philo);
+
+
+		pthread_mutex_destroy(&mutex);
 	}
-	if (ac == 6) //argument optionnel en plus
-	{
-		create_philo(ac, av, mutex);
-	}
-	pthread_mutex_destroy(&mutex);
+	ft_putstr_fd("ERROR\n", 2);
 	return (0);
 }

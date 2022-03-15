@@ -6,17 +6,17 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:58:21 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/15 12:20:00 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:14:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	j;
-	int	result;
+	int			i;
+	int			j;
+	long int	result;
 
 	j = 1;
 	i = 0;
@@ -53,9 +53,9 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-int	ft_isdigit(int c)
+int	ft_isdigit(char c)
 {
-	if (c >= 48 && <= 57)
+	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
 }
