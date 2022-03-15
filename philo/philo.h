@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/15 15:18:13 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/15 16:25:59 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int				check_overflow(char **av);
 int				checker(char **av);
 void			init_av(int ac, char **av, t_philo *philo);
 
-void			create_philo(int ac, char **av, pthread_mutex_t mutex);
+void			create_philo(int ac, char **av);
 
 #endif

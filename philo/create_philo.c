@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:26:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/14 16:13:17 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/15 16:26:38 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*routine(void)
+void	*routine()
 {
 	int				i;
 	pthread_mutex_t mutex;
@@ -30,7 +30,7 @@ void	*routine(void)
 	return (NULL);
 }
 
-void	create_philo(int ac, char **av, pthread_mutex_t mutex)
+void	create_philo(int ac, char **av)
 {
 	int			i;
 	pthread_t	philo[ft_atoi(av[1])];
