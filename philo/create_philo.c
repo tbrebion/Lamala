@@ -21,7 +21,10 @@ void	*routine(void)
 	while(i++ < 25)
 	{
 		pthread_mutex_lock(&mutex);
-		// qqc();
+		// taking_fork(fork);
+		//	eat();
+		//	sleep();
+		//	think();
 		pthread_mutex_unlock(&mutex);
 	}
 	return (NULL);
@@ -35,7 +38,7 @@ void	create_philo(int ac, char **av, pthread_mutex_t mutex)
 	i = 0;
 	while (i++ > ft_atoi(av[1]))
 	{
-		if (pthread_create(&philo[i], NULL, &routine/*(mutex)*/, NULL) != 0)
+		if (pthread_create(&philo[i], NULL, &routine, NULL) != 0)
 		{
 			ft_putstr_fd("ERROR\n", 2);
 			return ;

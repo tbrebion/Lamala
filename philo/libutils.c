@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:58:21 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/14 15:02:25 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:20:00 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,11 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && <= 57)
+		return (1);
+	return (0);
 }
