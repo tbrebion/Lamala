@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   test2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 13:49:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/16 15:01:54 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/03/16 11:42:25 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/03/16 12:13:28 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <time.h>
 
-int	main(int ac, char **av)
+void	*roll_dice()
 {
-	t_philo	philo;
-	//int		i;
-	pthread_mutex_t	mutex;
+	int	value;
+	int	*result;
 
-	if (checker(av) == 1 && (ac == 5 || ac == 6))
-	{
-		init_av(ac, av, &philo);
-		pthread_mutex_init(&mutex, NULL);
-		//i = 0;
-		if (create_philo(ac, av) == 0)
-			return (0);
-		pthread_mutex_destroy(&mutex);
-	}
-	ft_putstr_fd("ERROR\n", 2);
+	value = (rand() % 6) + 1;
+	result = malloc(sizeof(int));
+	if (!result)
+		return (NULL);
+	*result = value;
+	return ((void *)result);
+}
+
+int	main(void)
+{
+	int	*res;
+	pthread_t th;
+
+	srand(time(NULL));
+	if (pthread_create(&th, NULL, &roll_dice, NULL) != 0)
+		return (1);
+	if (pthread_join(th, (void **)&res) != 0)
+		return (2);
+	printf("Result --> %d\n", *res);
+	free(res);
 	return (0);
 }

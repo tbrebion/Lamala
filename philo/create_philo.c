@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:26:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/15 16:26:38 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:00:10 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*routine()
 	return (NULL);
 }
 
-void	create_philo(int ac, char **av)
+int	create_philo(int ac, char **av)
 {
 	int			i;
 	pthread_t	philo[ft_atoi(av[1])];
@@ -41,7 +41,7 @@ void	create_philo(int ac, char **av)
 		if (pthread_create(&philo[i], NULL, &routine, NULL) != 0)
 		{
 			ft_putstr_fd("ERROR\n", 2);
-			return ;
+			return (0);
 		}
 	}
 	i = 0;
@@ -50,7 +50,8 @@ void	create_philo(int ac, char **av)
 		if (pthread_join(philo[i], NULL) != 0)
 		{
 			ft_putstr_fd("ERROR\n", 2);
-			return ;
+			return (0);
 		}
 	}
+	return (1);
 }
