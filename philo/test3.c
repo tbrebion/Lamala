@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 13:35:36 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/16 16:20:27 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/17 11:24:17 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	*routine(void *arg)
 		sum += primes[index + j];
 		j++;
 	}
-	*(int *)arg = index;
+	printf("local sum %d\n\n", sum);
+	*(int *)arg = sum;
 	return (arg);
 }
 
@@ -38,7 +39,6 @@ int	main(void)
 	pthread_t	th[2];
 	int			i;
 	int			*a;
-	int			*r;
 	int			globalSum;
 
 	i = 0;
@@ -54,12 +54,13 @@ int	main(void)
 	globalSum = 0;
 	while(i < 2)
 	{
-		if (pthread_join(th[i], &r) != 0)
+		int			*r;
+		if (pthread_join(th[i], (void **)&r) != 0)
 			return (2);
 		globalSum += *r;
 		free(r);
 		i++;
 	}
-	printf("%d\n", globalSum);
+	printf("global sum %d\n", globalSum);
 	return (0);
 }
