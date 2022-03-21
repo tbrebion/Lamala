@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test4.c                                            :+:      :+:    :+:   */
+/*   messages.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 15:06:47 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/18 06:56:06 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/03/21 09:47:04 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/03/21 10:37:16 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long long	timestamp(void)
+char *message(int type)
 {
-	struct timeval	t;
-
-	if(gettimeofday(&t, NULL) == 0)
-	{
-		printf("sec --> %ld\nmsec --> %d\n\n", t.tv_sec, t.tv_usec);
-		return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
-	}
-	return (1);
+	if (type == EAT)
+		return (" is eating\n");
+	if (type == SLEEP)
+		return (" is sleeping\n");
+	if (type == FORK)
+		return (" has taken a fork\n");
+	if (type == THINK)
+		return (" is thinking\n");
+	return (" died\n");
 }
 
-int	main()
-{
-	long long i;
-
-	i = timestamp();
-	printf("time --> %lli\n\n", i);
-	return (0);
-}
 

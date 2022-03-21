@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:58:21 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/15 15:14:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/21 11:07:46 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,18 @@ int	ft_isdigit(char c)
 	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
+}
+
+long long	timestamp(void)
+{
+	struct timeval	t;
+
+	if (gettimeofday(&t, NULL) == 0)
+		return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
+	return (1);
+}
+
+long long	timediff(long long start, long long end)
+{
+	return (end - start);
 }

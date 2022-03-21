@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/17 16:55:02 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:08:46 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,26 @@
 # include<pthread.h>
 # include<limits.h>
 
-typedef	enum	e_fork
+# define EAT 0
+# define SLEEP 1
+# define FORK 2
+# define THINK 3
+# define DIED 4
+
+
+/*typedef	enum	e_fork
 {
 	FREE = 0,
 	TAKEN = 1,
 }	t_fork;
-
+*/
 typedef	struct	s_philo
 {
-/*	int	eating;
-	int	sleeping;
-	int	thinking;
-	int	dying;*/
-	int	id;
-	int	x_ate;
-	int	left_fork_id;
-	int	right_fork_id;
-
+	int				id;
+	int				x_ate;
+	int				left_fork_id;
+	int				right_fork_id;
+	pthread_t		philo;
 }	t_philo;
 
 typedef	struct	s_data
@@ -51,11 +54,14 @@ typedef	struct	s_data
 	int				all_ate;
 	int				died;
 	struct s_philo	philo[250];
+	pthread_mutex_t	fork_m[250];
 }	t_data;
 
 long int		ft_atoi(const char *str);
 void			ft_putstr_fd(char *s, int fd);
 int				ft_isdigit(char c);
+long long		timestamp(void);
+long long		timediff(long long start, long long end);
 
 int				check_digit(char **av);
 int				check_overflow(char **av);
@@ -64,6 +70,6 @@ int				checker(char **av);
 
 int				init_all(char **av, t_data *data);
 
-int				create_philo(int ac, char **av);
+int				create_philo(t_data *data);
 
 #endif
