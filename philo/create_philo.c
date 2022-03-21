@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:26:19 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 12:08:48 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:02:26 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	*routine(void *arg)
 	return (NULL);
 }
 
-int	create_philo(t_data *data)
+
+
+/*int	create_philo(t_data *data)
 {
 	int			i;
 
@@ -56,4 +58,4 @@ int	create_philo(t_data *data)
 		pthread_mutex_destroy(&data->fork_m[i]);
 	}
 	return (1);
-}
+}*/

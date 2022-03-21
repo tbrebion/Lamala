@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:47:04 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 10:37:16 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:12:33 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,7 @@ char *message(int type)
 	return (" died\n");
 }
 
-
+void	display_message(int start, int end, int type, int id)
+{
+	printf("%lli %d, %s", timediff(start, end), id, message(type));
+}

@@ -6,13 +6,13 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 12:14:00 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:02:20 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	init_philo(t_data *data)
+void	init_philo(t_data *data)
 {
 	int	i;
 
@@ -23,13 +23,15 @@ int	init_philo(t_data *data)
 		data->philo[i].x_ate = 0;
 		data->philo[i].left_fork_id = i;
 		data->philo[i].right_fork_id = (i + 1) % data->nb_philo;
+		pthread_mutex_init(&data->philo[i].mutex, NULL);
+		pthread_mutex_lock(&data->philo[i].mutex);
 	}
 }
 
-int	init_mutex(t_data *data)
+/*int	init_mutex(t_data *data)
 {
 	
-}
+}*/
 
 int	init_all(char **av, t_data *data)
 {

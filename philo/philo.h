@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 12:08:46 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:14:24 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 # define THINK 3
 # define DIED 4
 
-
 /*typedef	enum	e_fork
 {
 	FREE = 0,
@@ -41,6 +40,7 @@ typedef	struct	s_philo
 	int				left_fork_id;
 	int				right_fork_id;
 	pthread_t		philo;
+	pthread_mutex_t	mutex;
 }	t_philo;
 
 typedef	struct	s_data
@@ -54,7 +54,7 @@ typedef	struct	s_data
 	int				all_ate;
 	int				died;
 	struct s_philo	philo[250];
-	pthread_mutex_t	fork_m[250];
+	//pthread_mutex_t	fork_m[250];
 }	t_data;
 
 long int		ft_atoi(const char *str);
@@ -67,7 +67,10 @@ int				check_digit(char **av);
 int				check_overflow(char **av);
 int				checker(char **av);
 
+char			*message(int type);
+void			display_message(int start, int end, int type, int id);
 
+void			init_philo(t_data *data);
 int				init_all(char **av, t_data *data);
 
 int				create_philo(t_data *data);
