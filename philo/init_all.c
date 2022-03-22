@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/22 11:33:45 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 13:41:52 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	init_mutex(t_data *data)
 		if (pthread_mutex_init(data->fork_m, NULL))
 			return (1);
 	}
-	if (pthread_mutex_init(data->writing, NULL))
+	if (pthread_mutex_init(&data->writing, NULL))
 		return (1);
-	if (pthread_mutex_init(data->meal_check, NULL))
+	if (pthread_mutex_init(&data->meal_check, NULL))
 		return (1);
 	return (0);
 }
