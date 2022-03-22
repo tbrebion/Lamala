@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:49:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 16:02:15 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:06:03 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int	main(int ac, char **av)
 {
 	t_data	data;
+	int		ret;
 
-	if (checker(av) == 1 && (ac == 5 || ac == 6))
-	{
-		init_all(av, &data);
-	}
-	ft_putstr_fd("ERROR\n", 2);
+	if (ac != 5 && ac != 6)
+		return (error_message("Wrong amount of args"));
+	if (ret == init_all(av, &data))
+		return (error_manager(ret));
+
+
 	return (0);
 }

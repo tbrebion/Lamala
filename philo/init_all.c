@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/22 13:41:52 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:06:06 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	init_all(char **av, t_data *data)
 		else
 			data->nb_eat = -1;
 		if (init_mutex(data))
-			return (1);
+			return (2);
 		init_philo(data);
 		return (0);
 }
