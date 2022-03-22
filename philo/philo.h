@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/22 14:06:02 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:08:00 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,17 @@
 # define THINK 3
 # define DIED 4
 
+struct	s_data;
+
 typedef	struct	s_philo
 {
 	int				id;
 	int				x_ate;
 	int				left_fork_id;
 	int				right_fork_id;
-
+	struct s_data	*data;
 	pthread_t		philo;
-	//pthread_mutex_t	mutex;
+	long long		t_last_meal;
 }	t_philo;
 
 typedef	struct	s_data
@@ -49,6 +51,7 @@ typedef	struct	s_data
 	int				all_ate;
 	int				died;
 	struct s_philo	philo[250];
+	long long		first_timestamp;;
 	pthread_mutex_t	fork_m[250];
 	pthread_mutex_t	writing;
 	pthread_mutex_t	meal_check;
