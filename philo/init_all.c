@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_av.c                                          :+:      :+:    :+:   */
+/*   init_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 16:02:20 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 11:33:45 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_philo(t_data *data)
+int	init_philo(t_data *data)
 {
 	int	i;
 
@@ -23,15 +23,26 @@ void	init_philo(t_data *data)
 		data->philo[i].x_ate = 0;
 		data->philo[i].left_fork_id = i;
 		data->philo[i].right_fork_id = (i + 1) % data->nb_philo;
-		pthread_mutex_init(&data->philo[i].mutex, NULL);
-		pthread_mutex_lock(&data->philo[i].mutex);
 	}
+	return (0);
 }
 
-/*int	init_mutex(t_data *data)
+int	init_mutex(t_data *data)
 {
-	
-}*/
+	int	i;
+
+	i = data->nb_philo;
+	while(--i >= 0)
+	{
+		if (pthread_mutex_init(data->fork_m, NULL))
+			return (1);
+	}
+	if (pthread_mutex_init(data->writing, NULL))
+		return (1);
+	if (pthread_mutex_init(data->meal_check, NULL))
+		return (1);
+	return (0);
+}
 
 int	init_all(char **av, t_data *data)
 {
@@ -52,7 +63,8 @@ int	init_all(char **av, t_data *data)
 		}
 		else
 			data->nb_eat = -1;
-		//init mutex
+		if (init_mutex(data))
+			return (1);
 		init_philo(data);
 		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 16:14:24 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 11:33:48 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ typedef	struct	s_philo
 	int				x_ate;
 	int				left_fork_id;
 	int				right_fork_id;
+
 	pthread_t		philo;
-	pthread_mutex_t	mutex;
+	//pthread_mutex_t	mutex;
 }	t_philo;
 
 typedef	struct	s_data
@@ -54,7 +55,9 @@ typedef	struct	s_data
 	int				all_ate;
 	int				died;
 	struct s_philo	philo[250];
-	//pthread_mutex_t	fork_m[250];
+	pthread_mutex_t	fork_m[250];
+	pthread_mutex_t	writing;
+	pthread_mutex_t	meal_check;
 }	t_data;
 
 long int		ft_atoi(const char *str);
@@ -70,7 +73,7 @@ int				checker(char **av);
 char			*message(int type);
 void			display_message(int start, int end, int type, int id);
 
-void			init_philo(t_data *data);
+int				init_philo(t_data *data);
 int				init_all(char **av, t_data *data);
 
 int				create_philo(t_data *data);
