@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/22 15:08:00 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:18:12 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef	struct	s_philo
 
 typedef	struct	s_data
 {
-	//int	fork;
 	int				nb_philo;
 	int				time_die;
 	int				time_eat;
@@ -75,5 +74,7 @@ void			display_message(int start, int end, int type, int id);
 int				init_philo(t_data *data);
 int				init_mutex(t_data *data);
 int				init_all(char **av, t_data *data);
+
+void			action(t_philo *philo);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/22 15:10:48 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:18:01 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	init_mutex(t_data *data)
 	i = data->nb_philo;
 	while(--i >= 0)
 	{
-		if (pthread_mutex_init(data->fork_m, NULL))
+		if (pthread_mutex_init(&data->fork_m[i], NULL))
 			return (1);
 	}
 	if (pthread_mutex_init(&data->writing, NULL))
