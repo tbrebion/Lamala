@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:47:04 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/22 16:18:07 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/23 11:00:20 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,12 @@ int	error_manager(int error)
 	return (1);
 }
 
-char *message(int type)
+void	print_things(t_data *data, int id, char *str)
 {
-	if (type == EAT)
-		return (" is eating\n");
-	if (type == SLEEP)
-		return (" is sleeping\n");
-	if (type == FORK)
-		return (" has taken a fork\n");
-	if (type == THINK)
-		return (" is thinking\n");
-	return (" died\n");
-}
-
-void	display_message(int start, int end, int type, int id)
-{
-	printf("%lli %d, %s", timediff(start, end), id, message(type));
+	pthread_mutex_lock(&data->writing);
+	printf("%lli ", timestamp() - data->first_timestamp);
+	printf("%d ", id + 1);
+	printf("%s\n", str);
+	pthread_mutex_unlock(&data->writing);
+	return ;
 }

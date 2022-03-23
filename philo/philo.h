@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/22 16:18:12 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/23 10:50:36 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 # include<sys/time.h>
 # include<pthread.h>
 # include<limits.h>
-
-# define EAT 0
-# define SLEEP 1
-# define FORK 2
-# define THINK 3
-# define DIED 4
 
 struct	s_data;
 
@@ -68,13 +62,12 @@ int				checker(char **av);
 
 int				error_message(char *str);
 int				error_manager(int error);
-char			*message(int type);
-void			display_message(int start, int end, int type, int id);
+void			print_things(t_data *data, int id, char *str);
 
 int				init_philo(t_data *data);
 int				init_mutex(t_data *data);
 int				init_all(char **av, t_data *data);
 
-void			action(t_philo *philo);
+void			eat_action(t_philo *philo);
 
 #endif
