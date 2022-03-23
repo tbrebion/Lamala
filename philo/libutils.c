@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:58:21 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/21 15:57:38 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/23 15:42:00 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,8 @@ long long	timestamp(void)
 {
 	struct timeval	t;
 
-	if (gettimeofday(&t, NULL) == 0)
-		return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
-	return (1);
+	gettimeofday(&t, NULL);
+	return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
 }
 
 long long	timediff(long long start, long long end)

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/23 15:29:58 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:34:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void			print_things(t_data *data, int id, char *str);
 int				init_philo(t_data *data);
 int				init_mutex(t_data *data);
 int				init_all(char **av, t_data *data);
+
+void			wait_action(long long time, t_data *data);
 
 void			eat_action(t_philo *philo);
 
