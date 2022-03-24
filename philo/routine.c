@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/23 17:01:10 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/24 11:52:51 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,41 @@ void	eat_action(t_philo *philo)
 	pthread_mutex_unlock(&(data->fork_m[philo->right_fork_id]));
 }
 
-void	routine(t_philo *philo)
+void	*routine(void *v_philo)
 {
 	t_data	*data;
+	return (NULL);
+}
 
-	data = philo->data;
+void	exit_manager(t_data *data, t_philo *philo)
+{
+	int	i;
 
+	i = -1;
+	while (++i < data->nb_philo)
+		pthread_join(philo[i].philo_th, NULL);
+	i = -1;
+	while (++i < data->nb_philo)
+		pthread_mutex_destroy(&data->fork_m[i]);
+	pthread_mutex_destroy(&data->writing);
+	pthread_mutex_destroy(&data->meal_check);
+}
+
+int	manager(t_data *data)
+{
+	int		i;
+	t_philo	*philo;
+
+	i = 0;
+	philo = data->philo;
+	data->first_timestamp = timestamp();
+	while (i < data->nb_philo)
+	{
+		if (pthread_create(&philo[i].philo_th, NULL, &routine, &philo[i]) != 0)
+			return (1);
+		philo[i].t_last_meal = timestamp();
+		i++;
+	}
+	exit_manager(data, philo);
+	return (0);
 }

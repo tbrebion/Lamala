@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/23 17:01:13 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/24 11:52:53 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef	struct	s_philo
 	int				left_fork_id;
 	int				right_fork_id;
 	struct s_data	*data;
-	pthread_t		philo;
+	pthread_t		philo_th;
 	long long		t_last_meal;
 }	t_philo;
 
@@ -71,5 +71,8 @@ int				init_all(char **av, t_data *data);
 void			wait_action(long long time, t_data *data);
 
 void			eat_action(t_philo *philo);
+void			*routine(void	*v_philo);
+void			exit_manager(t_data *data, t_philo *philo);
+int				manager(t_data *data);
 
 #endif
