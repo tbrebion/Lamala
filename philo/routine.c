@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/24 11:52:51 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/24 12:46:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,36 @@ void	eat_action(t_philo *philo)
 void	*routine(void *v_philo)
 {
 	t_data	*data;
+	t_philo	*philo;
+
+	philo = (t_philo *)v_philo;
+	data = philo->data;
+	if (philo->id % 2 != 0)
+		usleep(15000);
+	while (data->died == 0)
+	{
+		eat_action(philo);
+		if (data->all_ate)
+			break ;
+		print_things(data, philo->id, "is sleeping");
+		wait_action(data->time_sleep, data);
+		print_things(data, philo->id, "is thinking");
+	}
 	return (NULL);
+}
+
+void	check_death(t_data *data, t_philo *philo)
+{
+	int	i;
+
+	while (data->all_ate == 0)
+	{
+		i = -1;
+		while (++i < data->nb_philo && data->died == 0)
+		{
+			
+		}
+	}
 }
 
 void	exit_manager(t_data *data, t_philo *philo)

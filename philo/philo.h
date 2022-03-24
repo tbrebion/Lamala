@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/24 11:52:53 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/24 12:46:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void			wait_action(long long time, t_data *data);
 
 void			eat_action(t_philo *philo);
 void			*routine(void	*v_philo);
+void			check_death(t_data *data, t_philo *philo);
 void			exit_manager(t_data *data, t_philo *philo);
 int				manager(t_data *data);
 
