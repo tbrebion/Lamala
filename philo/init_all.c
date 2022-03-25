@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/23 10:50:38 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/25 10:44:48 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	init_mutex(t_data *data)
 	int	i;
 
 	i = data->nb_philo;
-	while(--i >= 0)
+	while (--i >= 0)
 	{
 		if (pthread_mutex_init(&data->fork_m[i], NULL))
 			return (1);
@@ -49,25 +49,25 @@ int	init_mutex(t_data *data)
 
 int	init_all(char **av, t_data *data)
 {
-		data->nb_philo = ft_atoi(av[1]);
-		data->time_die = ft_atoi(av[2]);
-		data->time_eat = ft_atoi(av[3]);
-		data->time_sleep = ft_atoi(av[4]);
-		data->all_ate = 0;
-		data->died = 0;
-		if (data->nb_philo > 250 || data->nb_philo < 2 || data->time_die < 0 ||
-				data->time_eat < 0 || data->time_sleep < 0)
+	data->nb_philo = ft_atoi(av[1]);
+	data->time_die = ft_atoi(av[2]);
+	data->time_eat = ft_atoi(av[3]);
+	data->time_sleep = ft_atoi(av[4]);
+	data->all_ate = 0;
+	data->died = 0;
+	if (data->nb_philo > 250 || data->nb_philo < 2 || data->time_die < 0
+		|| data->time_eat < 0 || data->time_sleep < 0)
+		return (1);
+	if (av[5])
+	{
+		data->nb_eat = ft_atoi(av[5]);
+		if (data->nb_eat <= 0)
 			return (1);
-		if (av[5])
-		{
-			data->nb_eat = ft_atoi(av[5]);
-			if (data->nb_eat <= 0)
-				return (1);
-		}
-		else
-			data->nb_eat = -1;
-		if (init_mutex(data))
-			return (2);
-		init_philo(data);
-		return (0);
+	}
+	else
+		data->nb_eat = -1;
+	if (init_mutex(data))
+		return (2);
+	init_philo(data);
+	return (0);
 }

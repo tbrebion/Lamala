@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/24 15:35:55 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/25 10:46:08 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,23 @@ void	check_death(t_data *data, t_philo *philo)
 		i = -1;
 		while (++i < data->nb_philo && data->died == 0)
 		{
-			
+			pthread_mutex_lock(&data->meal_check);
+			if (timediff(philo[i].t_last_meal, timestamp()) > data->time_die)
+			{
+				print_things(data, philo->id, "died");
+				data->died = 1;
+			}
+			pthread_mutex_unlock(&data->meal_check);
+			usleep(100);
 		}
+		if (data->died)
+			break ;
+		i = 0;
+		while (data->nb_eat != -1 && i < data->nb_philo
+			&& philo[i].x_ate < data->nb_eat)
+			i++;
+		if (i == data->nb_philo)
+			data->all_ate = 1;
 	}
 }
 
@@ -95,6 +110,7 @@ int	manager(t_data *data)
 		philo[i].t_last_meal = timestamp();
 		i++;
 	}
+	check_death(data, philo);
 	exit_manager(data, philo);
 	return (0);
 }

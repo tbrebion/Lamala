@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/24 12:46:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/25 10:48:43 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 struct	s_data;
 
-typedef	struct	s_philo
+typedef struct s_philo
 {
 	int				id;
 	int				x_ate;
@@ -34,7 +34,7 @@ typedef	struct	s_philo
 	long long		t_last_meal;
 }	t_philo;
 
-typedef	struct	s_data
+typedef struct s_data
 {
 	int				nb_philo;
 	int				time_die;
@@ -44,7 +44,7 @@ typedef	struct	s_data
 	int				all_ate;
 	int				died;
 	struct s_philo	philo[250];
-	long long		first_timestamp;;
+	long long		first_timestamp;
 	pthread_mutex_t	fork_m[250];
 	pthread_mutex_t	writing;
 	pthread_mutex_t	meal_check;
