@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/25 10:46:08 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/25 12:16:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	check_death(t_data *data, t_philo *philo)
 			break ;
 		i = 0;
 		while (data->nb_eat != -1 && i < data->nb_philo
-			&& philo[i].x_ate < data->nb_eat)
+			&& philo[i].x_ate >= data->nb_eat)
 			i++;
 		if (i == data->nb_philo)
 			data->all_ate = 1;

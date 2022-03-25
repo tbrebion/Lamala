@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/25 10:48:43 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/25 12:26:19 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ typedef struct s_data
 	int				nb_eat;
 	int				all_ate;
 	int				died;
-	struct s_philo	philo[250];
+	struct s_philo	philo[200];
 	long long		first_timestamp;
-	pthread_mutex_t	fork_m[250];
+	pthread_mutex_t	fork_m[200];
 	pthread_mutex_t	writing;
 	pthread_mutex_t	meal_check;
 }	t_data;

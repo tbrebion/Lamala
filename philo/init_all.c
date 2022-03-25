@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/25 10:44:48 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/25 12:26:16 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	init_philo(t_data *data)
 		data->philo[i].x_ate = 0;
 		data->philo[i].left_fork_id = i;
 		data->philo[i].right_fork_id = (i + 1) % data->nb_philo;
-		data->philo[i].t_last_meal = 0;
 		data->philo[i].t_last_meal = 0;
 		data->philo[i].data = data;
 	}
@@ -55,7 +54,7 @@ int	init_all(char **av, t_data *data)
 	data->time_sleep = ft_atoi(av[4]);
 	data->all_ate = 0;
 	data->died = 0;
-	if (data->nb_philo > 250 || data->nb_philo < 2 || data->time_die < 0
+	if (data->nb_philo > 200 || data->nb_philo < 2 || data->time_die < 0
 		|| data->time_eat < 0 || data->time_sleep < 0)
 		return (1);
 	if (av[5])
