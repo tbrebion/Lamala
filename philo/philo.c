@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:49:41 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/24 10:46:18 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:48:25 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int ac, char **av)
 
 	if (ac != 5 && ac != 6)
 		return (error_message("Wrong amount of args"));
+	if (checker(av) == 0)
+		return (error_message("At least one wrong arg"));
 	ret = init_all(av, &data);
 	if (ret != 0)
 		return (error_manager(ret));
