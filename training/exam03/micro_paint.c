@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:26:55 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/31 13:37:30 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/31 13:51:29 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,15 @@ int	check_shape(t_shape *shape)
 			&& (shape->type == 'r' || shape->type == 'R'));
 }
 
+int	get_zone(FILE *file, t_zone *zone)
+{
+	int	scan_ret;
+
+	if ((scan_ret = fscanf(file, "%d %d %c\n", &zone->width, &zone->height, &zone->background)) != 3)
+		return (0);
+	if (!check_zone(zone))
+		return (0);
+	if (scan_ret == -1)
+		return (0);
+	return (1);
+}
