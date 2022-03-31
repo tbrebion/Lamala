@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:26:55 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/30 11:54:23 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/03/31 13:37:30 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,39 @@ typedef struct s_shape
 	struct s_shape	*next;
 }	t_shape;
 
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);	
+}
+
+int	str_error(char *str, int ret)
+{
+	write(1, str, ft_strlen(str));
+	return (ret);
+}
+
+int	clear_all(FILE *file, char *drawing)
+{
+	fclose(file);
+	if(drawing)
+		free(drawing);
+	return (1);
+}
+
+int	check_zone(t_zone *zone)
+{
+	return (zone->width > 0 && zone->width <= 300
+			&& zone->height > 0 && zone->height <= 300);
+}
+
+int	check_shape(t_shape *shape)
+{
+	return (shape->width > 0.00000000 && shape->height > 0.00000000
+			&& (shape->type == 'r' || shape->type == 'R'));
+}
 
