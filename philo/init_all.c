@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/01 12:27:17 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/02 14:17:59 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	init_all(char **av, t_data *data)
 	data->time_sleep = ft_atoi(av[4]);
 	data->all_ate = 0;
 	data->died = 0;
-	if (data->nb_philo > 200 || data->nb_philo < 2 || data->time_die < 0
+	if (data->nb_philo > 200 || data->nb_philo < 1 || data->time_die < 0
 		|| data->time_eat < 0 || data->time_sleep < 0)
 		return (1);
 	if (av[5])

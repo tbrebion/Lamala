@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/01 13:22:49 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/02 14:59:40 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	*routine(void *v_philo)
 	data = philo->data;
 	if (philo->id % 2 != 0)
 		usleep(15000);
-	while (data->died == 0)
+	while (!data->died)
 	{
 		eat_action(philo);
 		if (data->all_ate)
@@ -59,7 +59,7 @@ void	check_death(t_data *data, t_philo *philo)
 	while (data->all_ate == 0)
 	{
 		i = -1;
-		while (++i < data->nb_philo && data->died == 0)
+		while (++i < data->nb_philo && !data->died)
 		{
 			pthread_mutex_lock(&data->meal_check);
 			if (timediff(philo[i].t_last_meal, timestamp()) > data->time_die)
@@ -71,7 +71,7 @@ void	check_death(t_data *data, t_philo *philo)
 			usleep(100);
 		}
 		if (data->died)
-			break ;
+			return ;
 		i = 0;
 		while (data->nb_eat != -1 && i < data->nb_philo
 			&& philo[i].x_ate >= data->nb_eat)
@@ -86,8 +86,11 @@ void	exit_manager(t_data *data, t_philo *philo)
 	int	i;
 
 	i = -1;
-	while (++i < data->nb_philo)
-		pthread_join(philo[i].philo_th, NULL);
+	if (data->nb_philo != 1)
+	{
+		while (++i < data->nb_philo)
+			pthread_join(philo[i].philo_th, NULL);
+	}
 	i = -1;
 	while (++i < data->nb_philo)
 		pthread_mutex_destroy(&data->fork_m[i]);
@@ -105,7 +108,7 @@ int	manager(t_data *data)
 	data->first_timestamp = timestamp();
 	while (i < data->nb_philo)
 	{
-		if (pthread_create(&philo[i].philo_th, NULL, &routine, &philo[i]) != 0)
+		if (pthread_create(&philo[i].philo_th, NULL, &routine, &philo[i]))
 			return (1);
 		philo[i].t_last_meal = timestamp();
 		i++;
