@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:03:44 by tbrebion          #+#    #+#              #
-#    Updated: 2022/04/04 12:04:23 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/04/05 11:45:51 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFlAGS = -pthread -Wall -Wextra -Werror -g
+CFlAGS = -pthread -Wall -Wextra -Werror -fsanitize=thread -g3
 
 RM = rm -rf
 

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/04 15:47:04 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/05 11:36:17 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,13 @@ void	exit_manager(t_data *data, t_philo *philo)
 			pthread_join(philo[i].philo_th, NULL);
 	}
 	i = -1;
-	while (++i < data->nb_philo)
-		pthread_mutex_destroy(&data->fork_m[i]);
+	if (data->nb_philo > 1)
+	{
+		while (++i < data->nb_philo)
+			pthread_mutex_destroy(&data->fork_m[i]);
+	}
+	else 
+		pthread_mutex_destroy(&data->fork_m[0]);
 	pthread_mutex_destroy(&data->writing);
 	pthread_mutex_destroy(&data->meal_check);
 }
