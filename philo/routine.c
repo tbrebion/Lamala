@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/05 11:36:17 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:55:09 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	check_death(t_data *data, t_philo *philo)
 				data->died = 1;
 			}
 			pthread_mutex_unlock(&data->meal_check);
-			usleep(150);
+			usleep(100);
 		}
 		if (data->died)
 			return ;
