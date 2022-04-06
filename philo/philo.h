@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/29 17:32:33 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/06 17:02:14 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_data
 	pthread_mutex_t	fork_m[200];
 	pthread_mutex_t	writing;
 	pthread_mutex_t	meal_check;
+	pthread_mutex_t	die_check;
 }	t_data;
 
 long int		ft_atoi(const char *str);
