@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/07 15:17:59 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/07 17:05:05 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,20 @@ void	eat_action(t_philo *philo)
 	data = philo->data;
 	pthread_mutex_lock(&(data->fork_m[philo->left_fork_id]));
 	print_things(data, philo->id, "has taken a fork");
+	pthread_mutex_unlock(&(data->fork_m[philo->left_fork_id]));
 	pthread_mutex_lock(&(data->fork_m[philo->right_fork_id]));
 	print_things(data, philo->id, "has taken a fork");
+	pthread_mutex_unlock(&(data->fork_m[philo->right_fork_id]));
 	print_things(data, philo->id, "is eating");
 	pthread_mutex_lock(&(data->meal_check));
 	philo->t_last_meal = timestamp();
 	pthread_mutex_unlock(&(data->meal_check));
+	//pthread_mutex_lock(&(data->meal_check));
 	wait_action(data->time_eat, data);
+	//pthread_mutex_unlock(&(data->meal_check));
 	pthread_mutex_lock(&(data->meal_check));
 	(philo->x_ate)++; 	
 	pthread_mutex_unlock(&(data->meal_check));
-	pthread_mutex_unlock(&(data->fork_m[philo->left_fork_id]));
-	pthread_mutex_unlock(&(data->fork_m[philo->right_fork_id]));
 }
 
 void	*routine(void *v_philo)
@@ -44,8 +46,6 @@ void	*routine(void *v_philo)
 		usleep(15000);
 	while (!data->died)
 	{
-		pthread_mutex_lock(&data->die_check);
-		pthread_mutex_unlock(&data->die_check);
 		eat_action(philo);
 		pthread_mutex_lock(&data->meal_check);
 		if (data->all_ate)
@@ -58,7 +58,6 @@ void	*routine(void *v_philo)
 		wait_action(data->time_sleep, data);
 		print_things(data, philo->id, "is thinking");
 	}
-	//pthread_mutex_unlock(&data->die_check);
 	return (NULL);
 }
 
@@ -74,13 +73,14 @@ void	check_death(t_data *data, t_philo *philo)
 			pthread_mutex_lock(&data->meal_check);
 			if (timediff(philo[i].t_last_meal, timestamp()) > data->time_die)
 			{
+				//pthread_mutex_unlock(&data->meal_check);
 				print_things(data, philo->id, "died");
 				pthread_mutex_lock(&data->die_check);
 				data->died = 1; ///////////////////////////////////////////////////////////////////////////
 				pthread_mutex_unlock(&data->die_check);
-				pthread_mutex_unlock(&data->meal_check);
+				//pthread_mutex_unlock(&data->meal_check);
 			}
-			else
+			//else
 				pthread_mutex_unlock(&data->meal_check);
 			usleep(100);
 		}
@@ -118,8 +118,13 @@ void	exit_manager(t_data *data, t_philo *philo)
 			pthread_join(philo[i].philo_th, NULL);
 	}
 	i = -1;
-	while (++i < data->nb_philo)
-		pthread_mutex_destroy(&data->fork_m[i]);
+	if (data->nb_philo > 1)
+	{
+		while (++i < data->nb_philo)
+			pthread_mutex_destroy(&data->fork_m[i]);
+	}
+	else
+		pthread_mutex_destroy(&data->fork_m[1]);
 	pthread_mutex_destroy(&data->writing);
 	pthread_mutex_destroy(&data->meal_check);
 	pthread_mutex_destroy(&data->die_check);
