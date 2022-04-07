@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:47:04 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/06 12:41:47 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:16:58 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,16 @@ int	error_manager(int error)
 void	print_things(t_data *data, int id, char *str)
 {
 	pthread_mutex_lock(&data->writing);
+	pthread_mutex_lock(&data->die_check);
 	if (!data->died)
 	{
+		pthread_mutex_unlock(&data->die_check);
 		printf("%lli ", timestamp() - data->first_timestamp);
 		printf("%d ", id + 1);
 		printf("%s\n", str);
 	}
+	else
+		pthread_mutex_unlock(&data->die_check);
 	pthread_mutex_unlock(&data->writing);
 	return ;
 }
