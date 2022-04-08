@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:03:44 by tbrebion          #+#    #+#              #
-#    Updated: 2022/04/06 15:22:03 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/04/08 12:47:34 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,17 @@ OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFlAGS = -pthread -Wall -Wextra -Werror# -g3 -O3 -fsanitize=thread
+CFlAGS = -pthread -Wall -Wextra -Werror
 
 RM = rm -rf
 
 .c.o:
-	$(CC) -fsanitize=thread -g3 $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -fsanitize=thread -g3 $(CFlAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFlAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/07 17:05:05 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/08 12:42:27 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void	eat_action(t_philo *philo)
 	pthread_mutex_lock(&(data->meal_check));
 	philo->t_last_meal = timestamp();
 	pthread_mutex_unlock(&(data->meal_check));
-	//pthread_mutex_lock(&(data->meal_check));
 	wait_action(data->time_eat, data);
-	//pthread_mutex_unlock(&(data->meal_check));
 	pthread_mutex_lock(&(data->meal_check));
 	(philo->x_ate)++; 	
 	pthread_mutex_unlock(&(data->meal_check));
@@ -44,8 +42,10 @@ void	*routine(void *v_philo)
 	data = philo->data;
 	if (philo->id % 2)
 		usleep(15000);
-	while (!data->died)
+	while (1)
 	{
+		if (data->died)
+			break ;
 		eat_action(philo);
 		pthread_mutex_lock(&data->meal_check);
 		if (data->all_ate)
@@ -73,14 +73,13 @@ void	check_death(t_data *data, t_philo *philo)
 			pthread_mutex_lock(&data->meal_check);
 			if (timediff(philo[i].t_last_meal, timestamp()) > data->time_die)
 			{
-				//pthread_mutex_unlock(&data->meal_check);
+				pthread_mutex_unlock(&data->meal_check);
 				print_things(data, philo->id, "died");
 				pthread_mutex_lock(&data->die_check);
-				data->died = 1; ///////////////////////////////////////////////////////////////////////////
+				data->died = 1;
 				pthread_mutex_unlock(&data->die_check);
-				//pthread_mutex_unlock(&data->meal_check);
 			}
-			//else
+			else
 				pthread_mutex_unlock(&data->meal_check);
 			usleep(100);
 		}
