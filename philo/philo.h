@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/07 11:26:34 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:12:40 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,20 @@ int				checker(char **av);
 int				error_message(char *str);
 int				error_manager(int error);
 void			print_things(t_data *data, int id, char *str);
+void			print_one_things(long long time, int id, char *str);
 
 int				init_philo(t_data *data);
 int				init_mutex(t_data *data);
 int				init_all(char **av, t_data *data);
 
-void			wait_action(long long time, t_data *data);
+void			wait_action(long long time);
 
 void			eat_action(t_philo *philo);
 void			*routine(void	*v_philo);
 void			check_death(t_data *data, t_philo *philo);
 void			exit_manager(t_data *data, t_philo *philo);
 int				manager(t_data *data);
+
+void			one_routine(long long first_time, long long time_die);
 
 #endif

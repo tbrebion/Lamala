@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:47:04 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/07 16:42:54 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:27:18 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,13 @@ void	print_things(t_data *data, int id, char *str)
 	else
 		pthread_mutex_unlock(&data->die_check);
 	pthread_mutex_unlock(&data->writing);
+	return ;
+}
+
+void	print_one_things(long long time, int id, char *str)
+{
+	printf("%lli ", timestamp() - time);
+	printf("%d ", id + 1);
+	printf("%s\n", str);
 	return ;
 }

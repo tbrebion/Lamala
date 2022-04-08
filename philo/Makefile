@@ -6,11 +6,11 @@
 #    By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:03:44 by tbrebion          #+#    #+#              #
-#    Updated: 2022/04/08 12:47:34 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/04/08 16:13:09 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = checker.c init_all.c libutils.c messages.c philo.c routine.c wait.c
+SRCS = checker.c init_all.c libutils.c messages.c philo.c routine.c wait.c one_philo.c
 
 NAME = philo
 

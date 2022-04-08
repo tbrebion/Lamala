@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/08 12:42:27 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:11:43 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	eat_action(t_philo *philo)
 	pthread_mutex_lock(&(data->meal_check));
 	philo->t_last_meal = timestamp();
 	pthread_mutex_unlock(&(data->meal_check));
-	wait_action(data->time_eat, data);
+	wait_action(data->time_eat);
 	pthread_mutex_lock(&(data->meal_check));
 	(philo->x_ate)++; 	
 	pthread_mutex_unlock(&(data->meal_check));
@@ -55,7 +55,7 @@ void	*routine(void *v_philo)
 		}
 		pthread_mutex_unlock(&data->meal_check);
 		print_things(data, philo->id, "is sleeping");
-		wait_action(data->time_sleep, data);
+		wait_action(data->time_sleep);
 		print_things(data, philo->id, "is thinking");
 	}
 	return (NULL);
@@ -111,19 +111,11 @@ void	exit_manager(t_data *data, t_philo *philo)
 	int	i;
 
 	i = -1;
-	if (data->nb_philo > 1)
-	{
 		while (++i < data->nb_philo)
 			pthread_join(philo[i].philo_th, NULL);
-	}
 	i = -1;
-	if (data->nb_philo > 1)
-	{
 		while (++i < data->nb_philo)
 			pthread_mutex_destroy(&data->fork_m[i]);
-	}
-	else
-		pthread_mutex_destroy(&data->fork_m[1]);
 	pthread_mutex_destroy(&data->writing);
 	pthread_mutex_destroy(&data->meal_check);
 	pthread_mutex_destroy(&data->die_check);
