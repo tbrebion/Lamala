@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/10 16:26:39 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/10 16:31:42 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	eat_action(t_philo *philo)
 	pthread_mutex_unlock(&(data->meal_check));
 	wait_action(data->time_eat);
 	pthread_mutex_lock(&(data->meal_check));
-	(philo->x_ate)++; 	
+	(philo->x_ate)++;
 	pthread_mutex_unlock(&(data->meal_check));
 }
 
@@ -80,11 +80,11 @@ void	exit_manager(t_data *data, t_philo *philo)
 	int	i;
 
 	i = -1;
-		while (++i < data->nb_philo)
-			pthread_join(philo[i].philo_th, NULL);
+	while (++i < data->nb_philo)
+		pthread_join(philo[i].philo_th, NULL);
 	i = -1;
-		while (++i < data->nb_philo)
-			pthread_mutex_destroy(&data->fork_m[i]);
+	while (++i < data->nb_philo)
+		pthread_mutex_destroy(&data->fork_m[i]);
 	pthread_mutex_destroy(&data->writing);
 	pthread_mutex_destroy(&data->meal_check);
 	pthread_mutex_destroy(&data->die_check);
