@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:02:20 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/08 16:11:43 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/10 16:26:39 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,7 @@ void	*routine(void *v_philo)
 	data = philo->data;
 	if (philo->id % 2)
 		usleep(15000);
-	while (1)
-	{
-		if (data->died)
-			break ;
-		eat_action(philo);
-		pthread_mutex_lock(&data->meal_check);
-		if (data->all_ate)
-		{
-			pthread_mutex_unlock(&data->meal_check);
-			break ;
-		}
-		pthread_mutex_unlock(&data->meal_check);
-		print_things(data, philo->id, "is sleeping");
-		wait_action(data->time_sleep);
-		print_things(data, philo->id, "is thinking");
-	}
+	routine_help(data, philo);
 	return (NULL);
 }
 
@@ -68,29 +53,13 @@ void	check_death(t_data *data, t_philo *philo)
 	while (!(data->all_ate))
 	{
 		i = -1;
-		while (++i < data->nb_philo && !(data->died))
-		{
-			pthread_mutex_lock(&data->meal_check);
-			if (timediff(philo[i].t_last_meal, timestamp()) > data->time_die)
-			{
-				pthread_mutex_unlock(&data->meal_check);
-				print_things(data, philo->id, "died");
-				pthread_mutex_lock(&data->die_check);
-				data->died = 1;
-				pthread_mutex_unlock(&data->die_check);
-			}
-			else
-				pthread_mutex_unlock(&data->meal_check);
-			usleep(100);
-		}
-		pthread_mutex_lock(&data->meal_check);
+		death_helper(data, philo, i);
 		if (data->died)
 		{
 			pthread_mutex_unlock(&data->meal_check);
 			break ;
 		}
-		else
-			pthread_mutex_unlock(&data->meal_check);
+		pthread_mutex_unlock(&data->meal_check);
 		i = 0;
 		while (data->nb_eat != -1 && i < data->nb_philo
 			&& philo[i].x_ate >= data->nb_eat)

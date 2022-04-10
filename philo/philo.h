@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:26:53 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/08 16:12:40 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/10 16:22:30 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ struct	s_data;
 typedef struct s_philo
 {
 	int				id;
-	int				x_ate;  //////
+	int				x_ate;
 	int				left_fork_id;
 	int				right_fork_id;
 	struct s_data	*data;
@@ -42,7 +42,7 @@ typedef struct s_data
 	int				time_sleep;
 	int				nb_eat;
 	int				all_ate;
-	int				died; //////
+	int				died;
 	struct s_philo	philo[200];
 	long long		first_timestamp;
 	pthread_mutex_t	fork_m[200];
@@ -74,7 +74,9 @@ void			wait_action(long long time);
 
 void			eat_action(t_philo *philo);
 void			*routine(void	*v_philo);
+void			routine_help(t_data *data, t_philo *philo);
 void			check_death(t_data *data, t_philo *philo);
+void			death_helper(t_data *data, t_philo *philo, int i);
 void			exit_manager(t_data *data, t_philo *philo);
 int				manager(t_data *data);
 
