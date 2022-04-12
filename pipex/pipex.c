@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/07 14:17:48 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/12 11:48:13 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int	main(int ac, char **av, char **envp)
 	int		fd[2];
 	pid_t	pid1;
 
+	if (!*envp)
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (0);
+	}
 	if (ac == 5)
 	{
 		if (pipe(fd) == -1)
