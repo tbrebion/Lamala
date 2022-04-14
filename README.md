@@ -9,3 +9,4 @@
 * ### [push_swap](./push_swap/) : [![tbrebion's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl1nib444023809jxv2mjau6c/project/2454702)](https://github.com/JaeSeoKim/badge42)
 * ### [pipex](./pipex/) : [![tbrebion's 42 pipex Score](https://badge42.vercel.app/api/v2/cl1nib444023809jxv2mjau6c/project/2490920)](https://github.com/JaeSeoKim/badge42)
 * ### [so_long](./so_long/) : [![tbrebion's 42 so_long Score](https://badge42.vercel.app/api/v2/cl1nib444023809jxv2mjau6c/project/2502343)](https://github.com/JaeSeoKim/badge42)
+* ### [philosophers](./philosophers/) : [![tbrebion's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cl1nib444023809jxv2mjau6c/project/2527419)](https://github.com/JaeSeoKim/badge42)
