@@ -6,7 +6,7 @@
 #    By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/07 16:18:52 by tbrebion          #+#    #+#              #
-#    Updated: 2022/03/30 16:00:00 by tbrebion         ###   ########.fr        #
+#    Updated: 2022/04/18 18:13:48 by tbrebion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRCS = $(CI) $(DIS) $(TM) $(GNL) $(PS)
 
 NAME = so_long
 
+HEADER = so_long.h
+
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
@@ -36,7 +38,7 @@ RM = rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
 	make re -C ./libft
 	make re -C ./mlx_macos
 	$(CC) $(CFLAGS) $(OBJS) -L./libft -lft -o $(NAME)
