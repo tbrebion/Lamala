@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 14:16:36 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/25 16:51:58 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:59:03 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_tok
 {
 	char	*val;
 	int		type;
-	//struct s_tok *next;
 }	t_tok;
 
 typedef struct s_cmd
