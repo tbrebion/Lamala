@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:35:09 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/03/29 12:07:43 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/04/27 15:31:39 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*find_path(char *cmd, char **envp)
 	int		i;
 
 	i = 0;
+	if (access(cmd, F_OK) == 0)
+		return (cmd);
 	while (ft_strnstr(envp[i], "PATH", 4) == 0)
 		i++;
 	paths = ft_split(envp[i] + 5, ':');
