@@ -30,9 +30,9 @@ OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
+#CFLAGS = -Wall -Wextra -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
 
-#CFLAGS = -Wall -Wextra -L./mlx -lmlx -lXext -lX11
+CFLAGS = -Wall -Wextra -L./minilibx-linux -lmlx -lXext -lX11
 
 RM = rm -rf
 
@@ -40,17 +40,17 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER)
 	make re -C ./libft
-	make re -C ./mlx_macos
+	make re -C ./minilibx-linux
 	$(CC) $(CFLAGS) $(OBJS) -L./libft -lft -o $(NAME)
 
 clean:
 	make clean -C ./libft
-	make clean -C ./mlx_macos
+	make clean -C ./minilibx-linux
 	$(RM) $(OBJS)
 
 fclean:
 	make fclean -C ./libft
-	make clean -C ./mlx_macos
+	make clean -C ./minilibx-linux
 	$(RM) $(OBJS) $(NAME)
 
 re: fclean all

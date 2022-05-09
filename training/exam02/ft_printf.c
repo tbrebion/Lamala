@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   train.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 17:13:31 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/01/30 18:20:31 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/04/28 11:27:01 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/04/28 12:38:19 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <unistd.h>
+#include <stdarg.h>
 #include <limits.h>
 
 int	ft_putchar(int c)
@@ -26,8 +26,8 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	if (!str)
-		return(ft_putstr("(null)"));
-	while (str[i])
+		return (ft_putstr("(null)"));
+	while(str[i])
 	{
 		ft_putchar((int)str[i]);
 		i++;
@@ -35,68 +35,65 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-int	nb_len(int i)
+int	nb_len(int nb)
 {
-	int	len;
+	int ret;
 
-	len = 0;
-	if (i >= 0 && i <= 9)
+	ret = 0;
+	if (nb >= 0 && nb <= 9)
 		return (1);
-	if(i < 0)
-		len++;
-	while (i < -9 || i > 9)
+	if (nb < 0)
+		ret++;
+	while (nb > 9 || nb < - 9)
 	{
-		i = i / 10;
-		len++;
+		nb /= 10;
+		ret++;
 	}
-	len++;
-	return (len);
+	ret++;
+	return (ret);
 }
 
 int	ft_putnbr(int nb)
 {
-	int	len;
+	int len;
 
 	len = nb_len(nb);
 	if (nb < 0)
 	{
-		write(1, "-", 1);
+		write (1, "-", 1);
 		nb *= -1;
 	}
-	if (nb >= 10)
+	if (nb > 9)
 		ft_putnbr(nb / 10);
 	ft_putchar(nb % 10 + 48);
 	return (len);
 }
 
-int	hex_len(unsigned long int n)
+int	hex_len(unsigned long int nb)
 {
-	int	i;
+	int	ret;
 
-	i = 0;
-	while (n > 15)
+	ret = 0;
+	while (nb > 15)
 	{
-		n = n / 16;
-		i++;
+		nb /= 16;
+		ret++;
 	}
-	i++;
-	return (i);
+	ret++;
+	return (ret);
 }
 
-int	ft_putnbr_hex(unsigned int nb)
+int	put_nbr_hex(unsigned int nb)
 {
-	char	*hex;
-	int		save;
-	int		count;
+	char *hex;
+	int ret;
 
+	ret = hex_len(nb);
 	hex = "0123456789abcdef";
-	save = nb;
-	count = 0;
 	if (nb > 15)
-		ft_putnbr_hex(nb / 16);
+		put_nbr_hex(nb / 16);
 	ft_putchar(hex[nb % 16]);
-	count += hex_len(save);
-	return (count);
+	return (ret);
 }
 
 int	ft_printf(const char *input, ...)
@@ -108,7 +105,7 @@ int	ft_printf(const char *input, ...)
 	i = 0;
 	char_count = 0;
 	va_start(args, input);
-	while(input[i])
+	while (input[i])
 	{
 		if (input[i] == '%')
 		{
@@ -117,7 +114,7 @@ int	ft_printf(const char *input, ...)
 			if (input[i + 1] == 'd')
 				char_count += ft_putnbr(va_arg(args, int));
 			if (input[i + 1] == 'x')
-				char_count += ft_putnbr_hex(va_arg(args, unsigned int));
+				char_count += put_nbr_hex(va_arg(args, unsigned int));
 			if (input[i + 1] == '%')
 				char_count += ft_putchar('%');
 			i++;
@@ -130,27 +127,15 @@ int	ft_printf(const char *input, ...)
 	return (char_count);
 }
 
-#include <stdlib.h>
 #include <stdio.h>
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	(void)ac;
-	ft_printf("Test : %d%%, %x, %s \nAurevoir !\n\n", atoi(av[1]), atoi(av[1]), av[2]);
-	printf("Test : %d%%, %x, %s \nAurevoir !\n", atoi(av[1]), atoi(av[1]), av[2]);
+	char *str = " and my other friends \n";
+	printf("#size : %d#\n", printf("Salut %s%s tu es a %d%%%% ID : %x\n", "my friends", str, 10, 16));
+	printf("#################\n");
+	printf("#################\n");
+	ft_printf("#size : %d#\n", ft_printf("Salut %s%s tu es a %d%%%% ID : %x\n", "my friends", str, 10, 16));
+	printf("#################\n");
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
