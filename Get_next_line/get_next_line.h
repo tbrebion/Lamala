@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:02:38 by tbrebion          #+#    #+#             */
-/*   Updated: 2021/12/23 13:33:37 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/05/19 11:02:43 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include<unistd.h>
 # include<stdlib.h>
+
+# define BUFFER_SIZE 1
 
 char	*get_next_line(int fd);
 char	*get_save(int fd, char *left_str);
