@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:42:34 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/06 17:47:14 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:06:29 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,16 @@ int	init_philo(t_data *data)
 	{
 		data->philo[i].id = i;
 		data->philo[i].x_ate = 0;
-		data->philo[i].left_fork_id = i;
-		data->philo[i].right_fork_id = (i + 1) % data->nb_philo;
+		if (i % 2)
+		{
+			data->philo[i].left_fork_id = i;
+			data->philo[i].right_fork_id = (i + 1) % data->nb_philo;	
+		}
+		else
+		{
+			data->philo[i].right_fork_id = i;
+			data->philo[i].left_fork_id = (i + 1) % data->nb_philo;	
+		}
 		data->philo[i].t_last_meal = 0;
 		data->philo[i].data = data;
 	}
