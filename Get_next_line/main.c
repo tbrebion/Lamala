@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 17:02:38 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/05/19 11:02:43 by tbrebion         ###   ########.fr       */
+/*   Created: 2022/05/12 11:05:52 by tbrebion          #+#    #+#             */
+/*   Updated: 2022/05/12 15:11:04 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
-# include<unistd.h>
-# include<stdlib.h>
+int	main(int ac, char **av)
+{
+	int		fd;
+	char	*gnl;
 
-# define BUFFER_SIZE 1
-
-char	*get_next_line(int fd);
-char	*get_save(int fd, char *left_str);
-char	*get_line(char *str);
-char	*new_str(char *str);
-int		ft_return(char *str);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(const char *str);
-
-#endif
+	gnl = "ok";
+	(void)ac;
+	fd = open(av[1], O_RDONLY);
+	while (gnl)	
+	{
+		gnl = get_next_line(fd); 
+		printf("%s", gnl);
+		free(gnl);
+	}
+	return(0);
+}

@@ -6,7 +6,7 @@
 /*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 12:52:15 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/04/12 11:48:13 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:12:13 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	main(int ac, char **av, char **envp)
 			error();
 		if (pid1 == 0)
 			child_process(av, envp, fd);
-		waitpid(pid1, NULL, 0);
-		parent_process(av, envp, fd);
+		else
+			parent_process(av, envp, fd);
 	}
 	else
 		ft_putstr_fd("Error\n", 2);
