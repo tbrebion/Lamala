@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrebion <tbrebion@42.fr>                  +#+  +:+       +#+        */
+/*   By: tbrebion <tbrebion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:21:03 by tbrebion          #+#    #+#             */
-/*   Updated: 2022/02/08 16:00:51 by tbrebion         ###   ########.fr       */
+/*   Updated: 2022/08/18 20:20:21 by tbrebion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ void	malloc_error(char **tab, int len);
 char	*new_strdup(char const *str, char c);
 void	for_my_split(char **res, char const *s, char c, int len);
 char	**ft_split(char const *s, char c);
+void	free_split(char **tab);
 
 #endif
